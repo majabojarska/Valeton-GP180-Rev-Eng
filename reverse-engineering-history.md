@@ -322,6 +322,17 @@ AOTopsy's complete Dart export currently crashes in its decompiler. Targeted
 raw assembly and function metadata remain usable and are preferred for
 continued analysis.
 
+## Windows native CRC tracing
+
+Static disassembly of the exported `checkCrc` routine in `5868USB.dll` resolved
+the native 16-bit validation primitive. It initializes a reflected CRC-16 state
+to `0xffff`, processes the supplied range beginning at native pointer offset
+`+6`, and uses polynomial `0xa001`. The routine compares the result in the
+DLL's table-byte order, represented by `tools/gp180_codec.crc16_native()`.
+This is distinct from the one-byte outer SysEx CRC-8. Captured family-`0x24`
+per-chunk integrity bytes do not match simple applications of this CRC, so the
+write-side envelope remains intentionally offline-only.
+
 ## Tooling and documentation produced
 
 - `analysis-manifest.md`: artifact inventory and hashes.

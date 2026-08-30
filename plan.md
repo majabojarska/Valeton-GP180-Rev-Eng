@@ -47,6 +47,15 @@
 - `HTDevice::addSendMessage` is identified as the native dispatch boundary;
   it queues family-specific arrays, suppresses duplicates, and controls ACK
   waiting/retry behavior.
+- Windows `5868USB.dll` export tracing recovered `checkCrc`: it uses an
+  initial `0xffff` reflected CRC-16 with polynomial `0xa001`, processing the
+  caller range from native offset `+6`. The native comparison stores the CRC
+  bytes in reversed integer order, now implemented as `crc16_native()` in
+  `tools/gp180_codec.py`.
+- This CRC-16 is a file/message validation primitive, not yet the unidentified
+  one-byte family-`0x24` per-chunk header value. Direct tests against captured
+  upload chunks do not match simple CRC scopes, so generated writes remain
+  disabled.
 - Suite drum metadata contains 129 patterns across 14 groups, while native
   playback exposes BPM, velocity, transpose, looping, mute, and playback APIs;
   device CC `73`/`74` and `92`–`96` remain capture/PDF-defined.
