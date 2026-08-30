@@ -1,6 +1,6 @@
 # USBPcap capture analysis
 
-Analyzed 32 Wireshark/USBPcap captures in `usbcap/`, yielding 1,580 reassembled SysEx messages. Wireshark decodes the device as USB Audio/MIDI bulk transport on endpoint `0x03` (host to device) and `0x83` (device to host). SysEx is carried as USB MIDI Event Packets and must be reassembled before protocol decoding.
+Analyzed 167 Wireshark/USBPcap captures in `usbcap/`, yielding 5,657 reassembled SysEx messages. Wireshark decodes the device as USB Audio/MIDI bulk transport on endpoint `0x03` (host to device) and `0x83` (device to host). SysEx is carried as USB MIDI Event Packets and must be reassembled before protocol decoding.
 
 ## Common packet framing
 
@@ -686,10 +686,8 @@ remaining gap between the Suite page inventory and a usable control protocol.
 
 ## New controlled capture corpus
 
-The expanded corpus contains 121 captures: 103 Suite-triggered captures, 16
-device-triggered captures, a no-op baseline, and the USB-connect capture.
-TShark exposes 3,827 complete reassembled SysEx messages (2,049 host-to-device
-and 1,778 device-to-host). `no-op-baseline.pcapng` contains no SysEx traffic,
+The expanded corpus now contains 167 captures. TShark exposes 5,657 complete
+reassembled SysEx messages. `no-op-baseline.pcapng` contains no SysEx traffic,
 confirming that the following deltas are action-related rather than idle
 traffic. Offsets below are relative to the message body immediately after
 `F0 7F <CRC>`; the corresponding wire offset is body offset plus three.
@@ -789,6 +787,149 @@ NR toggle is family `0x10`, full offset `36`, with `00=off` and `01=on`.
 The new AMP captures use the same family-`0x18` `45:53` block, confirming a
 shared live numeric-edit envelope even though selectors and surrounding state
 vary by effect.
+
+### New DST, CAB, and WAH captures
+
+The additional effect captures extend the mapping beyond NR/PRE/AMP. Variant
+selection remains a family-`0x14` operation; the selector is the two-byte
+nibble-coded value at full offsets `33:35`. These values are contextual rather
+than globally unique, so the module/effect state in the surrounding fields must
+be retained when decoding them.
+
+| Module | Captured variants and selector bytes (`33:35`) |
+|---|---|
+| DST | Green OD=`0000`, OD-9=`0001`, Yellow OD=`0002`, Super OD=`0006`, Scream OD=`0008`, Blues OD=`0009`, Force=`000a`, Tube Clipper=`000b`, TaiChi OD=`0100`, Lazaro=`0202`, Red Haze=`0204`, Plustortion=`0209`, SM Dist=`020a`, Darktale=`020b`, Chief=`020d`, La Charger=`0300`, Flagman Dist=`0502`, Flex OD=`030f`, Bass OD=`0400`, Black Bass=`0404`, Bass Hammer=`0501`, Micro Boost=`0104`, B Boost=`000b`, 14 Boost=`000e`, Boost=`010a`, None=`0003` |
+| PRE | Existing PRE selector coverage is confirmed in the same format, including COMP, COMP4, OD-9, boost, wah/filter, pitch, modulation, and amp/speaker variants. |
+| WAH | V Wah=`0001`, C Wah=`0008`, B Wah=`0007`, Hammy=`0409`, None=`0003` |
+
+DST parameter captures cover Gain, Volume, Lo-mid, Treble, Blend, Low,
+Hi-mid, and the Attack/Cut/Boost/Flat selector set. Additional focused
+captures cover Boost Bright and +3 dB toggles, Flagman Dist Tight, and Fuzz
+Fuzz/Volume. CAB captures cover Juice 4x12 Volume, High Cut, Low Cut, and
+Precision (High/Regular). WAH captures cover V-Wah Range, Q, Volume, and
+Position. All numeric edits use family `0x18` requests with the shared full
+offset `45:53` nibble block; the neighboring effect-state bytes change with
+the selected algorithm and parameter, so a universal parameter discriminator
+has not been asserted from these captures alone. DST, WAH, and CAB bypass
+captures use the existing family `0x10` module-enable field at full offset
+`36` (`01=on`, `00=off`).
+
+### Extrapolating effect schemas from Suite metadata
+
+The captures can be generalized with the extracted `module_data.json`, but
+only in two separate layers:
+
+1. The Suite metadata supplies the complete vocabulary and likely logical
+   schema: `moduleId`, `fxid`, algorithm/parameter `algId`, value range, step,
+   default, and display-conversion `code`. For most modules, `fxid` is a
+   packed 32-bit identifier whose high byte identifies the module family and
+   whose low 24 bits identify the effect variant (for example, DST values
+   begin with `0x03`, AMP with `0x07`, and CAB with `0x0a`). NR/PRE include
+   legacy/smaller IDs and must not be forced into that pattern.
+2. The wire captures supply the transport schema: family `0x14` selects an
+   algorithm, family `0x10` toggles a module, and family `0x18` writes a
+   numeric parameter through the common `45:53` block. The changing
+   effect-state bytes around the block are the remaining candidates for the
+   packed effect/algorithm/parameter identity, but their exact assignment
+   needs correlation against `fxid` and `algId`; it cannot be safely inferred
+   from parameter values alone.
+
+This is sufficient to generate an offline catalog of all 209 effects and 825
+parameters, including valid ranges, enum choices, units, and expected display
+conversion. A reliable encoder still needs a small calibration set per
+algorithm to map each metadata `algId` to the family-`0x18` state bytes. The
+current DST/CAB/WAH captures provide that calibration set for their selected
+variants and show that the numeric representation is shared, while conversion
+from UI percentages or milliseconds to the stored value remains
+effect-specific.
+
+### New EQ and MOD captures
+
+The new EQ captures confirm the same three-operation pattern used by the other
+modules:
+
+| Operation | Family and field | Result |
+|---|---|---|
+| EQ variant selection | `0x14`, full offsets `33:35` | Guitar EQ 1=`0305`, Guitar EQ 2=`0306`, Bass EQ 1=`0309`, Mess EQ=`030c`, None=`0003`. |
+| EQ bypass | `0x10`, full offset `36` | `01=on`, `00=off`; the module selector is `0007` in the captured request. |
+| Guitar EQ 1 numeric edits | `0x18`, full offsets `45:53` | The same shared numeric block carries the five band gains and Volume; all band gains use the metadata `-50~0~+50` range and Volume uses `0~100`. |
+
+The MOD selector sweep similarly maps G-Chorus=`0001`, C-Chorus=`0002`,
+B-Chorus=`0008`, Jet=`0101`, B-Jet=`0102`, V-Roto=`0105`,
+Vibrato=`0107`, O-Phase=`0109`, Vibe=`0200`, O-Trem=`0201`,
+Sine Trem=`0206`, Triangle Trem=`0207`, Bias Trem=`0208`,
+Detune=`0209`, Auto Swell=`020d`, Hold=`020f`, Freeze=`0300`, and
+None=`0003` at full offsets `33:35`.
+
+G-Chorus rate requires a mode-aware decoder. With Sync off, the captured
+values `2.60`, `6.50`, `7.40`, `0.10`, and `10.00` are free-running Hz and
+use the metadata `0.10Hz-10.00Hz` rate conversion. With Sync on, the rate
+control becomes a subdivision selector: `1/1`, `1/2`, dotted `1/2D`,
+triplet `1/2T`, `1/4`, dotted `1/4D`, and `1/16` are not Hz values. They
+must be decoded as enum/timing codes and converted to a delay/modulation
+period from the current BPM. The capture also shows Sync and Rate as
+separate family-`0x18` writes; the shared value block is therefore not
+interpretable without the synchronized-mode state.
+
+The G-Chorus captures cover Depth and Volume in the ordinary `0~100` range,
+free-running Rate in Hz, synchronized Rate subdivisions, and the Sync
+toggle. This establishes the pattern to apply to other MOD algorithms:
+`ValToStr_034` is conditional on sync state, while ordinary depth/level
+controls use the generic percentage conversion.
+
+The full UI-side variant matrix is generated in
+`effect-variant-matrix.md`. It uses the richer `module150_data.json` asset,
+which contains 348 variants and 1,701 parameters, including the recently
+observed DLY/RVB/MOD/WAH variants. It records each variant's `fxid`, parameter
+`algId`, continuous range or enum set, and capture evidence. This asset is
+shared Suite data and must still be filtered by model capability before
+treating every entry as GP-180-supported. Filename matching is intentionally
+conservative, so shorthand differences such as `VOL` versus `Volume` may
+appear as missing and should be manually reconciled before capturing.
+
+The AOT snapshot contains explicit binding/lookup methods including
+`getFxIdByModuleIdAndTypeName`, `getAlgsByModuleIdAndFxId`,
+`getEffectNameByModuleIdAndTypeNameAndFxId`, `parseParameters`, and
+`writeParameter`. This confirms a structured UI-to-effect binding layer
+rather than display-name-only dispatch. Static analysis of `writeParameter`
+and its callers is the next step for recovering how `moduleId`, `fxid`,
+`algId`, widget type, and converted value become family-`0x14`/`0x18` fields.
+
+The native ARM64 implementation narrows the boundary: `EncodeToMIDSysEx` and
+`DecodeToMIDSysEx` only transform bytes to and from high/low nibbles, while
+`HTDevice::addSendMessage` accepts an already-constructed message plus a
+one-byte queue/command selector. Neither native routine contains effect
+variant or parameter semantics. Those semantics therefore live in the AOT
+binding/serialization layer (or in data tables consumed by it), not in the
+generic native codec. This confirms that static AOT tracing is the correct
+route, while firmware comparison remains useful for validating the resulting
+compact wire IDs and range enforcement.
+
+### New DLY and RVB variant inventories
+
+The latest captures reveal that the device/Suite exposes more DLY and RVB
+variants than are present in the extracted `module_data.json`. Their selector
+values are therefore recorded here as capture-derived additions:
+
+| Module | Captured variant selector sequence (`0x14`, full `33:35`) |
+|---|---|
+| DLY | BBD Delay S=`010d`, Digital Delay S=`010f`, Pure=`0000`, Tape=`0002`, Ping Pong=`0004`, Slapback=`0005`, Sweep Echo=`0006`, Ring Echo=`0009`, Tube=`000b`, Sweet Echo=`000d`, 999 Echo=`0102`, Vintage Rack=`0104`, Rev Echo=`0208`, Dual Echo=`0003`, None=`0003` |
+| RVB | Room=`0000`, Hall=`0001`, Church=`0002`, Plate=`0003`, Spring=`0004`, Tube Spring=`0102`, Concert=`000d`, N-Star=`0006`, Deepsea=`0007`, Sweet Space=`0008`, Shimmer=`0009`, None=`0003` |
+
+The repeated `0003` selector is contextual: Plate/Dual Echo and None are
+distinguished by surrounding effect-state bytes and/or the preceding module
+state, so selector bytes alone are not a global variant ID. DLY None bypass
+uses module selector `0009`; RVB bypass uses `000a`, with family `0x10` full
+offset `36` carrying `01=on` and `00=off`.
+
+These captures select the variants but do not yet parameter-sweep them. The
+UI metadata predicts the following parameter families where available:
+DLY generally exposes Mix, Time, Feedback, and Trail, with Ring Echo and
+Sweep Echo adding modulation-specific controls; RVB generally exposes Mix,
+Decay, and Trail, with Air/Plate/Sweet Space adding Damp/Mod controls. Every
+newly observed variant should still be captured once for its exact parameter
+subset because model filtering and variant-specific layouts are not proven
+from the shared metadata alone.
 
 ### Patch, effect, reset, and device-originated mappings
 

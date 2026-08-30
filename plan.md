@@ -98,6 +98,43 @@
   block (including split NR release), and identify NR toggle offset `0x24`
   (`00=off`, `01=on`). COMP4 and OD-9 parameter discriminators are now
   confirmed.
+- New effect captures extend representative coverage to DST, CAB, and WAH:
+  family-`0x14` variant selector pairs were recorded for the available DST
+  and WAH algorithms, while family-`0x18` numeric edits confirm the shared
+  `45:53` block for DST parameters, CAB Volume/High Cut/Low Cut/Precision,
+  and V-Wah Range/Q/Volume/Position. Their effect-specific discriminators
+  remain to be normalized.
+- Static Suite metadata can now extrapolate the complete effect vocabulary:
+  209 effects and 825 parameters with `fxid`, `algId`, ranges, steps, and
+  display-conversion codes. This is sufficient to build an offline catalog,
+  but wire encoding still needs calibration per algorithm to map metadata
+  identifiers to the changing family-`0x18` state bytes.
+- New EQ/MOD captures map EQ variant selectors and bypass, Guitar EQ 1 band
+  gains/Volume, and 18 MOD selectors. G-Chorus confirms that Rate is
+  mode-dependent: Sync off uses `0.10–10.00 Hz`, while Sync on uses timing
+  subdivisions (`1/1`, `1/2`, dotted/triplet `1/2`, `1/4`, dotted `1/4`,
+  `1/16`) derived from BPM rather than Hz.
+- `effect-variant-matrix.md` now enumerates every UI variant and parameter
+  from `module_data.json`, with ranges/enums and conservative filename-based
+  capture evidence. Its missing-variant and missing-parameter sections are
+  the current capture backlog; aliases such as `VOL`/`Volume` require manual
+  reconciliation before recording duplicates.
+- New DLY/RVB selector captures reveal additional device/Suite variants absent
+  from `module_data.json`, including BBD/Digital Delay S, 999 Echo, Vintage
+  Rack, Dual Echo, Tube Spring, Concert, and Shimmer. Selector `0003` is
+  contextual rather than globally unique. These variants still need
+  parameter-subset and range captures.
+- The richer shared Suite asset `module150_data.json` contains 348 variants
+  and 1,701 parameter definitions, including those DLY/RVB/MOD/WAH entries.
+  AOT strings expose `getFxIdByModuleIdAndTypeName`, `getAlgsByModuleIdAndFxId`,
+  `parseParameters`, and `writeParameter`, confirming a recoverable
+  UI-to-wire binding path. Static tracing of `writeParameter` is now higher
+  value than blind parameter sweeps.
+- ARM64 disassembly confirms `EncodeToMIDSysEx`/`DecodeToMIDSysEx` are generic
+  nibble transforms and `HTDevice::addSendMessage` queues an already-built
+  message. Effect semantics are therefore in the AOT serializer/data path,
+  not the native codec; remaining captures should validate that recovered
+  path rather than duplicate metadata coverage.
 - USB routing/modes, Bluetooth routing/volume, and Global EQ position are
   deferred and recorded in `deferred-captures.md`; Global EQ position must not
   be confused with moving an EQ block in the preset chain.
