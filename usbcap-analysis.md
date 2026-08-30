@@ -905,6 +905,198 @@ generic native codec. This confirms that static AOT tracing is the correct
 route, while firmware comparison remains useful for validating the resulting
 compact wire IDs and range enforcement.
 
+An initial headless Ghidra pass located the binding names in the AOT string
+table, but did not recover ordinary cross-references or functions for them.
+`app.so` is a Dart AOT ELF whose generated code does not use conventional
+ELF symbol/function references, so a normal x86-64 disassembly is insufficient
+to reach `writeParameter`. Completing this path requires Dart AOT snapshot
+metadata support or a recovered Flutter/Dart AOT loader; this is a tooling
+limitation, not evidence that the binding is absent.
+
+The same snapshot exposes additional source-level names that narrow the
+search: `package:qme10_pc/model150/alg_sequence_struct.dart`,
+`effect150_setting_slider.dart`, `getParameterTypes`, `fxidList`, and the
+effect lookup methods are present in the product build. These support the
+model/algorithm/parameter-object interpretation. AOTopsy can now recover
+targeted methods, although its whole-project Dart decompiler still crashes;
+raw assembly and function metadata remain the reliable outputs.
+
+### Dart AOT binding recovery with AOTopsy
+
+The `aotopsy` analyzer supports this x86-64 Dart 3.5.0 snapshot and recovered
+23,330 code entries. It identifies `Module150Provider.getAlgsByModuleIdAndFxId`
+at `0x543098`, `Device150DataProvider.switchAlgValue` at `0x664fa0`, and
+`AlgParamValueStruct.toBytes`/`fromBytes` at `0x66599c`/`0x916140`.
+`switchAlgValue` constructs an `AlgParamValueStruct`, serializes it, and calls
+`HTMidiDataProtocol.sendMessage`; this is the concrete algorithm-selection
+binding path.
+
+`AlgParamValueStruct.toBytes` allocates a 32-byte little-endian `ByteData`
+record (only the first 16 bytes carry fields):
+
+| Bytes | Meaning |
+|---:|---|
+| `0:2` | Magic `0x3033` |
+| `2:4` | 16-bit structure/type field |
+| `4:8` | 32-bit identifier field, serialized with adjacent-byte swaps (`b1 b0 b3 b2`) |
+| `8:12` | IEEE-754 `float32` value |
+| `12:13` | 8-bit auxiliary field |
+| `13:14` | 8-bit auxiliary field |
+| `14:16` | Zero/reserved bytes |
+| `16:32` | Zero-initialized structure padding |
+
+The exact semantic names of the identifier and auxiliary fields still need
+to be recovered from the surrounding `Device150DataProvider` call sites, but
+the serializer proves that the family-`0x18` numeric payload is a typed
+binary record, not an ad-hoc per-widget format. The recovered
+`Effect150ModuleParameterItemWidget` closures call `switchAlgValue` directly,
+passing the selected module/effect context, parameter context, and the new
+floating-point value. The recovered `updateAlgValue` path parses the same
+record on device reports. This is the first static bridge between the UI
+metadata identifiers and the captured numeric parameter messages; the
+float32 field at record bytes `8:12` corresponds to the eight-nibble value
+block seen in the family-`0x18` captures.
+
+Additional field-use evidence narrows the remaining ambiguity. In
+`updateAlgValue`, the byte-12/13 fields are used as indices while walking the
+current effect-chain metadata and parameter lists; the float field is used as
+the received value. They are therefore context/index fields rather than
+additional numeric components. The exact distinction between module index,
+effect index, and parameter index is not yet proven because the AOT compiler
+does not preserve the original Dart field names.
+
+The recovered `EffectDropdownChangeState` callbacks use the same
+`switchAlgValue` path for enum parameters: the selected integer is explicitly
+converted to a `double` before the call. This indicates that numeric sliders
+and enum selections share the same typed value record; enum interpretation is
+provided by the variant metadata rather than by a separate wire serializer.
+
+The slider/value callback at `0x6662a8` resolves the selected `Alg` from the
+widget state and computes its index in the active effect parameter list before
+calling `switchAlgValue` at `0x666588`. The call passes the active
+module/effect context as the first integer argument, the resolved parameter
+context as the second, and the converted numeric value in `X1`. Inside
+`switchAlgValue`, those arguments become typed-record fields `+0x2f` and
+`+0x17`, respectively, while the metadata lookup supplies the auxiliary
+audio-channel/context field. This confirms that the remaining family-`0x18`
+discriminator is assembled from context and metadata; it is not a direct
+copy of `algId`. The primitive wire IDs represented by the object references
+remain unresolved.
+
+### Fresh DLY/RVB/VOL numeric captures
+
+The new numeric captures close the most important capture gap. Across DLY
+`Pure`, RVB `Tube Spring`, and PRE `Volume`, family `0x18` messages share this
+layout:
+
+| Full offsets | Meaning |
+|---:|---|
+| `34` | Module-family byte: DLY `0x0b`, RVB `0x0c`, VOL `0x06` |
+| `39:41` | Contextual variant selector: DLY `Pure=0000`, RVB `Tube Spring=0102`, VOL `Volume=0003` |
+| `45:53` | Eight-nibble parameter value block |
+
+Decoding `45:53` with the recovered word/byte-swapped float format reproduces
+the displayed values within the Suite's float quantization: DLY Mix
+`27,13,4`, Time approximately `305,205,155 ms`, Feed `36,17,13`, RVB Mix
+`21,12,6`, Decay `25,18,13`, Pre-Delay `99,167,185 ms`, and VOL `22,42,4`.
+This confirms that the same value serializer is used across module families
+and variant types. The DLY synchronized-time sequence additionally changes
+the surrounding mode bytes while leaving the value decoder unchanged.
+
+The new captures also show that offsets `41:45` are not a universal parameter
+number: they remain zero for the ordinary DLY, RVB, and VOL controls, with a
+mode-specific nonzero pattern appearing in the synchronized DLY time
+sequence. Parameter identity is therefore carried by the surrounding
+context/algorithm selection state, while `45:53` is the portable value
+serialization field.
+
+The follow-up variant and cross-module captures extend the selector table:
+
+| Module/variant | `0x18` full `34` | `39:41` selector |
+|---|---:|---:|
+| DLY / Tape | `0x0b` | `0002` |
+| DLY / Pure | `0x0b` | `0000` |
+| DLY / BBD Delay S | `0x0b` | `010d` |
+| RVB / Room | `0x0c` | `0000` |
+| RVB / Spring | `0x0c` | `0004` |
+| RVB / Tube Spring | `0x0c` | `0102` |
+| PRE / Volume | `0x06` | `0000` |
+| AMP / Volume | `0x07` | `0207` |
+| CAB / Volume | `0x0a` | `0c00` |
+| VOL / Volume | `0x06` | `0003` |
+
+DLY and RVB do not expose a Volume parameter in their normal variants; the
+cross-module sequence uses PRE, AMP, CAB, and VOL for Volume comparison.
+
+### Initial AOT-to-capture correlation
+
+The G-Chorus family-`0x18` sequence was compared with its metadata entry
+(`fxid=0x04000001`, `algId` 0=Depth, 1=Rate, 2=Volume, 3=Sync). The stable
+message region identifies the selected effect context, but the nearby
+low-valued bytes change with each parameter value as well as with the
+parameter kind. They therefore cannot be assigned directly to `algId` from
+this capture alone. This rules out the simplest “one raw byte equals algId”
+hypothesis and confirms that the remaining mapping must follow the AOT
+serializer's context construction, not filename or selector order.
+
+The DLY/RVB family-`0x14` selector captures provide a separate static
+correlation. In those messages, full offset `12` is `0x0b` for DLY and
+`0x0c` for RVB, matching the high module-family byte seen in their metadata
+`fxid` values (`0x0b......` and `0x0c......`). The selector at full
+`33:35` is contextual and does not equal the metadata `fxid` low word
+directly: for example, DLY `999 Echo` has metadata local ID `0x12` but
+selector `0102`, while ordinary entries such as `Pure` use `0000`. This
+confirms that module family and local effect identity are serialized
+separately, with a context-dependent local encoding.
+
+### `audioChannel` field recovery
+
+`Module150Provider.getAudioChannelByModuleIdAndFxId` takes a module ID and
+effect ID, looks them up in the nested Suite metadata lists, and returns the
+selected effect's `audioChannel` property. `Device150DataProvider.switchAlgValue`
+stores that return value in the `AlgParamValueStruct` field serialized at
+record bytes `12:13`. This gives the first firm semantic name inside the
+typed parameter record: that byte is an audio-channel/context value, not an
+`algId`.
+
+The other record fields can now be narrowed by call flow: record bytes
+`4:8` carry the second integer passed to `switchAlgValue`, bytes `12:13`
+carry the resolved audio-channel value, and bytes `13:14` carry its first
+integer context argument. The exact distinction between that first argument,
+the effect ID, and the parameter ID still requires correlating the widget
+closure's metadata object with its `algId` field.
+
+### Recovered `Alg` metadata field order
+
+`Alg.fromMap` and `Alg.toMap` expose the field order and confirm that the
+Suite's parameter identifier is not the `f_0x18` field of
+`AlgParamValueStruct`. For the `Alg` class used by `module150_data.json`:
+
+| `Alg` field offset | Metadata meaning |
+|---:|---|
+| `+0x07` | `name` |
+| `+0x0f` | `algId` |
+| `+0x17` | `defaultValue` |
+| `+0x1f` | `valueRange` |
+| `+0x27` | `min` |
+| `+0x2f` | `max` |
+| `+0x37` | `step` |
+| `+0x3f` | conversion `code` |
+| `+0x47` | `widgetType` |
+| `+0x4f` | `show` values |
+
+This prevents a common false identification: an AOT access to `Alg+0x0f`
+is the direct `algId`, while `Alg+0x17` is the default-value string. The
+remaining task is to identify which parameter-related object is accessed by
+the widget closure immediately before `switchAlgValue`; that object supplies
+the integer context placed into the typed wire record.
+
+The widget constructor path is now also anchored: its field `+0x0f` stores the
+selected `Alg` metadata object, while fields `+0x17` and `+0x1f` store the
+parameter/chain context used by the callbacks. This gives a reliable tracing
+anchor for the next pass through `Effect150ModuleParameterItemWidget.build`;
+the callback must reach the stored `Alg+0x0f` if it is sending `algId`.
+
 ### New DLY and RVB variant inventories
 
 The latest captures reveal that the device/Suite exposes more DLY and RVB

@@ -31,6 +31,11 @@ def main() -> None:
     parser.add_argument("module_data", type=Path)
     parser.add_argument("capture_dir", type=Path)
     parser.add_argument("-o", "--output", type=Path)
+    parser.add_argument(
+        "--json-output",
+        type=Path,
+        help="also write a machine-readable metadata/wire-schema projection",
+    )
     args = parser.parse_args()
 
     modules = json.loads(args.module_data.read_text())["modules"]
@@ -104,6 +109,53 @@ def main() -> None:
         args.output.write_text(output)
     else:
         print(output, end="")
+
+    if args.json_output:
+        schema = []
+        for module in modules:
+            for effect in module["module"]:
+                fxid = int(effect.get("fxid", 0))
+                parameters = []
+                for parameter in effect.get("alg", []):
+                    parameters.append(
+                        {
+                            "name": parameter.get("name") or parameter.get("title"),
+                            "algId": parameter.get("algId"),
+                            "sync": parameter.get("sync"),
+                            "defaultValue": parameter.get("defaultValue"),
+                            "valueRange": parameter.get("valueRange"),
+                            "min": parameter.get("min"),
+                            "max": parameter.get("max"),
+                            "step": parameter.get("step"),
+                            "code": parameter.get("code"),
+                            "widgetType": parameter.get("widgetType"),
+                            "show": parameter.get("show", []),
+                            "wire": {
+                                "family": "0x18",
+                                "moduleFamilyOffset": 34,
+                                "variantSelector": {"offset": 39, "length": 2},
+                                "value": {
+                                    "offset": 45,
+                                    "length": 8,
+                                    "encoding": "nibble-word-byte-swapped-float32",
+                                },
+                                "confidence": "captured-common-layout; parameter discriminator pending",
+                            },
+                        }
+                    )
+                schema.append(
+                    {
+                        "module": module["name"],
+                        "moduleId": module.get("moduleId"),
+                        "variant": effect.get("name") or effect.get("fxtitle"),
+                        "fxid": fxid,
+                        "fxidHex": f"0x{fxid:08x}",
+                        "fxidModuleFamily": (fxid >> 24) & 0xFF,
+                        "fxidLocal": fxid & 0xFFFFFF,
+                        "parameters": parameters,
+                    }
+                )
+        args.json_output.write_text(json.dumps(schema, indent=2) + "\n")
 
 
 if __name__ == "__main__":

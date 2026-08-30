@@ -327,7 +327,7 @@ Generated from Suite `module_data.json`. This is the UI-side contract: each vari
 | DLY | None | 100663299 | Volume [0-100] | variant filename found |
 | DLY | BBD Delay S | 184549405 | Mix [0-100] ; Time [20ms-4000ms] ; Feedback [-100-+100] ; Time R% [1.0%~100.0%] ; Spread [-100-+100] ; Level [0-100] ; Sync [Off/On] ; Trail [Off/On] | variant filename found |
 | DLY | Digital Delay S | 184549407 | Mix [0-100] ; Time [20ms-4000ms] ; Feedback [-100-+100] ; Time R% [1.0%~100.0%] ; Spread [-100-+100] ; Level [0-100] ; Sync [Off/On] ; Trail [Off/On] | variant filename found |
-| DLY | Pure | 184549376 | Mix [0-100] ; Time [20ms-4000ms] ; Feedback [0-100] ; Sync [Off/On] ; Trail [Off/On] | variant filename found |
+| DLY | Pure | 184549376 | Mix [0-100] ; Time [20ms-4000ms] ; Feedback [0-100] ; Sync [Off/On] ; Trail [Off/On] | variant filename found; parameters: Mix, Sync, Time, Trail |
 | DLY | Tape | 184549378 | Mix [0-100] ; Time [20ms-4000ms] ; Feedback [0-100] ; Sync [Off/On] ; Trail [Off/On] | variant filename found |
 | DLY | Ping Pong | 184549380 | Mix [0-100] ; Time [20ms-4000ms] ; Feedback [0-100] ; Sync [Off/On] ; Trail [Off/On] | variant filename found |
 | DLY | Slapback | 184549381 | Mix [0-100] ; Time [20ms-300ms] ; Feedback [0-100] ; Trail [Off/On] | variant filename found |
@@ -344,8 +344,8 @@ Generated from Suite `module_data.json`. This is the UI-side contract: each vari
 | RVB | Hall | 201326593 | Mix [0-100] ; Pre Delay [0ms-100ms] ; Decay [0-100] ; Trail [Off/On] | variant filename found |
 | RVB | Church | 201326594 | Mix [0-100] ; Pre Delay [0ms-100ms] ; Decay [0-100] ; Trail [Off/On] | variant filename found |
 | RVB | Plate | 201326595 | Mix [0-100] ; Decay [0-100] ; High Damp [0-100] ; Trail [Off/On] | variant filename found |
-| RVB | Spring | 201326596 | Mix [0-100] ; Decay [0-100] ; Tone [0-100] ; Trail [Off/On] | variant filename found |
-| RVB | Tube Spring | 201326610 | Mix [0-100] ; Pre Delay [0ms-300ms] ; Decay [0-100] ; Low Damp [0-100] ; Hi Damp [0-100] ; Mod [0-100] ; Trail [Off/On] | variant filename found |
+| RVB | Spring | 201326596 | Mix [0-100] ; Decay [0-100] ; Tone [0-100] ; Trail [Off/On] | variant filename found; parameters: Decay, Mix, Trail |
+| RVB | Tube Spring | 201326610 | Mix [0-100] ; Pre Delay [0ms-300ms] ; Decay [0-100] ; Low Damp [0-100] ; Hi Damp [0-100] ; Mod [0-100] ; Trail [Off/On] | variant filename found; parameters: Decay, Hi Damp, Low Damp, Mix, Mod, Pre Delay, Trail |
 | RVB | Concert | 201326605 | Mix [0-100] ; Pre Delay [0ms-300ms] ; Decay [0-100] ; Low Damp [0-100] ; Hi Damp [0-100] ; Mod [0-100] ; Trail [Off/On] | variant filename found |
 | RVB | N-Star | 201326598 | Mix [0-100] ; Decay [0-100] ; Trail [Off/On] | variant filename found |
 | RVB | Deepsea | 201326599 | Mix [0-100] ; Decay [0-100] ; Trail [Off/On] | variant filename found |
@@ -358,7 +358,7 @@ Generated from Suite `module_data.json`. This is the UI-side contract: each vari
 - Variants in metadata: **348**
 - Parameters in metadata: **1701**
 - Variants without a matching capture filename: **231**
-- Parameters without a matching variant/parameter filename: **1653**
+- Parameters without a matching variant/parameter filename: **1639**
 
 ## Missing variant captures
 
@@ -2124,11 +2124,7 @@ Generated from Suite `module_data.json`. This is the UI-side contract: each vari
 - `DLY` / `Digital Delay S` / `Level`
 - `DLY` / `Digital Delay S` / `Sync`
 - `DLY` / `Digital Delay S` / `Trail`
-- `DLY` / `Pure` / `Mix`
-- `DLY` / `Pure` / `Time`
 - `DLY` / `Pure` / `Feedback`
-- `DLY` / `Pure` / `Sync`
-- `DLY` / `Pure` / `Trail`
 - `DLY` / `Tape` / `Mix`
 - `DLY` / `Tape` / `Time`
 - `DLY` / `Tape` / `Feedback`
@@ -2213,17 +2209,7 @@ Generated from Suite `module_data.json`. This is the UI-side contract: each vari
 - `RVB` / `Plate` / `Decay`
 - `RVB` / `Plate` / `High Damp`
 - `RVB` / `Plate` / `Trail`
-- `RVB` / `Spring` / `Mix`
-- `RVB` / `Spring` / `Decay`
 - `RVB` / `Spring` / `Tone`
-- `RVB` / `Spring` / `Trail`
-- `RVB` / `Tube Spring` / `Mix`
-- `RVB` / `Tube Spring` / `Pre Delay`
-- `RVB` / `Tube Spring` / `Decay`
-- `RVB` / `Tube Spring` / `Low Damp`
-- `RVB` / `Tube Spring` / `Hi Damp`
-- `RVB` / `Tube Spring` / `Mod`
-- `RVB` / `Tube Spring` / `Trail`
 - `RVB` / `Concert` / `Mix`
 - `RVB` / `Concert` / `Pre Delay`
 - `RVB` / `Concert` / `Decay`

@@ -135,12 +135,33 @@
   message. Effect semantics are therefore in the AOT serializer/data path,
   not the native codec; remaining captures should validate that recovered
   path rather than duplicate metadata coverage.
+- A headless Ghidra pass locates the AOT binding strings but cannot recover
+  ordinary cross-references because the Flutter Dart AOT ELF uses generated
+  snapshot code rather than conventional ELF functions. Recovering
+  `writeParameter` now requires Dart AOT snapshot/loader support.
+- The AOT string table additionally exposes `model150/alg_sequence_struct.dart`,
+  `effect150_setting_slider.dart`, `getParameterTypes`, and `fxidList`.
+  These corroborate structured parameter objects. AOTopsy now provides
+  targeted snapshot recovery; its whole-project Dart decompiler remains
+  unreliable, so raw assembly is used for the serializer and binding path.
+- AOTopsy now parses the x86-64 Dart 3.5.0 snapshot and recovers
+  `Module150Provider.getAlgsByModuleIdAndFxId`, `Device150DataProvider.switchAlgValue`,
+  and `AlgParamValueStruct.toBytes`/`fromBytes`. The latter defines a
+  32-byte typed record with magic `0x3033`, a 16-bit type field, a 32-bit
+  identifier, float32 value, and two auxiliary bytes; `switchAlgValue`
+  serializes it through `HTMidiDataProtocol.sendMessage`. This provides the
+  first static bridge to the captured family-`0x18` parameter envelope.
+- `reverse-engineering-history.md` now preserves the complete investigation
+  history, including artifact analysis, transport findings, firmware updates,
+  preset/NAM/IR work, effect captures, and AOTopsy recovery.
 - USB routing/modes, Bluetooth routing/volume, and Global EQ position are
   deferred and recorded in `deferred-captures.md`; Global EQ position must not
   be confused with moving an EQ block in the preset chain.
 - Effect coverage is now specified in `effect-capture-plan.md`, beginning with
   representative effects across all ten module groups, followed by complete
-  `module_data.json` parameter coverage and separate preset-persistence tests.
+  `module_data.json` parameter coverage. Parameter-persistence capture was
+  intentionally skipped because live parameter serialization is the current
+  scope; preset-transfer work remains separate.
 - The firmware capture now maps exactly 69,510 host family-`0x10` messages to
   1,986 page groups of 35 records (34×118 decoded bytes plus a 65-byte final
   record), for 8,096,922 decoded bytes. Header counters recover the
@@ -153,23 +174,60 @@
 
 ## Next milestones
 
-1. **Build the capture corpus**: extract every reassembled SysEx message with
+1. **Recover effect wire semantics**: trace the four
+   `Effect150ModuleParameterItemWidget` callback closures and
+   `Device150DataProvider.switchAlgValue` arguments to assign semantic names
+   to the 32-byte `AlgParamValueStruct` fields. Correlate the identifier and
+   auxiliary bytes with one known DLY, RVB, MOD, and enum capture each.
+   Initial G-Chorus comparison rules out treating the nearby low-valued wire
+   bytes as a direct `algId`; those bytes vary with the selected value and
+   parameter kind.
+   DLY/RVB selector captures do confirm that family `0x14` offset `12`
+   carries the module-family byte (`0x0b`/`0x0c`), while offsets `33:35`
+   carry a separate contextual local selector.
+   `getAudioChannelByModuleIdAndFxId` confirms that the typed-record field at
+   bytes `12:13` is the selected effect's `audioChannel`; the adjacent
+   byte is the first integer context argument.
+   `Alg.fromMap`/`toMap` confirms that `Alg+0x0f` is the direct metadata
+   `algId`; `Alg+0x17` is `defaultValue`, avoiding a misleading field match
+   in the widget closure.
+   The widget constructor stores the selected `Alg` object at widget
+   `+0x0f`, giving the callback trace a concrete path to the direct ID.
+   The static pass now proves the metadata-side ID and audio-channel lookup,
+   and the slider callback call site at `0x666588` is traced through the
+   provider/context objects into record fields `+0x2f` and `+0x17`; the
+   primitive wire IDs represented by those objects remain unresolved. Fresh
+   DLY/RVB/VOL numeric captures are now available and confirm family `0x18`
+   module byte `34`, variant selector `39:41`, and the shared float block
+   `45:53`, resolving the previous capture gap.
+2. **Normalize the effect schema**: extend `tools/effect_matrix.py` to emit a
+   machine-readable schema containing module, variant, `fxid`, parameter
+   `algId`, conversion/widget type, range or enum values, and confirmed wire
+   field/encoding information. Keep unverified metadata-to-wire mappings
+   explicitly marked as hypotheses.
+   The generator now emits `effect-wire-schema.json`; its common family
+   `0x18` layout is recorded with confidence metadata while the parameter
+   discriminator remains pending.
+3. **Validate mode-dependent parameters**: use the recovered conversion path
+   to resolve G-Chorus sync rate, delay subdivisions, and other enum/float
+   special cases without broad additional capture sweeps.
+4. **Build the capture corpus**: extract every reassembled SysEx message with
    direction, capture name, family, length, and transaction/chunk identifiers.
-2. **Recover command boundaries**: compare native encoder/decoder call sites and
+5. **Recover command boundaries**: compare native encoder/decoder call sites and
    message families to identify which regions use nibble encoding.
-3. **Recover integrity fields**: validate the native CRC scope against all
+6. **Recover integrity fields**: validate the native CRC scope against all
    command families and identify any family-specific wrapper fields.
-4. **Trace BMAN fields**: disassemble `getNamOutput` and
+7. **Trace BMAN fields**: disassemble `getNamOutput` and
    `convert_nam_to_namb`; identify section sizes, integrity fields, and weight
    layout. The serializer entry point and primitive writers are now identified.
-5. **Decode patch transfers**: reconstruct `0x70` streams and compare them with
+8. **Decode patch transfers**: reconstruct `0x70` streams and compare them with
    `targets/001-New GEN.prst`.
-6. **Decode asset transfers**: reconstruct `0x24` NAM and IR streams and compare
+9. **Decode asset transfers**: reconstruct `0x24` NAM and IR streams and compare
    them with the supplied `.nam` and `.wav` files.
-7. **Trace IR conversion**: `getConvertNormalWav` is now identified as the
+10. **Trace IR conversion**: `getConvertNormalWav` is now identified as the
    source-WAV/resampling stage; trace `getCloneData` for normalization,
    quantization, and the fixed-output layout.
-8. **Decode firmware update**: map family-`0x10`/outer transfer headers,
+11. **Decode firmware update**: map family-`0x10`/outer transfer headers,
    region boundaries, payload expansion, and acknowledgements to the HTFW image.
    Native packet sizing, CRC scope, sequence counter, ACK polarity, and the
    complete 12-byte header layout and lifecycle command templates are
@@ -177,7 +235,7 @@
    transition exchange are now documented. Remaining work is recovering the
    omitted 19-byte/page representation, identifying header bytes 5..6, plus
    error codes and final ACK/reboot behavior.
-9. **Document a read-only protocol**: publish byte layouts and confidence levels
+12. **Document a read-only protocol**: publish byte layouts and confidence levels
    before attempting writes or firmware operations.
 
 ## Highest-value additional evidence

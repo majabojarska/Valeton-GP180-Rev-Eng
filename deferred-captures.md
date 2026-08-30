@@ -30,3 +30,8 @@ Skipped. The GP-180 does not expose display-language control through the
 device, and the Suite `displayMode` field has not been established as a
 GP-180 wire-level setting.
 
+## Parameter persistence
+
+Skipped intentionally. A dedicated live-parameter save/reload capture is not
+required for the current family-`0x18` live-parameter schema; preset-transfer
+serialization remains a separate scope.
