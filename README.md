@@ -22,6 +22,7 @@ Possibly useful prior works:
 - [GP150 preset format analysis](https://gist.githubusercontent.com/AlbertoBarba/ec59feecba60ca956eeb6970f0ac0055/raw/445a6b275e0e542b29754f8a3bc09249ca81df8a/GP150_PRST_FORMAT.md)
 - [gp200-studio, a browser-based editor for the Valeton GP200](https://github.com/kabir0st/gp200-studio)
   - This is roughly what I want to achieve for the GP180, with the added features of IR/NAM loading and firmware updates.
+  - Sets the precedent for [reverse engineering a Valeton SysEx protocol with Ghidra](https://github.com/kabir0st/gp200-studio/tree/PRODUCTION/re/ghidra).
 
 Firmware to analyze (Ghidra):
 
