@@ -104,6 +104,22 @@
   `45:53` block for DST parameters, CAB Volume/High Cut/Low Cut/Precision,
   and V-Wah Range/Q/Volume/Position. Their effect-specific discriminators
   remain to be normalized.
+- The latest batch completes focused enum/mode coverage for Hammy WAH,
+  Force/Flex OD/Black Bass/Bass Hammer/Boost/Scream OD, and four AMP Bright
+  variants plus Foxy 30TB Char. It also adds the first complete N→S live
+  numeric calibration (EV53 CH1 Gain, Bass, Treble, VOL, Middle, Presence),
+  a second CAB variant (LUX 1x12), and Guitar EQ 2 band/Volume edits.
+- `patches-dump/` now contains 200 raw `.prst` files, each 1,128 bytes,
+  including names and repeated GP-180 factory/user-preset structures. This is
+  sufficient for differential preset-field analysis before requesting more
+  preset captures. Initial comparison confirms the name region near offset
+  `0x2c`, a stable structured body with sparse algorithm/state deltas, and
+  distinct per-preset header/check fields near offsets `0x0e`–`0x0f`.
+- Direct comparison with `GP150_PRST_FORMAT.md` confirms that the GP-180 dump
+  shares the complete 1,128-byte header/module/footer geometry, 12-slot chain
+  table, AMP-at-position-zero rule, and position/type-dependent engine tags.
+  The GP-150 schema is now the working GP-180 baseline; only GP-180-specific
+  effect-code/parameter differences and the 11-byte import wrapper remain.
 - Static Suite metadata can now extrapolate the complete effect vocabulary:
   209 effects and 825 parameters with `fxid`, `algId`, ranges, steps, and
   display-conversion codes. This is sufficient to build an offline catalog,
@@ -171,6 +187,20 @@
   `e=1687..1759`, `f=1760..1823`, `g=1824..1981`, `h=1982..1985`.
   The group counter skips two values at each region transition, coincident
   with extra family-`0x08` control replies.
+- `tools/extract_sysex.py` now invokes tshark's
+  `usbaudio.sysex.reassembled.data` field for every `usbcap/*.pcapng` file and
+  emits JSONL records with capture, frame, endpoint/direction, family, length,
+  raw bytes, transaction ID, transfer chunk header, and tshark reassembly
+  metadata. The corpus run covered 205 captures (204 containing messages) and
+  produced 6,790 messages in `sysex-corpus.jsonl` (4,076,278 bytes). Family
+  counts are `0x00`: 2,410, `0x0c`: 1,295, `0x18`: 832, `0x24`: 614,
+  `0x2c`: 406, `0x70`: 394, `0x14`: 212, `0x20`: 205, `0x10`: 122,
+  `0x5c`: 102, `0x1c`: 72, `0x7c`: 50, `0x22`: 31, `0x30`: 18,
+  `0x0f`: 16, `0x08`: 10, and `0x4c`: 1. Directions are 3,610
+  host-to-device and 3,180 device-to-host. The extractor intentionally uses
+  tshark's reassembled field; raw bulk-only firmware packets that Wireshark
+  does not expose as `usbaudio` are not silently treated as reassembled
+  messages.
 
 ## Next milestones
 
@@ -208,11 +238,15 @@
    The generator now emits `effect-wire-schema.json`; its common family
    `0x18` layout is recorded with confidence metadata while the parameter
    discriminator remains pending.
-3. **Validate mode-dependent parameters**: use the recovered conversion path
-   to resolve G-Chorus sync rate, delay subdivisions, and other enum/float
-   special cases without broad additional capture sweeps.
-4. **Build the capture corpus**: extract every reassembled SysEx message with
-   direction, capture name, family, length, and transaction/chunk identifiers.
+3. **Validate mode-dependent parameters**: complete. The new captures cover
+   G-Chorus and DLY synchronization, DLY A/B and dual sync controls, C-Chorus
+   modes, Hammy WAH range/harmony, DST enum/toggle controls, AMP Bright/Char,
+   N→S numeric controls, and second-variant CAB/EQ numeric controls.
+4. **Build the capture corpus**: complete. `tools/extract_sysex.py` extracts
+   every tshark-reassembled SysEx message with direction, capture name, frame,
+   family, length, raw bytes, and transaction/chunk metadata. The generated
+   JSONL corpus is `sysex-corpus.jsonl`; rerun with
+   `python3 tools/extract_sysex.py usbcap -o sysex-corpus.jsonl`.
 5. **Recover command boundaries**: compare native encoder/decoder call sites and
    message families to identify which regions use nibble encoding.
 6. **Recover integrity fields**: validate the native CRC scope against all

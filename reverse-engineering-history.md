@@ -283,6 +283,14 @@ to `double` and use the same `switchAlgValue` serializer as sliders. Thus enum
 meaning is supplied by variant metadata, while the wire value remains a
 common typed numeric field.
 
+The subsequent capture batch completed the planned mode-dependent coverage:
+DLY synchronized, Sweep Echo, and Dual Echo timing controls; C-Chorus modes;
+Hammy WAH range/harmony; DST mode, attack, drive, boost, fat, and air
+controls; AMP Bright/Char controls; N→S EV53 CH1 numeric controls; a second
+CAB variant; and Guitar EQ 2. None introduced a new live-parameter transport
+family or serializer. The remaining effect-side task is therefore
+correlation and schema normalization rather than more broad capture sweeps.
+
 Cross-correlation of DLY/RVB selector captures shows that family `0x14` full
 offset `12` carries the module-family byte (`0x0b` for DLY and `0x0c` for
 RVB), matching the high byte of their metadata `fxid` values. The selector at
