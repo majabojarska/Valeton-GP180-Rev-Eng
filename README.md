@@ -5,6 +5,10 @@
 - Reverse engineer the SysEx protocol of the Valeton GP180 guitar multi-effects processor.
 - Build a platform-agnostic web application (PWA), to manage presets, firmware updates, IR/NAM loading, and settings for the GP180. The application will leverage the [WebMIDI API](https://developer.mozilla.org/en-US/docs/Web/API/Web_MIDI_API) to communicate with the device over MIDI.
 
+### Nice-to-haves
+
+- Preset snapshots into git 
+
 ## Non-goals
 
 - Modification of the GP180 firmware or hardware, although hardware extension modules may be considered in the future.
@@ -38,6 +42,10 @@ Forum threads with useful context:
 - [The Gear Forum - GP50,GP150,GP180 discussion](https://thegearforum.com/threads/valeton-gp-50-gp-150-and-gp-180.10093/)
   - All released around Oct 2025, hinting they all share some common design and possibly SysEx protocol.
 
-## Open questions
+## Unknowns
 
 - Is the GP5/GP50/GP150/GP180 series SysEx-compatible with the GP200?
+
+## Knowns
+
+- GP-200 presents are explicitly not compatible with GP50/150/180.
