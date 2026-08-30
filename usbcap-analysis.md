@@ -531,10 +531,89 @@ four-byte nonzero integrity-related value. The serializer confirms these are
 generated metadata rather than arbitrary obfuscation. Exact field names still
 require following the back-patching stores or comparing a second conversion.
 
+### Current BMAN answer
+
+`BNAM` is not a second format name in the captures; the marker is **`BMAN`**
+(`0x42 0x4d 0x41 0x4e`). The binary container is sufficiently specified for
+using the Suite/native converter, but not yet for a clean independent writer.
+Its confirmed prefix is:
+
+| Relative offset | Size | Meaning |
+|---:|---:|---|
+| `0x00` | 4 | ASCII `BMAN` |
+| `0x04` | 2 | little-endian format version `1` |
+| `0x06` | 2 | reserved `0` |
+| `0x08` | 4 | back-patched container/header size |
+| `0x0c` | 4 | back-patched metadata/data size |
+| `0x10` | 4 | model/layer count field |
+| `0x14` | 4 | array/weight count field |
+| `0x18` | 4 | integrity or model checksum field |
+| `0x1c` onward | variable | model metadata, dimensions, floating-point arrays, and weights |
+
+The first four fields and their little-endian widths are proven by the native
+`convert_nam_to_namb` writer and its placeholder/back-patching sequence. The
+remaining labels are intentionally conservative: the capture proves their
+positions and value classes, but not whether the count fields refer to layers,
+tensors, or serialized arrays. NAM-to-BMAN conversion is therefore answered
+operationally by the native converter, while a complete standalone BMAN schema
+is not yet proven.
+
 The supplied NAM is canonical NeuralAmpModelerCore format version 0.7.0:
 Core 0.4.1 is the first version documented as fully supporting that version.
 Its `SlimmableContainer`/WaveNet structure is therefore standard NAM input;
 `BMAN` is the GP-180 conversion output, not a new NAM file-version variant.
+
+The additional Windows NAM imports provide six independent BMAN outputs
+(`HELLBERT`, `RH150`, `SLAUGHTER`, `CHAINSAW`, `ORANGEHM2`, and `SATAN`).
+Every output is exactly 8,123 bytes from the `BMAN` marker through the end and
+has the same fixed header values:
+
+```text
+offset 0x08:  7980  (0x1f2c)
+offset 0x0c:   496  (0x01f0)
+offset 0x10:  1871  (0x074f)
+offset 0x14:   413  (0x019d)
+```
+
+Only the integrity-related field at offset `0x18` changes between profiles,
+which confirms that these are content checksums/digests rather than additional
+length fields. The source files are all NAM v5, architecture 18, 48 kHz
+WaveNet models, so this corpus establishes a deterministic BMAN layout for
+that model class and provides six checksum/data pairs for completing the
+serializer. The A2-Lite toggle capture contains no file transfer; it is not
+an additional VTSI conversion sample.
+
+The new Windows SnapTone imports now provide six independent `VTSI` outputs
+for the same model set. Each is exactly 8,123 bytes from `VTSI` through the
+end of the record. The common VTSI prefix is:
+
+```text
+0x00  "VTSI"
+0x04  uint32_le 0x00000a88 (2696-byte model/audio region)
+0x08  uint32_le content-dependent integrity/check field
+0x0c  uint32_le 0
+0x10  uint32_le 0
+0x14  uint32_le 0x00000a00 (2560)
+0x18  uint32_le 0
+0x1c  float32_le 1.875
+```
+
+The remaining fixed record contains the converted SnapTone/A2-Lite model
+region and zero/default-filled capacity. All six records share the same
+prefix values except `0x08` and have 2,308 differing bytes between models,
+confirming that VTSI is a real model container rather than a mode label.
+Unlike BMAN, these captures do not expose a NAM architecture/count header;
+the VTSI payload appears to store the compact 2,696-byte A2-Lite model/audio
+representation plus fixed-capacity padding.
+
+The capture corpus distinguishes this from SnapTone/A2-Lite data. The normal
+NAM import (`...import-nam-file-into-slot-01...`) contains `BMAN` at decoded
+offset `0x23`. The separate NAM-as-SnapTone import
+(`...import-nam-as-snaptone-into-slot-52...`) has no `BMAN`; it contains
+`VTSI` at the same offset instead. `VTSI` is therefore the SnapTone/A2-Lite
+container marker, while `BMAN` is specifically the converted NAM model
+container. The two records share the family-`0x24` transport and fixed
+8,158-byte transfer size but are different payload formats.
 
 ### Differential analysis of the 200-patch dump
 
@@ -581,18 +660,68 @@ Three additional IR imports were decoded:
 
 | Source | Messages | Decoded transfer |
 |---|---:|---:|
-| `VOX AC30 BLUE 1.wav` | 70 full `0x24` chunks | 8,158 bytes |
-| `TWIN REVERB __ MIDS.wav` | 70 full `0x24` chunks | 8,158 bytes |
-| `Ampeg 8x10 57 A107.wav` | 70 full `0x24` chunks | 8,158 bytes |
+| `VOX AC30 BLUE 1.wav` | 69 full + 1 short `0x24` chunk | 8,158 bytes |
+| `TWIN REVERB __ MIDS.wav` | 69 full + 1 short `0x24` chunk | 8,158 bytes |
+| `Ampeg 8x10 57 A107.wav` | 69 full + 1 short `0x24` chunk | 8,158 bytes |
 
 All three streams use the same fixed-size converted representation and carry
 the slot/name metadata followed by binary audio data. The names appear in the
 decoded prefix (`VOX AC30 BLUE`, `TWIN REVER`, and `Ampeg 8x10`), while the
-original RIFF headers do not. Their differing waveform regions demonstrate
-that the Suite conversion is deterministic in structure but content-dependent
-in the audio section. This strongly supports tracing `getConvertNormalWav`
-as the remaining route to an exact IR codec; the USB/SysEx layer itself is
-already identical across the samples.
+original RIFF headers do not. After removing the eight-byte chunk-transfer
+prefix, all three records have the same layout: 11 bytes of command metadata,
+a 21-byte name field, 2,696 bytes of signed big-endian 16-bit IR samples
+(1,348 samples), and a zero-filled tail to the fixed 8,150-byte payload size.
+The sample region begins at record offset `0x28` (40) and ends at `0xAB7`
+(2,735). The byte order is confirmed by the VOX impulse sequence
+(`ffff fffe ffff fffd ...`) and by the independent waveform regions in the
+other two records. The USB/SysEx layer is therefore fully decoded; remaining
+uncertainty is limited to why the Suite/native conversion API exposes a larger
+scratch buffer.
+
+### Write-side family-`0x24` transfer observations
+
+The new NAM and SnapTone imports show the write sequence consistently. A
+large upload consists of 69 messages with a 248-byte SysEx length followed by
+one 44-byte final message. In each message, the seven non-nibble header bytes
+after family `0x24` have the form:
+
+```text
+40 <per-message integrity> <constant 00> <transfer id>
+   <chunk index> <direction/state> <final/state>
+```
+
+The chunk index increments from zero through 69. The transfer ID and final
+state are stable within an upload; the second header byte changes per chunk
+and is not the outer SysEx CRC. After the final payload, the device emits a
+family-`0x00` completion response (`F0 7F <crc> 00 00 00 00 <transfer-id>
+00 F7`), followed by the host's matching family-`0x00` acknowledgement.
+No per-chunk device response is present in the captures. This establishes the
+upload lifecycle and sequencing, but the per-message integrity byte and exact
+write-side CRC scope still require native/AOT correlation before a generated
+sender is safe.
+
+The Windows AOT trace now identifies the upload payload builder. For a NAM
+SnapTone import, `Import150TcHelper._importNAMBToDevice150` first converts the
+source `.nam` to `.namb`, constructs `CloneDataStruct`, and calls
+`CloneDataStruct.toBytes`. The resulting byte buffer is allocated with capacity `0x4038`; the serializer
+writes the following fields and copies at most `0x2000` source bytes:
+
+```text
+0x00  uint16  0x1050
+0x02  uint16  0x201c
+0x04  uint16  clone slot/index
+0x06  uint16  0
+0x08  uint32  clone identifier
+0x0c  uint32  fixed-width name (16 bytes written by writeString)
+0x1c  up to 8192-byte model/data byte list
+```
+
+The AOT method then passes the resulting byte list, its length, and the
+direction/state arguments through `Device150DataProvider.importClone`,
+`HTDevice.sendMIDIMessage`, and the native MIDI callback. This proves the
+application-side payload construction and the 8,192-byte data limit. The
+remaining unknown is confined to the native callback's family-`0x24` envelope
+encoder, where the per-message integrity byte is added.
 
 Static tracing of `getConvertNormalWav(const char *, double, int, int)` shows
 that it is a normal JUCE WAV conversion stage, not the final GP-180 packer. It:
@@ -604,10 +733,47 @@ that it is a normal JUCE WAV conversion stage, not the final GP-180 packer. It:
 5. Writes a temporary WAV using the requested target sample rate, channel count,
    and bit depth.
 
+The Windows native export `checkCrc` also resolves the previously unidentified
+16-bit integrity primitive. It initializes a reflected CRC-16 state to
+`0xffff`, processes the supplied byte range starting at native pointer offset
+`+6`, and uses polynomial `0xa001` (CRC-16/ARC). The comparison value is formed
+from the two lookup-table bytes in low-byte-first table order, equivalent to
+the byte-swapped integer returned by `tools.gp180_codec.crc16_native`. This is
+the native file/message validation routine; it is distinct from the one-byte
+outer SysEx CRC-8. The exact caller-selected range for each upload envelope
+still needs to be correlated before enabling generated device writes.
+
 The final fixed 8,158-byte device representation is therefore produced later
 by `getCloneData`, after this temporary WAV exists. The IR specification now
 needs `getCloneData` tracing; source WAV conversion and SysEx transport are
 separate stages.
+
+### Native `getCloneData` output path
+
+The ARM64 `lib5868USB.so` v2.1.0 implementation identifies
+`getCloneData` as:
+
+```text
+getCloneData(juce::String inputPath, juce::String outputPath,
+             void *outputBuffer, int *outputSize, float sampleRate, callback)
+```
+
+It initializes `HTKPA`, sets the input/output signal paths, enables No-CAB and
+distortion state, and calls `startClone`. On success, the returned clone
+buffer is copied byte-for-byte to the caller's output buffer. The native length written to `*outputSize` is `0x2288` (8,840) bytes in this
+path. This is a fixed copy length, not a measured serialized length.
+
+Disassembly shows that after `startClone` succeeds, the worker copies exactly
+`0x2288` bytes from the clone buffer to the caller's output buffer and stores
+the same constant through `outputSize`; it is not a measured serialized
+length. The exported wrappers return this same value immediately after
+launching `AppNamConvertThread`; they do not inspect the completed buffer.
+The worker dispatches through `namConverterCloData` or `namConverter`, while
+`getCloneData` is only one backend path. The 8,158-byte USB stream is therefore
+a separate fixed GP-180 file payload assembled by the Suite transfer layer.
+For the captured IR transfers, its exact size is 69 full chunks × 118 decoded
+bytes plus one final 16-byte chunk; removing the eight-byte transfer prefix
+leaves 8,150 bytes of device payload, with the remainder zero-padded.
 
 ## Complete Suite page and control inventory
 

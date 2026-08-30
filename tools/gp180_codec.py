@@ -16,6 +16,21 @@ def crc8(data: Iterable[int]) -> int:
     return value
 
 
+def crc16_native(data: Iterable[int], *, skip: int = 0) -> int:
+    """Native ``checkCrc`` CRC-16/ARC variant, initialized to ``0xffff``.
+
+    The Windows DLL uses the reflected 0xa001 polynomial and compares the
+    resulting bytes in table order (low byte first), so the returned integer
+    is the byte-swapped representation used by that routine.
+    """
+    crc = 0xFFFF
+    for byte in list(data)[skip:]:
+        crc ^= byte
+        for _ in range(8):
+            crc = (crc >> 1) ^ 0xA001 if crc & 1 else crc >> 1
+    return ((crc & 0xFF) << 8) | (crc >> 8)
+
+
 def encode_nibbles(data: bytes) -> bytes:
     """Native EncodeToMIDSysEx: emit each byte high nibble, then low nibble."""
     result = bytearray(len(data) * 2)
