@@ -12,7 +12,9 @@ def crc8(data: Iterable[int]) -> int:
     for byte in data:
         value ^= byte
         for _ in range(8):
-            value = ((value << 1) ^ 0x07) & 0xFF if value & 0x80 else (value << 1) & 0xFF
+            value = (
+                ((value << 1) ^ 0x07) & 0xFF if value & 0x80 else (value << 1) & 0xFF
+            )
     return value
 
 
@@ -46,7 +48,9 @@ def decode_nibbles(data: bytes) -> bytes:
         raise ValueError("nibble stream has odd length")
     if any(byte > 0x0F for byte in data):
         raise ValueError("nibble stream contains a value above 0x0f")
-    return bytes((data[index] << 4) | data[index + 1] for index in range(0, len(data), 2))
+    return bytes(
+        (data[index] << 4) | data[index + 1] for index in range(0, len(data), 2)
+    )
 
 
 def decode_message_payload(message: bytes, payload_offset: int) -> tuple[int, bytes]:

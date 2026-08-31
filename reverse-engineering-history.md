@@ -27,10 +27,10 @@ references.
 
 The Suite includes two effect metadata assets:
 
-| Asset | Variants | Parameters |
-|---|---:|---:|
-| `module_data.json` | 209 | 825 |
-| `module150_data.json` | 348 | 1,701 |
+| Asset                 | Variants | Parameters |
+| --------------------- | -------: | ---------: |
+| `module_data.json`    |      209 |        825 |
+| `module150_data.json` |      348 |      1,701 |
 
 The richer `module150_data.json` became the primary source for the effect
 variant matrix. It contains module IDs, packed effect IDs, parameter algorithm
@@ -71,23 +71,23 @@ for some families.
 
 The major observed families are:
 
-| Family | Observed purpose |
-|---:|---|
-| `0x00` | ACK and handshake |
-| `0x0c` | Global EQ/settings |
-| `0x0f` | Preset selection/export requests |
-| `0x10` | Module/parameter operations and firmware traffic |
+| Family | Observed purpose                                   |
+| -----: | -------------------------------------------------- |
+| `0x00` | ACK and handshake                                  |
+| `0x0c` | Global EQ/settings                                 |
+| `0x0f` | Preset selection/export requests                   |
+| `0x10` | Module/parameter operations and firmware traffic   |
 | `0x14` | Variant selectors, drums, and metronome operations |
-| `0x18` | Live parameter writes/reports and chain reorder |
-| `0x1c` | Input/output, USB settings, and metadata |
-| `0x20` | Rename, tuner, and status |
-| `0x22` | MIDI settings |
-| `0x24` | File and global-setting transfers |
-| `0x2c` | Device-triggered preset save |
-| `0x30` | Footswitch events/settings |
-| `0x5c` | Drum/metronome responses |
-| `0x70` | Patch/file transfer |
-| `0x7c` | EXP target/state |
+| `0x18` | Live parameter writes/reports and chain reorder    |
+| `0x1c` | Input/output, USB settings, and metadata           |
+| `0x20` | Rename, tuner, and status                          |
+| `0x22` | MIDI settings                                      |
+| `0x24` | File and global-setting transfers                  |
+| `0x2c` | Device-triggered preset save                       |
+| `0x30` | Footswitch events/settings                         |
+| `0x5c` | Drum/metronome responses                           |
+| `0x70` | Patch/file transfer                                |
+| `0x7c` | EXP target/state                                   |
 
 ## Global controls and device state
 
@@ -232,12 +232,12 @@ snapshot:
 AOTopsy recovered 23,330 code entries and useful method metadata. Important
 recovered methods include:
 
-| Method | Address |
-|---|---:|
+| Method                                       |    Address |
+| -------------------------------------------- | ---------: |
 | `Module150Provider.getAlgsByModuleIdAndFxId` | `0x543098` |
-| `Device150DataProvider.switchAlgValue` | `0x664fa0` |
-| `AlgParamValueStruct.toBytes` | `0x66599c` |
-| `AlgParamValueStruct.fromBytes` | `0x916140` |
+| `Device150DataProvider.switchAlgValue`       | `0x664fa0` |
+| `AlgParamValueStruct.toBytes`                | `0x66599c` |
+| `AlgParamValueStruct.fromBytes`              | `0x916140` |
 
 `switchAlgValue` is called by the effect parameter widget closures. It creates
 an `AlgParamValueStruct`, serializes it, and passes the result to
@@ -248,16 +248,16 @@ and incoming algorithm values.
 The serializer allocates a 32-byte little-endian record. The meaningful fields
 are:
 
-| Bytes | Current interpretation |
-|---:|---|
-| `0:2` | Magic `0x3033` |
-| `2:4` | 16-bit structure/type field |
-| `4:8` | 32-bit identifier, adjacent-byte-swapped on serialization |
-| `8:12` | IEEE-754 float32 value |
-| `12:13` | Auxiliary byte |
-| `13:14` | Auxiliary byte |
-| `14:16` | Zero/reserved |
-| `16:32` | Zero-initialized padding |
+|   Bytes | Current interpretation                                    |
+| ------: | --------------------------------------------------------- |
+|   `0:2` | Magic `0x3033`                                            |
+|   `2:4` | 16-bit structure/type field                               |
+|   `4:8` | 32-bit identifier, adjacent-byte-swapped on serialization |
+|  `8:12` | IEEE-754 float32 value                                    |
+| `12:13` | Auxiliary byte                                            |
+| `13:14` | Auxiliary byte                                            |
+| `14:16` | Zero/reserved                                             |
+| `16:32` | Zero-initialized padding                                  |
 
 This is the first static bridge between Suite effect metadata and the
 captured family-`0x18` numeric value block. Exact semantic names for the

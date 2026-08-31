@@ -34,14 +34,20 @@ def crc16_ccitt(data: bytes) -> int:
     for byte in data:
         value ^= byte << 8
         for _ in range(8):
-            value = ((value << 1) ^ 0x1021) & 0xFFFF if value & 0x8000 else (value << 1) & 0xFFFF
+            value = (
+                ((value << 1) ^ 0x1021) & 0xFFFF
+                if value & 0x8000
+                else (value << 1) & 0xFFFF
+            )
     return value
 
 
 def transfer_report(corpus: Path, presets: list[tuple[Path, bytes]]) -> list[dict]:
     if not corpus.exists():
         return []
-    records = [json.loads(line) for line in corpus.read_text().splitlines() if line.strip()]
+    records = [
+        json.loads(line) for line in corpus.read_text().splitlines() if line.strip()
+    ]
     groups: dict[tuple[str, str], list[dict]] = {}
     for record in records:
         if record.get("family") == "0x70":
@@ -81,9 +87,9 @@ def transfer_report(corpus: Path, presets: list[tuple[Path, bytes]]) -> list[dic
             best = None
             for path, data in presets:
                 payload = candidates[0] if candidates else bytes(decoded)
-                match = SequenceMatcher(None, payload, data, autojunk=False).find_longest_match(
-                    0, len(payload), 0, len(data)
-                )
+                match = SequenceMatcher(
+                    None, payload, data, autojunk=False
+                ).find_longest_match(0, len(payload), 0, len(data))
                 candidate = {
                     "file": path.name,
                     "longest_exact_run": match.size,
@@ -91,7 +97,10 @@ def transfer_report(corpus: Path, presets: list[tuple[Path, bytes]]) -> list[dic
                     "file_offset": match.b,
                     "name": printable_name(data),
                 }
-                if best is None or candidate["longest_exact_run"] > best["longest_exact_run"]:
+                if (
+                    best is None
+                    or candidate["longest_exact_run"] > best["longest_exact_run"]
+                ):
                     best = candidate
             item["best_preset_match"] = best
             item["decoded_prefix_hex"] = bytes(decoded[:16]).hex()
@@ -110,23 +119,41 @@ def main() -> None:
     files = sorted(args.directory.glob("*.prst"))
     data = [path.read_bytes() for path in files]
     sizes = Counter(len(blob) for blob in data)
-    invariant = [i for i in range(min(map(len, data), default=0)) if len({blob[i] for blob in data}) == 1]
-    variant = [i for i in range(min(map(len, data), default=0)) if len({blob[i] for blob in data}) > 1]
+    invariant = [
+        i
+        for i in range(min(map(len, data), default=0))
+        if len({blob[i] for blob in data}) == 1
+    ]
+    variant = [
+        i
+        for i in range(min(map(len, data), default=0))
+        if len({blob[i] for blob in data}) > 1
+    ]
     byte_cardinality = {str(i): len({blob[i] for blob in data}) for i in variant}
-    names = [{"file": path.name, "name": printable_name(blob)} for path, blob in zip(files, data)]
+    names = [
+        {"file": path.name, "name": printable_name(blob)}
+        for path, blob in zip(files, data)
+    ]
     report = {
         "files": len(files),
         "sizes": dict(sorted(sizes.items())),
         "sha256": {
             "unique": len({hashlib.sha256(blob).hexdigest() for blob in data}),
-            "duplicates": len(data) - len({hashlib.sha256(blob).hexdigest() for blob in data}),
+            "duplicates": len(data)
+            - len({hashlib.sha256(blob).hexdigest() for blob in data}),
         },
-        "invariant_ranges": [{"start": a, "end": b, "value_hex": data[0][a:b + 1].hex()} for a, b in ranges(invariant)],
+        "invariant_ranges": [
+            {"start": a, "end": b, "value_hex": data[0][a : b + 1].hex()}
+            for a, b in ranges(invariant)
+        ],
         "variant_ranges": [{"start": a, "end": b} for a, b in ranges(variant)],
         "variant_byte_cardinality": byte_cardinality,
         "header": {
             "magic_hex": data[0][:4].hex() if data else None,
-            "constant_ranges": [{"start": a, "end": b} for a, b in ranges([i for i in range(0x84) if i in invariant])],
+            "constant_ranges": [
+                {"start": a, "end": b}
+                for a, b in ranges([i for i in range(0x84) if i in invariant])
+            ],
             "name_offset": "0x2c",
             "name_size": 0x48,
             "index_offset": "0x04",
@@ -149,7 +176,10 @@ def main() -> None:
         },
         "crc16_ccitt_candidates": {
             "field_0e_0f_le_matches_file_10_1128": sum(
-                int(int.from_bytes(blob[0x0E:0x10], "little") == crc16_ccitt(blob[0x10:]))
+                int(
+                    int.from_bytes(blob[0x0E:0x10], "little")
+                    == crc16_ccitt(blob[0x10:])
+                )
                 for blob in data
             ),
             "field_0e_0f_be_matches_file_10_1128": sum(

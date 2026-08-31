@@ -65,20 +65,25 @@ def main() -> None:
             variant_key = norm(variant)
             module_key = norm(module_name)
             matching_captures = [
-                name for name in capture_names
+                name
+                for name in capture_names
                 if module_key in name and variant_key in name
             ]
             variant_seen = bool(matching_captures)
             covered = []
             for parameter in parameters:
                 name = parameter.get("name") or parameter.get("title") or ""
-                if norm(name) and any(norm(name) in capture for capture in matching_captures):
+                if norm(name) and any(
+                    norm(name) in capture for capture in matching_captures
+                ):
                     covered.append(name)
                 elif name:
                     missing_parameters.append((module_name, variant, name))
             if not variant_seen:
                 missing_variants.append((module_name, variant))
-            evidence = "variant filename found" if variant_seen else "MISSING variant capture"
+            evidence = (
+                "variant filename found" if variant_seen else "MISSING variant capture"
+            )
             if covered:
                 evidence += "; parameters: " + ", ".join(sorted(set(covered)))
             lines.append(

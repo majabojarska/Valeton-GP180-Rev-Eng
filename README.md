@@ -7,7 +7,7 @@
 
 ### Nice-to-haves
 
-- Preset snapshots into git 
+- Preset snapshots into git
 
 ## Non-goals
 
@@ -44,6 +44,7 @@ Forum threads with useful context:
   - All released around Oct 2025, hinting they all share some common design and possibly SysEx protocol.
 
 Other:
+
 - [Tone3000 NAM binary loader](https://github.com/tone-3000/nam-binary-loader/)
 
 ## Unknowns

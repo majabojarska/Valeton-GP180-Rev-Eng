@@ -17,20 +17,12 @@ from gp180_codec import decode_nibbles
 
 def decode_capture(corpus: Path, capture: str) -> bytes:
     with corpus.open() as stream:
-        rows = [
-            row for row in map(json.loads, stream)
-            if row["capture"] == capture
-        ]
-    rows = [
-        row for row in rows
-        if row["family"] == "0x24" and row["length"] >= 40
-    ]
+        rows = [row for row in map(json.loads, stream) if row["capture"] == capture]
+    rows = [row for row in rows if row["family"] == "0x24" and row["length"] >= 40]
     rows.sort(key=lambda row: row["frame"])
     if not rows:
         raise ValueError(f"no file-transfer messages found for {capture!r}")
-    return b"".join(
-        decode_nibbles(bytes.fromhex(row["raw"])[11:-1]) for row in rows
-    )
+    return b"".join(decode_nibbles(bytes.fromhex(row["raw"])[11:-1]) for row in rows)
 
 
 def describe(data: bytes) -> dict[str, object]:

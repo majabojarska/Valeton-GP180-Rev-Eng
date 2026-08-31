@@ -10,7 +10,6 @@ import subprocess
 import sys
 from typing import Iterable
 
-
 FIELDS = (
     "frame.number",
     "frame.time_epoch",
@@ -116,7 +115,11 @@ def extract(capture: pathlib.Path, tshark: str) -> list[dict[str, object]]:
         command.extend(["-e", field])
     try:
         completed = subprocess.run(
-            command, check=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            command,
+            check=True,
+            text=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
         )
     except FileNotFoundError as exc:
         raise RuntimeError(f"tshark executable not found: {tshark}") from exc
@@ -131,7 +134,9 @@ def extract(capture: pathlib.Path, tshark: str) -> list[dict[str, object]]:
         try:
             records.append(message_record(capture, row))
         except ValueError as exc:
-            raise RuntimeError(f"{capture}: invalid SysEx row {line_number}: {exc}") from exc
+            raise RuntimeError(
+                f"{capture}: invalid SysEx row {line_number}: {exc}"
+            ) from exc
     return records
 
 

@@ -271,31 +271,31 @@
    them with the supplied `.nam` and `.wav` files. The transfer boundary and
    fixed converted sizes are confirmed; conversion field labeling remains.
 10. **Trace IR conversion**: `getConvertNormalWav` is now identified as the
-   source-WAV/resampling stage; trace `getCloneData` for normalization,
-   quantization, and the fixed-output layout. Three 8,158-byte converted IR
-   streams confirm a shared output size. The ARM64 `libapp.so` containing the
-   conversion pipeline is available for this trace. `getCloneData` copies a
-   fixed `0x2288` (8,840) bytes from its clone buffer and reports that
-   capacity; it does not measure the USB payload. The captured IR transfer is
-   independently 69×118 plus a final 16 decoded bytes, with an eight-byte
-   transfer prefix, 1,348 signed big-endian 16-bit samples at record offset
-   `0x28`, and zero padding. Only the native scratch-buffer relationship
-   remains to be explained.
+    source-WAV/resampling stage; trace `getCloneData` for normalization,
+    quantization, and the fixed-output layout. Three 8,158-byte converted IR
+    streams confirm a shared output size. The ARM64 `libapp.so` containing the
+    conversion pipeline is available for this trace. `getCloneData` copies a
+    fixed `0x2288` (8,840) bytes from its clone buffer and reports that
+    capacity; it does not measure the USB payload. The captured IR transfer is
+    independently 69×118 plus a final 16 decoded bytes, with an eight-byte
+    transfer prefix, 1,348 signed big-endian 16-bit samples at record offset
+    `0x28`, and zero padding. Only the native scratch-buffer relationship
+    remains to be explained.
 11. **Decode firmware update**: map family-`0x10`/outer transfer headers,
-   region boundaries, payload expansion, and acknowledgements to the HTFW image.
-   Native packet sizing, CRC scope, sequence counter, ACK polarity, and the
-   complete 12-byte header layout and lifecycle command templates are
-   characterized; page-group/region correlation and the family-`0x08`
-   transition exchange are now documented. Remaining work is recovering the
-   omitted 19-byte/page representation, identifying header bytes 5..6, plus
-   error codes and final ACK/reboot behavior.
+    region boundaries, payload expansion, and acknowledgements to the HTFW image.
+    Native packet sizing, CRC scope, sequence counter, ACK polarity, and the
+    complete 12-byte header layout and lifecycle command templates are
+    characterized; page-group/region correlation and the family-`0x08`
+    transition exchange are now documented. Remaining work is recovering the
+    omitted 19-byte/page representation, identifying header bytes 5..6, plus
+    error codes and final ACK/reboot behavior.
 12. **Document a read-only protocol**: publish byte layouts and confidence levels
-   before attempting writes or firmware operations.
+    before attempting writes or firmware operations.
 13. **Standalone BMAN writer and file sender**: port the recovered native
-   `convert_nam_to_namb` serializer (including tensor/count back-patching) and
-   implement family-`0x24` chunk framing. The transport envelope is known, but
-   this remains write-blocked until the complete BMAN field semantics and
-   device ACK/lifecycle behavior are proven.
+    `convert_nam_to_namb` serializer (including tensor/count back-patching) and
+    implement family-`0x24` chunk framing. The transport envelope is known, but
+    this remains write-blocked until the complete BMAN field semantics and
+    device ACK/lifecycle behavior are proven.
 
 ## Highest-value additional evidence
 

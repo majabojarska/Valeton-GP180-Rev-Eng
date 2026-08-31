@@ -20,20 +20,20 @@ where `CC` is a varying byte immediately after the universal SysEx manufacturer 
 
 The next byte identifies broad message families observed in the captures:
 
-| Byte | Observed use |
-|---:|---|
-| `0x0C` | global/settings payloads |
-| `0x0F` | preset selection/export request |
-| `0x10` | parameter/preset edit payload |
-| `0x14` | metronome/drums operation |
-| `0x18` | parameter or preset-comp/rvb-mix operation |
-| `0x20` | NAM/SnapTone rename or related slot operation |
-| `0x24` | large file upload/download chunks |
-| `0x5C` | device-to-host metronome/drums response |
-| `0x70` | patch file upload/download chunks |
+|   Byte | Observed use                                       |
+| -----: | -------------------------------------------------- |
+| `0x0C` | global/settings payloads                           |
+| `0x0F` | preset selection/export request                    |
+| `0x10` | parameter/preset edit payload                      |
+| `0x14` | metronome/drums operation                          |
+| `0x18` | parameter or preset-comp/rvb-mix operation         |
+| `0x20` | NAM/SnapTone rename or related slot operation      |
+| `0x24` | large file upload/download chunks                  |
+| `0x5C` | device-to-host metronome/drums response            |
+| `0x70` | patch file upload/download chunks                  |
 | `0x1C` | device-originated input/output and cab-mode status |
-| `0x2C` | device-originated save-patch transfer |
-| `0x30` | device-originated footswitch event/status |
+| `0x2C` | device-originated save-patch transfer              |
+| `0x30` | device-originated footswitch event/status          |
 
 These values are message families, not yet confirmed command IDs. Device replies generally contain a short ten-byte message with the same four-byte transaction identifier as the request, for example:
 
@@ -247,13 +247,13 @@ does not contain the literal physical HTFW container layout.
 
 The updater lifecycle command templates are now visible in the same code:
 
-| Method | `getAddrMessageData` arguments | Resulting fixed bytes |
-|---|---|---|
-| `sendStart` (`0x3367bc`) | `(0x60, 0x11)` | `11 60` |
-| `getHead` (`0x3358c8`) | `(0x61, 0x11)` | `11 61` |
-| `sendSubEnd` (`0x336af8`) | `(0x6e, 0x11)` | `11 6e` |
-| `sendAllEnd` (`0x336e24`) | `(0x6e, 0x11)` | `11 6e` |
-| `sendJump` (`0x337c18`) | `(0x6f, 0x11)` | `11 6f` |
+| Method                    | `getAddrMessageData` arguments | Resulting fixed bytes |
+| ------------------------- | ------------------------------ | --------------------- |
+| `sendStart` (`0x3367bc`)  | `(0x60, 0x11)`                 | `11 60`               |
+| `getHead` (`0x3358c8`)    | `(0x61, 0x11)`                 | `11 61`               |
+| `sendSubEnd` (`0x336af8`) | `(0x6e, 0x11)`                 | `11 6e`               |
+| `sendAllEnd` (`0x336e24`) | `(0x6e, 0x11)`                 | `11 6e`               |
+| `sendJump` (`0x337c18`)   | `(0x6f, 0x11)`                 | `11 6f`               |
 
 `sendStart` sends its command through `getMidiMessage(1, 0, ...)` and sets
 update state `1`. `sendSubEnd` selects the current firmware-list entry and
@@ -316,14 +316,14 @@ identify a particular command.
 The page/group ranges inferred from the declared region lengths are:
 
 | Region | Group range (zero-based) | Groups |
-|---|---:|---:|
-| `b` | `0..1300` | 1,301 |
-| `c` | `1301..1383` | 83 |
-| `d` | `1384..1686` | 303 |
-| `e` | `1687..1759` | 73 |
-| `f` | `1760..1823` | 64 |
-| `g` | `1824..1981` | 158 |
-| `h` | `1982..1985` | 4 |
+| ------ | -----------------------: | -----: |
+| `b`    |                `0..1300` |  1,301 |
+| `c`    |             `1301..1383` |     83 |
+| `d`    |             `1384..1686` |    303 |
+| `e`    |             `1687..1759` |     73 |
+| `f`    |             `1760..1823` |     64 |
+| `g`    |             `1824..1981` |    158 |
+| `h`    |             `1982..1985` |      4 |
 
 These are the ceilings of the cumulative region lengths divided by 4,096,
 so the grouping is independently predicted by `analysisFile`, rather than
@@ -357,15 +357,15 @@ The v1.1.1 image header provides the expected seven region records despite its
 different packing from the GP50 layout. Their declared update-region lengths
 are:
 
-| ID | Load address | Declared length |
-|---|---:|---:|
+| ID  | Load address |          Declared length |
+| --- | -----------: | -----------------------: |
 | `b` | `0x00038000` | `0x00514f4c` (5,328,716) |
-| `c` | `0x00740000` | `0x00053000` (339,968) |
+| `c` | `0x00740000` |   `0x00053000` (339,968) |
 | `d` | `0x00800000` | `0x0012e3f0` (1,238,000) |
-| `e` | `0x009c0000` | `0x00049000` (299,008) |
-| `f` | `0x00a80000` | `0x00040000` (262,144) |
-| `g` | `0x00000000` | `0x0009df7c` (647,036) |
-| `h` | `0x00000000` | `0x00003fc0` (16,320) |
+| `e` | `0x009c0000` |   `0x00049000` (299,008) |
+| `f` | `0x00a80000` |   `0x00040000` (262,144) |
+| `g` | `0x00000000` |   `0x0009df7c` (647,036) |
+| `h` | `0x00000000` |    `0x00003fc0` (16,320) |
 
 These lengths sum to `8,131,192`, close to the `8,096,922` bytes recovered
 from family `0x10`; the difference is consistent with update framing,
@@ -388,17 +388,17 @@ contains a symbolic name, algorithm ID, default value, minimum, maximum, step,
 widget type, and display conversion rule.
 
 | Module ID | Group | Effects | Parameters |
-|---:|---|---:|---:|
-| 0 | `NR` | 1 | 1 |
-| 1 | `PRE` | 10 | 36 |
-| 2 | `DST` | 10 | 28 |
-| 3 | `AMP` | 32 | 181 |
-| 4 | `CAB` | 40 | 40 |
-| 5 | `EQ` | 5 | 29 |
-| 6 | `MOD` | 11 | 31 |
-| 7 | `DLY` | 10 | 45 |
-| 8 | `RVB` | 10 | 34 |
-| 9 | `N→S` | 80 | 400 |
+| --------: | ----- | ------: | ---------: |
+|         0 | `NR`  |       1 |          1 |
+|         1 | `PRE` |      10 |         36 |
+|         2 | `DST` |      10 |         28 |
+|         3 | `AMP` |      32 |        181 |
+|         4 | `CAB` |      40 |         40 |
+|         5 | `EQ`  |       5 |         29 |
+|         6 | `MOD` |      11 |         31 |
+|         7 | `DLY` |      10 |         45 |
+|         8 | `RVB` |      10 |         34 |
+|         9 | `N→S` |      80 |        400 |
 
 This is the authoritative Suite-side parameter vocabulary and range source
 for a control specification. The remaining correlation is mapping each
@@ -538,17 +538,17 @@ require following the back-patching stores or comparing a second conversion.
 using the Suite/native converter, but not yet for a clean independent writer.
 Its confirmed prefix is:
 
-| Relative offset | Size | Meaning |
-|---:|---:|---|
-| `0x00` | 4 | ASCII `BMAN` |
-| `0x04` | 2 | little-endian format version `1` |
-| `0x06` | 2 | reserved `0` |
-| `0x08` | 4 | back-patched container/header size |
-| `0x0c` | 4 | back-patched metadata/data size |
-| `0x10` | 4 | model/layer count field |
-| `0x14` | 4 | array/weight count field |
-| `0x18` | 4 | integrity or model checksum field |
-| `0x1c` onward | variable | model metadata, dimensions, floating-point arrays, and weights |
+| Relative offset |     Size | Meaning                                                        |
+| --------------: | -------: | -------------------------------------------------------------- |
+|          `0x00` |        4 | ASCII `BMAN`                                                   |
+|          `0x04` |        2 | little-endian format version `1`                               |
+|          `0x06` |        2 | reserved `0`                                                   |
+|          `0x08` |        4 | back-patched container/header size                             |
+|          `0x0c` |        4 | back-patched metadata/data size                                |
+|          `0x10` |        4 | model/layer count field                                        |
+|          `0x14` |        4 | array/weight count field                                       |
+|          `0x18` |        4 | integrity or model checksum field                              |
+|   `0x1c` onward | variable | model metadata, dimensions, floating-point arrays, and weights |
 
 The first four fields and their little-endian widths are proven by the native
 `convert_nam_to_namb` writer and its placeholder/back-patching sequence. The
@@ -658,11 +658,11 @@ GP-180-specific effect-code/parameter differences and the import-side wrapper.
 
 Three additional IR imports were decoded:
 
-| Source | Messages | Decoded transfer |
-|---|---:|---:|
-| `VOX AC30 BLUE 1.wav` | 69 full + 1 short `0x24` chunk | 8,158 bytes |
-| `TWIN REVERB __ MIDS.wav` | 69 full + 1 short `0x24` chunk | 8,158 bytes |
-| `Ampeg 8x10 57 A107.wav` | 69 full + 1 short `0x24` chunk | 8,158 bytes |
+| Source                    |                       Messages | Decoded transfer |
+| ------------------------- | -----------------------------: | ---------------: |
+| `VOX AC30 BLUE 1.wav`     | 69 full + 1 short `0x24` chunk |      8,158 bytes |
+| `TWIN REVERB __ MIDS.wav` | 69 full + 1 short `0x24` chunk |      8,158 bytes |
+| `Ampeg 8x10 57 A107.wav`  | 69 full + 1 short `0x24` chunk |      8,158 bytes |
 
 All three streams use the same fixed-size converted representation and carry
 the slot/name metadata followed by binary audio data. The names appear in the
@@ -782,21 +782,21 @@ global-settings subpages. This is an application-surface inventory; controls
 listed here are confirmed by page/model names and user-facing strings, while
 their exact device payloads remain subject to protocol correlation.
 
-| Page group | Extracted functionality |
-|---|---|
-| Connect / device initialization | USB-MIDI device scan/connect/disconnect, device availability/state, firmware/device identification, and connection error handling. |
-| Edit | Effect-chain editing, module reorder/drag, module bypass, algorithm/effect selection, parameter knobs/sliders, value display conversion, quick knobs, and expression assignment. |
-| Manage patches | Patch/preset list, slot selection, load/save, rename, delete, import, export, backup, and preset metadata/details. |
-| Manage IR | User-IR list, slot selection, import/export, rename, delete, and IR metadata. |
-| Manage NAM / clones | NAM import, clone list, clone rename/delete, clone metadata, and transfer progress. The GP-180-side converted representation is the documented BMAN path. |
-| Manage SnapTone / Tone Capture | SnapTone import/delete and Tone Capture import/delete workflows, including file validation and progress reporting. |
-| Drum / metronome | Drum style/category selection, pattern selection, BPM, volume, drum on/off, tap/drum sync, and local MIDI-file playback. |
-| Tuner | Tuner view and tuner state/image widget, with device tuner data handled separately from local drum playback. |
-| Looper | Looper view/state for the supported device variant. |
-| Global settings | Input/output, USB, Global EQ, tap, footswitch, Bluetooth, auto-save, display, and EXP/FS/MIDI controls documented above. |
-| Firmware update | Online update discovery, firmware metadata/version display, download, validation, update progress, and device-update lifecycle handling. |
-| About / software settings | About Valeton, general/software settings, version updates, language selection, release notes, and application update dialogs. |
-| File/dialog infrastructure | Shared import/export, save, rename, delete, reset, progress, update, and failure/success dialogs used by the functional pages. |
+| Page group                      | Extracted functionality                                                                                                                                                          |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connect / device initialization | USB-MIDI device scan/connect/disconnect, device availability/state, firmware/device identification, and connection error handling.                                               |
+| Edit                            | Effect-chain editing, module reorder/drag, module bypass, algorithm/effect selection, parameter knobs/sliders, value display conversion, quick knobs, and expression assignment. |
+| Manage patches                  | Patch/preset list, slot selection, load/save, rename, delete, import, export, backup, and preset metadata/details.                                                               |
+| Manage IR                       | User-IR list, slot selection, import/export, rename, delete, and IR metadata.                                                                                                    |
+| Manage NAM / clones             | NAM import, clone list, clone rename/delete, clone metadata, and transfer progress. The GP-180-side converted representation is the documented BMAN path.                        |
+| Manage SnapTone / Tone Capture  | SnapTone import/delete and Tone Capture import/delete workflows, including file validation and progress reporting.                                                               |
+| Drum / metronome                | Drum style/category selection, pattern selection, BPM, volume, drum on/off, tap/drum sync, and local MIDI-file playback.                                                         |
+| Tuner                           | Tuner view and tuner state/image widget, with device tuner data handled separately from local drum playback.                                                                     |
+| Looper                          | Looper view/state for the supported device variant.                                                                                                                              |
+| Global settings                 | Input/output, USB, Global EQ, tap, footswitch, Bluetooth, auto-save, display, and EXP/FS/MIDI controls documented above.                                                         |
+| Firmware update                 | Online update discovery, firmware metadata/version display, download, validation, update progress, and device-update lifecycle handling.                                         |
+| About / software settings       | About Valeton, general/software settings, version updates, language selection, release notes, and application update dialogs.                                                    |
+| File/dialog infrastructure      | Shared import/export, save, rename, delete, reset, progress, update, and failure/success dialogs used by the functional pages.                                                   |
 
 The page tree also contains separate `150`/`300` device variants for drum,
 IR, patch, tuner, display, USB, footswitch, MIDI, and EXP widgets. This
@@ -812,17 +812,17 @@ requested subpages. Their native/Dart model field names provide a reliable
 control vocabulary, although they do not by themselves prove the encoded
 SysEx byte offsets. The extracted functionality is:
 
-| Subpage | Controls recovered from the Suite |
-|---|---|
-| Input / Output | Input gain, microphone/input level, left/right input mode, output mode, and left/right input/output channel selection. |
-| USB Settings | USB mode for left/right paths, USB monitor volume, USB recording volume, USB reverse-charge option, and USB channel routing (`USB1/2`, `USB3/4`, `USB5/6`, `USB7/8`). |
-| GLOBAL EQ | Global EQ enable/position and four bands, each with frequency, gain, Q, and band enable state (`band1` through `band4`). |
-| TAP Settings | Tap-tempo synchronization for delay, modulation, pre-effects, and drums (`dlyTapSync`, `modTapSync`, `preTapSync`, `drumSync`), plus global tempo behavior. |
-| Footswitch | Footswitch mode and switch assignments; the 180-specific widget is separate from the larger-device footswitch/MIDI widget. |
-| BT Settings | Bluetooth audio volume, Bluetooth recording volume, and Bluetooth routing/control modes (`BT Only`, `BT Controlled`, `BT And PD`). Bluetooth radio enable/disable is device-local and produces no observed USB/MIDI traffic. |
-| Auto Save | Automatic-save state and the Suite’s auto-function handling for device changes. |
-| Display | Brightness/light level and display timeout (`displayLight`, `displayTime`). `displayLanguage` and `displayMode` are Suite/UI fields, not confirmed GP-180 device controls. |
-| EXP/FS/MIDI | EXP1/EXP2 mode and A/B selection, expression calibration/control ranges, footswitch MIDI assignments, MIDI input source/channel, MIDI output channels, and MIDI clock source/output for DIN, USB, and Bluetooth. |
+| Subpage        | Controls recovered from the Suite                                                                                                                                                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Input / Output | Input gain, microphone/input level, left/right input mode, output mode, and left/right input/output channel selection.                                                                                                       |
+| USB Settings   | USB mode for left/right paths, USB monitor volume, USB recording volume, USB reverse-charge option, and USB channel routing (`USB1/2`, `USB3/4`, `USB5/6`, `USB7/8`).                                                        |
+| GLOBAL EQ      | Global EQ enable/position and four bands, each with frequency, gain, Q, and band enable state (`band1` through `band4`).                                                                                                     |
+| TAP Settings   | Tap-tempo synchronization for delay, modulation, pre-effects, and drums (`dlyTapSync`, `modTapSync`, `preTapSync`, `drumSync`), plus global tempo behavior.                                                                  |
+| Footswitch     | Footswitch mode and switch assignments; the 180-specific widget is separate from the larger-device footswitch/MIDI widget.                                                                                                   |
+| BT Settings    | Bluetooth audio volume, Bluetooth recording volume, and Bluetooth routing/control modes (`BT Only`, `BT Controlled`, `BT And PD`). Bluetooth radio enable/disable is device-local and produces no observed USB/MIDI traffic. |
+| Auto Save      | Automatic-save state and the Suite’s auto-function handling for device changes.                                                                                                                                              |
+| Display        | Brightness/light level and display timeout (`displayLight`, `displayTime`). `displayLanguage` and `displayMode` are Suite/UI fields, not confirmed GP-180 device controls.                                                   |
+| EXP/FS/MIDI    | EXP1/EXP2 mode and A/B selection, expression calibration/control ranges, footswitch MIDI assignments, MIDI input source/channel, MIDI output channels, and MIDI clock source/output for DIN, USB, and Bluetooth.             |
 
 The corresponding model/update entry points are
 `setGlobalParamsInOutput`, `setGlobalParamsUsbSetting`,
@@ -868,25 +868,25 @@ the before/after UI values, slot/preset, firmware version, MIDI endpoints, and
 whether the action was made in Suite or on the hardware. Do not combine rows
 in one capture.
 
-| Capture | Exact scope | Expected evidence |
-|---|---|---|
-| `global-eq-bands` | Change each Global EQ band one at a time: band 1–4 frequency, gain, and Q; toggle each band enable state; move EQ position through every available location. | Family `0x0c` request/state deltas for each field, with the known EQ-enable byte at offset `0x22` excluded from the band-field comparison. |
-| `input-output-levels` | Change input gain, microphone/input level, left and right input mode, and output mode individually; exercise each discrete option and two interior numeric values. | Family `0x0c`/`0x1c` request and acknowledgement/state mapping for input/output fields. |
-| `usb-routing` | Change left/right USB mode, monitor volume, recording volume, reverse-charge, and each USB pair route (`1/2`, `3/4`, `5/6`, `7/8`) individually. | USB-setting payload fields, discrete enumerations, and volume scaling. |
-| `tap-sync` | Toggle delay, modulation, pre-effect, and drum sync independently; change global tempo at two values with sync both off and on. | Tap/general-setting payloads and relationship between tempo and synchronized modules. |
-| `footswitch-mode` | Cycle every Footswitch Mode option; assign each available FS A/B/C action to a different function; test short press, long press, and hold where exposed. | Footswitch assignment structure and family `0x30`/settings messages; separate physical event reports from configuration writes. |
-| `exp-controls` | For EXP1 and EXP2 independently, select every mode/A-B option, calibrate minimum/maximum, and change expression target/range/step. | EXP configuration payloads, calibration limits, and target identifiers. |
-| `midi-routing` | Change MIDI input source among DIN/USB/Bluetooth, set each input/output channel to low/middle/high values, and toggle clock source/output for DIN, USB, and MIDI-related paths. | MIDI setting fields, channel numbering, clock routing, and ACK behavior. |
-| `bluetooth-settings` | Change audio volume and recording volume, and exercise `BT Only`, `BT Controlled`, and `BT And PD` modes. Bluetooth enable/disable is excluded because it is device-local and produces no observed USB/MIDI traffic. | Bluetooth-setting writes and any device response distinct from host connection traffic. |
-| `display-settings` | Change language, brightness/light, display mode, and display timeout independently; test minimum, default, and maximum timeout/light values. | Display/general-setting payload fields and value scaling. |
-| `auto-save` | Toggle Auto Save; change any Auto Function option independently; edit a preset with Auto Save off and on without manually saving. | Save timing, general-setting write, and whether automatic save emits `0x2c`/preset traffic. |
-| `drum-controls` | Select two metronome styles and two drum styles; change BPM, volume, drum on/off, loop, velocity, transpose, track mute, and play/pause/stop independently. | Family `0x14` requests, family `0x5c` responses, and separation of local Suite playback from device controls. |
-| `tuner` | Enter and leave tuner, sustain notes while changing tuner input/mute-related options, and record the complete status stream. | Tuner state/report messages, refresh cadence, and host acknowledgements. |
-| `parameter-controls` | For one effect in each module group, change bypass, algorithm, and one parameter at minimum/midpoint/maximum; repeat with a second effect where algorithms differ. | `fxid`/`algId` to transport-byte mapping and parameter encoding/range behavior. |
-| `preset-operations` | Select adjacent and non-adjacent preset slots; rename, save, export, and import using disposable slots. | Slot identifiers, `0x0f`, `0x2c`, `0x70`, name encoding, and save acknowledgements. |
-| `nam-ir-operations` | Import one NAM and one IR into disposable slots; load, rename, export, delete, and restore each. | Complete `0x24`/rename/delete envelopes and correlation with BMAN/IR converted data. |
-| `firmware-lifecycle` | Use an already captured update only; isolate start, header, each region transition, final end, jump, ACK, retry, and reboot timing from raw USB. Do not initiate another update solely for this. | Remaining 19-byte/page overhead, dynamic header bytes, retry/error codes, final commit and reboot behavior. |
-| `device-identity` | Capture fresh connect/handshake for GP-180 and, if available, GP-300; include USB descriptors and all initial state reads. | Model IDs, subdevice IDs, capability flags, and model-specific page/protocol selection. |
+| Capture               | Exact scope                                                                                                                                                                                                          | Expected evidence                                                                                                                          |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `global-eq-bands`     | Change each Global EQ band one at a time: band 1–4 frequency, gain, and Q; toggle each band enable state; move EQ position through every available location.                                                         | Family `0x0c` request/state deltas for each field, with the known EQ-enable byte at offset `0x22` excluded from the band-field comparison. |
+| `input-output-levels` | Change input gain, microphone/input level, left and right input mode, and output mode individually; exercise each discrete option and two interior numeric values.                                                   | Family `0x0c`/`0x1c` request and acknowledgement/state mapping for input/output fields.                                                    |
+| `usb-routing`         | Change left/right USB mode, monitor volume, recording volume, reverse-charge, and each USB pair route (`1/2`, `3/4`, `5/6`, `7/8`) individually.                                                                     | USB-setting payload fields, discrete enumerations, and volume scaling.                                                                     |
+| `tap-sync`            | Toggle delay, modulation, pre-effect, and drum sync independently; change global tempo at two values with sync both off and on.                                                                                      | Tap/general-setting payloads and relationship between tempo and synchronized modules.                                                      |
+| `footswitch-mode`     | Cycle every Footswitch Mode option; assign each available FS A/B/C action to a different function; test short press, long press, and hold where exposed.                                                             | Footswitch assignment structure and family `0x30`/settings messages; separate physical event reports from configuration writes.            |
+| `exp-controls`        | For EXP1 and EXP2 independently, select every mode/A-B option, calibrate minimum/maximum, and change expression target/range/step.                                                                                   | EXP configuration payloads, calibration limits, and target identifiers.                                                                    |
+| `midi-routing`        | Change MIDI input source among DIN/USB/Bluetooth, set each input/output channel to low/middle/high values, and toggle clock source/output for DIN, USB, and MIDI-related paths.                                      | MIDI setting fields, channel numbering, clock routing, and ACK behavior.                                                                   |
+| `bluetooth-settings`  | Change audio volume and recording volume, and exercise `BT Only`, `BT Controlled`, and `BT And PD` modes. Bluetooth enable/disable is excluded because it is device-local and produces no observed USB/MIDI traffic. | Bluetooth-setting writes and any device response distinct from host connection traffic.                                                    |
+| `display-settings`    | Change language, brightness/light, display mode, and display timeout independently; test minimum, default, and maximum timeout/light values.                                                                         | Display/general-setting payload fields and value scaling.                                                                                  |
+| `auto-save`           | Toggle Auto Save; change any Auto Function option independently; edit a preset with Auto Save off and on without manually saving.                                                                                    | Save timing, general-setting write, and whether automatic save emits `0x2c`/preset traffic.                                                |
+| `drum-controls`       | Select two metronome styles and two drum styles; change BPM, volume, drum on/off, loop, velocity, transpose, track mute, and play/pause/stop independently.                                                          | Family `0x14` requests, family `0x5c` responses, and separation of local Suite playback from device controls.                              |
+| `tuner`               | Enter and leave tuner, sustain notes while changing tuner input/mute-related options, and record the complete status stream.                                                                                         | Tuner state/report messages, refresh cadence, and host acknowledgements.                                                                   |
+| `parameter-controls`  | For one effect in each module group, change bypass, algorithm, and one parameter at minimum/midpoint/maximum; repeat with a second effect where algorithms differ.                                                   | `fxid`/`algId` to transport-byte mapping and parameter encoding/range behavior.                                                            |
+| `preset-operations`   | Select adjacent and non-adjacent preset slots; rename, save, export, and import using disposable slots.                                                                                                              | Slot identifiers, `0x0f`, `0x2c`, `0x70`, name encoding, and save acknowledgements.                                                        |
+| `nam-ir-operations`   | Import one NAM and one IR into disposable slots; load, rename, export, delete, and restore each.                                                                                                                     | Complete `0x24`/rename/delete envelopes and correlation with BMAN/IR converted data.                                                       |
+| `firmware-lifecycle`  | Use an already captured update only; isolate start, header, each region transition, final end, jump, ACK, retry, and reboot timing from raw USB. Do not initiate another update solely for this.                     | Remaining 19-byte/page overhead, dynamic header bytes, retry/error codes, final commit and reboot behavior.                                |
+| `device-identity`     | Capture fresh connect/handshake for GP-180 and, if available, GP-300; include USB descriptors and all initial state reads.                                                                                           | Model IDs, subdevice IDs, capability flags, and model-specific page/protocol selection.                                                    |
 
 For quantitative controls, use at least three non-default values and include
 the exact displayed value. For enumerations, capture every option. The most
@@ -904,32 +904,32 @@ traffic. Offsets below are relative to the message body immediately after
 
 ### Global settings mappings
 
-| Control | Family | Body offset | Captured mapping |
-|---|---:|---:|---|
-| Global EQ enable | `0x0c` | `31` | `0↔1` |
-| Global EQ band 1 frequency/gain/Q | `0x0c` | `110–133` | Separate packed fields; captures end at 6048 Hz, −4 dB, and Q 4.7. |
-| Global EQ band 2 frequency/gain/Q | `0x0c` | `142–165` | Separate packed fields; captures end at 2364 Hz, −15 dB, and Q 8.9. |
-| Global EQ band 3 frequency/gain/Q | `0x0c` | `174–197` | Separate packed fields; captures end at 20 Hz, 20 dB, and Q 0.1. |
-| Global EQ band 4 frequency/Q | `0x0c` | `206–221` | Separate packed fields; captures end at 4436 Hz and Q 10. |
-| Global EQ high/low cut | `0x0c` | `32–61` | High-cut and low-cut packed fields; captures end at 18324 Hz and 20 kHz. |
-| Global EQ level | `0x0c` | `42–49` | Complete packed float32 field; device capture confirms 24, 25, 26, 27. |
-| Input level | `0x1c` | `30–33` | +14 dB → −9 dB. |
-| MIC level | `0x1c` | `46–47` | 26 → 82. |
-| MIC monitor | `0x1c` | `51` | `1→0`. |
-| MIC phones TRRS/TRS | `0x1c` | `55` | `1→0`. |
-| No-CAB left/right | `0x1c` | `39`, `43` | Each independently `1→0`. |
-| Output R mono/stereo | `0x1c` | `35` | `0→1`. |
-| BT REC level | `0x1c` | `34–37` | −13 dB → 9 dB. |
-| MIC REC level | `0x1c` | `38–41` | −10 dB → 16 dB. |
-| REC mode / REC mode R | `0x1c` | `43`, `47` | Dry/wet `0→1`. |
-| USB monitor/record level | `0x1c` | `50–53`, `30–33` | Packed level fields. |
-| USB power option | `0x1c` | `57` | Reverse → charge (`1→0`). |
-| BT audio volume | `0x24` | `64–65` | 19 → 74. |
-| Auto CAB Match | `0x24` | `71` | `1→0`. |
-| Display timeout | `0x24` | `35` | 5 min → 30 min → Always = `0→1→2`. |
-| Display brightness | `0x24` | `31` | I → II → III = `0→1→2`. |
-| Tap PRE/MOD/DLY | `0x24` | `55`, `57`, `59` | Each independently `1→0`. |
-| Auto Save | `0x24` | `75` | `0→1`. |
+| Control                           | Family |      Body offset | Captured mapping                                                         |
+| --------------------------------- | -----: | ---------------: | ------------------------------------------------------------------------ |
+| Global EQ enable                  | `0x0c` |             `31` | `0↔1`                                                                    |
+| Global EQ band 1 frequency/gain/Q | `0x0c` |        `110–133` | Separate packed fields; captures end at 6048 Hz, −4 dB, and Q 4.7.       |
+| Global EQ band 2 frequency/gain/Q | `0x0c` |        `142–165` | Separate packed fields; captures end at 2364 Hz, −15 dB, and Q 8.9.      |
+| Global EQ band 3 frequency/gain/Q | `0x0c` |        `174–197` | Separate packed fields; captures end at 20 Hz, 20 dB, and Q 0.1.         |
+| Global EQ band 4 frequency/Q      | `0x0c` |        `206–221` | Separate packed fields; captures end at 4436 Hz and Q 10.                |
+| Global EQ high/low cut            | `0x0c` |          `32–61` | High-cut and low-cut packed fields; captures end at 18324 Hz and 20 kHz. |
+| Global EQ level                   | `0x0c` |          `42–49` | Complete packed float32 field; device capture confirms 24, 25, 26, 27.   |
+| Input level                       | `0x1c` |          `30–33` | +14 dB → −9 dB.                                                          |
+| MIC level                         | `0x1c` |          `46–47` | 26 → 82.                                                                 |
+| MIC monitor                       | `0x1c` |             `51` | `1→0`.                                                                   |
+| MIC phones TRRS/TRS               | `0x1c` |             `55` | `1→0`.                                                                   |
+| No-CAB left/right                 | `0x1c` |       `39`, `43` | Each independently `1→0`.                                                |
+| Output R mono/stereo              | `0x1c` |             `35` | `0→1`.                                                                   |
+| BT REC level                      | `0x1c` |          `34–37` | −13 dB → 9 dB.                                                           |
+| MIC REC level                     | `0x1c` |          `38–41` | −10 dB → 16 dB.                                                          |
+| REC mode / REC mode R             | `0x1c` |       `43`, `47` | Dry/wet `0→1`.                                                           |
+| USB monitor/record level          | `0x1c` | `50–53`, `30–33` | Packed level fields.                                                     |
+| USB power option                  | `0x1c` |             `57` | Reverse → charge (`1→0`).                                                |
+| BT audio volume                   | `0x24` |          `64–65` | 19 → 74.                                                                 |
+| Auto CAB Match                    | `0x24` |             `71` | `1→0`.                                                                   |
+| Display timeout                   | `0x24` |             `35` | 5 min → 30 min → Always = `0→1→2`.                                       |
+| Display brightness                | `0x24` |             `31` | I → II → III = `0→1→2`.                                                  |
+| Tap PRE/MOD/DLY                   | `0x24` | `55`, `57`, `59` | Each independently `1→0`.                                                |
+| Auto Save                         | `0x24` |             `75` | `0→1`.                                                                   |
 
 The EQ band, cut, and level fields are packed/nibble-coded portions of the
 long state packet. Their byte ranges are confirmed, but their conversion to
@@ -937,20 +937,20 @@ engineering units still needs the command-specific decoder.
 
 ### MIDI and EXP/FS mappings
 
-| Control | Family | Body offset | Captured mapping |
-|---|---:|---:|---|
-| MIDI clock source | `0x22` | `59` | `0→1→2→3→4→0`. |
-| MIDI clock output | `0x22` | `63` | `1→0`. |
-| MIDI input source | `0x22` | `31` | TRS/USB/BT/Mixed = `0→1→2→3`. |
-| MIDI input channel TRS/USB/BT | `0x22` | `35`, `39`, `43` | Captured channel changes and Omni (`0`). |
-| MIDI output channel TRS/USB/BT | `0x22` | `47`, `51`, `55` | Captured channel changes and Omni (`0`). |
-| Cloud Out USB | `0x22` | `67` | `1→0`. |
-| EXP MIDI-IN mode | `0x24` | `47` | EXP → MIDI-IN = `1→0`. |
-| External FS mode | `0x24` | `49` | Single/Dual/MIDI OUT = `1→2→0`. |
-| External FS-1 assignment | `0x24` | `50–51` | Combobox sweep enumerates `0x00` through `0x0f`. |
-| External FS-2 assignment | `0x24` | `52–53` | Patch plus/minus assignment changes `0100→0001`. |
-| Footswitch mode | `0x24` | `43` | Patch/Stomp = `0→1`. |
-| EXP target 1 WAH/DST | `0x7c` | `31` | `1→2`. |
+| Control                        | Family |      Body offset | Captured mapping                                 |
+| ------------------------------ | -----: | ---------------: | ------------------------------------------------ |
+| MIDI clock source              | `0x22` |             `59` | `0→1→2→3→4→0`.                                   |
+| MIDI clock output              | `0x22` |             `63` | `1→0`.                                           |
+| MIDI input source              | `0x22` |             `31` | TRS/USB/BT/Mixed = `0→1→2→3`.                    |
+| MIDI input channel TRS/USB/BT  | `0x22` | `35`, `39`, `43` | Captured channel changes and Omni (`0`).         |
+| MIDI output channel TRS/USB/BT | `0x22` | `47`, `51`, `55` | Captured channel changes and Omni (`0`).         |
+| Cloud Out USB                  | `0x22` |             `67` | `1→0`.                                           |
+| EXP MIDI-IN mode               | `0x24` |             `47` | EXP → MIDI-IN = `1→0`.                           |
+| External FS mode               | `0x24` |             `49` | Single/Dual/MIDI OUT = `1→2→0`.                  |
+| External FS-1 assignment       | `0x24` |          `50–51` | Combobox sweep enumerates `0x00` through `0x0f`. |
+| External FS-2 assignment       | `0x24` |          `52–53` | Patch plus/minus assignment changes `0100→0001`. |
+| Footswitch mode                | `0x24` |             `43` | Patch/Stomp = `0→1`.                             |
+| EXP target 1 WAH/DST           | `0x7c` |             `31` | `1→2`.                                           |
 
 The MIDI settings use family `0x22` and 78-byte SysEx messages; the EXP/FS
 global widgets use family `0x24` 82-byte messages, while EXP target selection
@@ -1006,11 +1006,11 @@ nibble-coded value at full offsets `33:35`. These values are contextual rather
 than globally unique, so the module/effect state in the surrounding fields must
 be retained when decoding them.
 
-| Module | Captured variants and selector bytes (`33:35`) |
-|---|---|
-| DST | Green OD=`0000`, OD-9=`0001`, Yellow OD=`0002`, Super OD=`0006`, Scream OD=`0008`, Blues OD=`0009`, Force=`000a`, Tube Clipper=`000b`, TaiChi OD=`0100`, Lazaro=`0202`, Red Haze=`0204`, Plustortion=`0209`, SM Dist=`020a`, Darktale=`020b`, Chief=`020d`, La Charger=`0300`, Flagman Dist=`0502`, Flex OD=`030f`, Bass OD=`0400`, Black Bass=`0404`, Bass Hammer=`0501`, Micro Boost=`0104`, B Boost=`000b`, 14 Boost=`000e`, Boost=`010a`, None=`0003` |
-| PRE | Existing PRE selector coverage is confirmed in the same format, including COMP, COMP4, OD-9, boost, wah/filter, pitch, modulation, and amp/speaker variants. |
-| WAH | V Wah=`0001`, C Wah=`0008`, B Wah=`0007`, Hammy=`0409`, None=`0003` |
+| Module | Captured variants and selector bytes (`33:35`)                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DST    | Green OD=`0000`, OD-9=`0001`, Yellow OD=`0002`, Super OD=`0006`, Scream OD=`0008`, Blues OD=`0009`, Force=`000a`, Tube Clipper=`000b`, TaiChi OD=`0100`, Lazaro=`0202`, Red Haze=`0204`, Plustortion=`0209`, SM Dist=`020a`, Darktale=`020b`, Chief=`020d`, La Charger=`0300`, Flagman Dist=`0502`, Flex OD=`030f`, Bass OD=`0400`, Black Bass=`0404`, Bass Hammer=`0501`, Micro Boost=`0104`, B Boost=`000b`, 14 Boost=`000e`, Boost=`010a`, None=`0003` |
+| PRE    | Existing PRE selector coverage is confirmed in the same format, including COMP, COMP4, OD-9, boost, wah/filter, pitch, modulation, and amp/speaker variants.                                                                                                                                                                                                                                                                                              |
+| WAH    | V Wah=`0001`, C Wah=`0008`, B Wah=`0007`, Hammy=`0409`, None=`0003`                                                                                                                                                                                                                                                                                                                                                                                       |
 
 DST parameter captures cover Gain, Volume, Lo-mid, Treble, Blend, Low,
 Hi-mid, and the Attack/Cut/Boost/Flat selector set. Additional focused
@@ -1055,17 +1055,17 @@ effect-specific.
 
 The latest focused captures complete the requested mode and enum coverage:
 
-| Module/variant | Newly confirmed controls |
-|---|---|
-| WAH / Hammy | `Range` enum: `-1Oct`, `-2Oct`, `+1Oct`, `+2Oct`, `+/-1Oct`, `+/-2Oct`; `Harmony` toggle |
-| DST / Force | `Mode`: `LP`/`HP` |
-| DST / Flex OD | `Mode`: `Scoop`/`Edge`/`Normal` |
-| DST / Black Bass | `Attack`: `Cut`/`Boost`/`Flat` |
-| DST / Bass Hammer | `Drive` toggle |
-| DST / Boost | `+3dB` and `Bright` toggles |
-| DST / Scream OD | `Fat` and `Air` toggles |
-| AMP / Foxy 30TB | `Char`: `Cool`/`Hot` |
-| AMP / Dark Twin, Foxy 30N, J-120 CL, BogSV CL | `Bright` toggle on each representative amplifier |
+| Module/variant                                | Newly confirmed controls                                                                 |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| WAH / Hammy                                   | `Range` enum: `-1Oct`, `-2Oct`, `+1Oct`, `+2Oct`, `+/-1Oct`, `+/-2Oct`; `Harmony` toggle |
+| DST / Force                                   | `Mode`: `LP`/`HP`                                                                        |
+| DST / Flex OD                                 | `Mode`: `Scoop`/`Edge`/`Normal`                                                          |
+| DST / Black Bass                              | `Attack`: `Cut`/`Boost`/`Flat`                                                           |
+| DST / Bass Hammer                             | `Drive` toggle                                                                           |
+| DST / Boost                                   | `+3dB` and `Bright` toggles                                                              |
+| DST / Scream OD                               | `Fat` and `Air` toggles                                                                  |
+| AMP / Foxy 30TB                               | `Char`: `Cool`/`Hot`                                                                     |
+| AMP / Dark Twin, Foxy 30N, J-120 CL, BogSV CL | `Bright` toggle on each representative amplifier                                         |
 
 These enum and toggle writes use the same family-`0x18` typed record as
 continuous values. The cross-model AMP captures also show that surrounding
@@ -1084,12 +1084,12 @@ second CAB variant.
 The new EQ captures confirm the same three-operation pattern used by the other
 modules:
 
-| Operation | Family and field | Result |
-|---|---|---|
-| EQ variant selection | `0x14`, full offsets `33:35` | Guitar EQ 1=`0305`, Guitar EQ 2=`0306`, Bass EQ 1=`0309`, Mess EQ=`030c`, None=`0003`. |
-| EQ bypass | `0x10`, full offset `36` | `01=on`, `00=off`; the module selector is `0007` in the captured request. |
+| Operation                 | Family and field             | Result                                                                                                                                           |
+| ------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| EQ variant selection      | `0x14`, full offsets `33:35` | Guitar EQ 1=`0305`, Guitar EQ 2=`0306`, Bass EQ 1=`0309`, Mess EQ=`030c`, None=`0003`.                                                           |
+| EQ bypass                 | `0x10`, full offset `36`     | `01=on`, `00=off`; the module selector is `0007` in the captured request.                                                                        |
 | Guitar EQ 1 numeric edits | `0x18`, full offsets `45:53` | The same shared numeric block carries the five band gains and Volume; all band gains use the metadata `-50~0~+50` range and Volume uses `0~100`. |
-| Guitar EQ 2 numeric edits | `0x18`, full offsets `45:53` | The 100 Hz, 500 Hz, 1 kHz, 3 kHz, and 6 kHz bands plus Volume use the same shared numeric block. |
+| Guitar EQ 2 numeric edits | `0x18`, full offsets `45:53` | The 100 Hz, 500 Hz, 1 kHz, 3 kHz, and 6 kHz bands plus Volume use the same shared numeric block.                                                 |
 
 The MOD selector sweep similarly maps G-Chorus=`0001`, C-Chorus=`0002`,
 B-Chorus=`0008`, Jet=`0101`, B-Jet=`0102`, V-Roto=`0105`,
@@ -1171,16 +1171,16 @@ binding path.
 `AlgParamValueStruct.toBytes` allocates a 32-byte little-endian `ByteData`
 record (only the first 16 bytes carry fields):
 
-| Bytes | Meaning |
-|---:|---|
-| `0:2` | Magic `0x3033` |
-| `2:4` | 16-bit structure/type field |
-| `4:8` | 32-bit identifier field, serialized with adjacent-byte swaps (`b1 b0 b3 b2`) |
-| `8:12` | IEEE-754 `float32` value |
-| `12:13` | 8-bit auxiliary field |
-| `13:14` | 8-bit auxiliary field |
-| `14:16` | Zero/reserved bytes |
-| `16:32` | Zero-initialized structure padding |
+|   Bytes | Meaning                                                                      |
+| ------: | ---------------------------------------------------------------------------- |
+|   `0:2` | Magic `0x3033`                                                               |
+|   `2:4` | 16-bit structure/type field                                                  |
+|   `4:8` | 32-bit identifier field, serialized with adjacent-byte swaps (`b1 b0 b3 b2`) |
+|  `8:12` | IEEE-754 `float32` value                                                     |
+| `12:13` | 8-bit auxiliary field                                                        |
+| `13:14` | 8-bit auxiliary field                                                        |
+| `14:16` | Zero/reserved bytes                                                          |
+| `16:32` | Zero-initialized structure padding                                           |
 
 The exact semantic names of the identifier and auxiliary fields still need
 to be recovered from the surrounding `Device150DataProvider` call sites, but
@@ -1226,11 +1226,11 @@ The new numeric captures close the most important capture gap. Across DLY
 `Pure`, RVB `Tube Spring`, and PRE `Volume`, family `0x18` messages share this
 layout:
 
-| Full offsets | Meaning |
-|---:|---|
-| `34` | Module-family byte: DLY `0x0b`, RVB `0x0c`, VOL `0x06` |
-| `39:41` | Contextual variant selector: DLY `Pure=0000`, RVB `Tube Spring=0102`, VOL `Volume=0003` |
-| `45:53` | Eight-nibble parameter value block |
+| Full offsets | Meaning                                                                                 |
+| -----------: | --------------------------------------------------------------------------------------- |
+|         `34` | Module-family byte: DLY `0x0b`, RVB `0x0c`, VOL `0x06`                                  |
+|      `39:41` | Contextual variant selector: DLY `Pure=0000`, RVB `Tube Spring=0102`, VOL `Volume=0003` |
+|      `45:53` | Eight-nibble parameter value block                                                      |
 
 Decoding `45:53` with the recovered word/byte-swapped float format reproduces
 the displayed values within the Suite's float quantization: DLY Mix
@@ -1249,18 +1249,18 @@ serialization field.
 
 The follow-up variant and cross-module captures extend the selector table:
 
-| Module/variant | `0x18` full `34` | `39:41` selector |
-|---|---:|---:|
-| DLY / Tape | `0x0b` | `0002` |
-| DLY / Pure | `0x0b` | `0000` |
-| DLY / BBD Delay S | `0x0b` | `010d` |
-| RVB / Room | `0x0c` | `0000` |
-| RVB / Spring | `0x0c` | `0004` |
-| RVB / Tube Spring | `0x0c` | `0102` |
-| PRE / Volume | `0x06` | `0000` |
-| AMP / Volume | `0x07` | `0207` |
-| CAB / Volume | `0x0a` | `0c00` |
-| VOL / Volume | `0x06` | `0003` |
+| Module/variant    | `0x18` full `34` | `39:41` selector |
+| ----------------- | ---------------: | ---------------: |
+| DLY / Tape        |           `0x0b` |           `0002` |
+| DLY / Pure        |           `0x0b` |           `0000` |
+| DLY / BBD Delay S |           `0x0b` |           `010d` |
+| RVB / Room        |           `0x0c` |           `0000` |
+| RVB / Spring      |           `0x0c` |           `0004` |
+| RVB / Tube Spring |           `0x0c` |           `0102` |
+| PRE / Volume      |           `0x06` |           `0000` |
+| AMP / Volume      |           `0x07` |           `0207` |
+| CAB / Volume      |           `0x0a` |           `0c00` |
+| VOL / Volume      |           `0x06` |           `0003` |
 
 DLY and RVB do not expose a Volume parameter in their normal variants; the
 cross-module sequence uses PRE, AMP, CAB, and VOL for Volume comparison.
@@ -1309,18 +1309,18 @@ closure's metadata object with its `algId` field.
 Suite's parameter identifier is not the `f_0x18` field of
 `AlgParamValueStruct`. For the `Alg` class used by `module150_data.json`:
 
-| `Alg` field offset | Metadata meaning |
-|---:|---|
-| `+0x07` | `name` |
-| `+0x0f` | `algId` |
-| `+0x17` | `defaultValue` |
-| `+0x1f` | `valueRange` |
-| `+0x27` | `min` |
-| `+0x2f` | `max` |
-| `+0x37` | `step` |
-| `+0x3f` | conversion `code` |
-| `+0x47` | `widgetType` |
-| `+0x4f` | `show` values |
+| `Alg` field offset | Metadata meaning  |
+| -----------------: | ----------------- |
+|            `+0x07` | `name`            |
+|            `+0x0f` | `algId`           |
+|            `+0x17` | `defaultValue`    |
+|            `+0x1f` | `valueRange`      |
+|            `+0x27` | `min`             |
+|            `+0x2f` | `max`             |
+|            `+0x37` | `step`            |
+|            `+0x3f` | conversion `code` |
+|            `+0x47` | `widgetType`      |
+|            `+0x4f` | `show` values     |
 
 This prevents a common false identification: an AOT access to `Alg+0x0f`
 is the direct `algId`, while `Alg+0x17` is the default-value string. The
@@ -1340,10 +1340,10 @@ The latest captures reveal that the device/Suite exposes more DLY and RVB
 variants than are present in the extracted `module_data.json`. Their selector
 values are therefore recorded here as capture-derived additions:
 
-| Module | Captured variant selector sequence (`0x14`, full `33:35`) |
-|---|---|
-| DLY | BBD Delay S=`010d`, Digital Delay S=`010f`, Pure=`0000`, Tape=`0002`, Ping Pong=`0004`, Slapback=`0005`, Sweep Echo=`0006`, Ring Echo=`0009`, Tube=`000b`, Sweet Echo=`000d`, 999 Echo=`0102`, Vintage Rack=`0104`, Rev Echo=`0208`, Dual Echo=`0003`, None=`0003` |
-| RVB | Room=`0000`, Hall=`0001`, Church=`0002`, Plate=`0003`, Spring=`0004`, Tube Spring=`0102`, Concert=`000d`, N-Star=`0006`, Deepsea=`0007`, Sweet Space=`0008`, Shimmer=`0009`, None=`0003` |
+| Module | Captured variant selector sequence (`0x14`, full `33:35`)                                                                                                                                                                                                          |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| DLY    | BBD Delay S=`010d`, Digital Delay S=`010f`, Pure=`0000`, Tape=`0002`, Ping Pong=`0004`, Slapback=`0005`, Sweep Echo=`0006`, Ring Echo=`0009`, Tube=`000b`, Sweet Echo=`000d`, 999 Echo=`0102`, Vintage Rack=`0104`, Rev Echo=`0208`, Dual Echo=`0003`, None=`0003` |
+| RVB    | Room=`0000`, Hall=`0001`, Church=`0002`, Plate=`0003`, Spring=`0004`, Tube Spring=`0102`, Concert=`000d`, N-Star=`0006`, Deepsea=`0007`, Sweet Space=`0008`, Shimmer=`0009`, None=`0003`                                                                           |
 
 The repeated `0003` selector is contextual: Plate/Dual Echo and None are
 distinguished by surrounding effect-state bytes and/or the preceding module
@@ -1362,14 +1362,14 @@ from the shared metadata alone.
 
 ### Patch, effect, reset, and device-originated mappings
 
-| Control | Family | Body offset | Captured mapping |
-|---|---:|---:|---|
-| Module enable | `0x10` | `33` | `0↔1`; selector is commonly body `31`. |
-| AMP/CAB/EQ enable | `0x10` | `33` | Same module-enable field across modules. |
-| AMP/effect packed parameter | `0x18` | `42–45` | AMP gain, tone, EQ, and bright controls occupy this range. |
-| Patch selection index | `0x0f` | `31` | Changes with requested slot sequence; final index convention unresolved. |
-| Factory reset selector | `0x10` | `31` | All user data=`02`; factory patches=`01`; global settings=`00`. |
-| EXP target assignment | `0x7c` | `31` | WAH=`01`, DST=`02` in the captured target-1 change. |
+| Control                           | Family |            Body offset | Captured mapping                                                               |
+| --------------------------------- | -----: | ---------------------: | ------------------------------------------------------------------------------ |
+| Module enable                     | `0x10` |                   `33` | `0↔1`; selector is commonly body `31`.                                         |
+| AMP/CAB/EQ enable                 | `0x10` |                   `33` | Same module-enable field across modules.                                       |
+| AMP/effect packed parameter       | `0x18` |                `42–45` | AMP gain, tone, EQ, and bright controls occupy this range.                     |
+| Patch selection index             | `0x0f` |                   `31` | Changes with requested slot sequence; final index convention unresolved.       |
+| Factory reset selector            | `0x10` |                   `31` | All user data=`02`; factory patches=`01`; global settings=`00`.                |
+| EXP target assignment             | `0x7c` |                   `31` | WAH=`01`, DST=`02` in the captured target-1 change.                            |
 | Footswitch A/B/C patch assignment | `0x30` | `39`, `46`, `49`, `57` | Assignment-specific changes confirmed; event reports remain otherwise similar. |
 
 Preset selection uses 40-byte family-`0x0f` messages. Slot rename uses
@@ -1413,13 +1413,13 @@ nibbles[0:8] -> four reconstructed bytes -> struct.unpack("<f", bytes)
 Offsets below are full reassembled SysEx offsets; subtract eight to obtain the
 offset after the protocol prefix.
 
-| Control | Full SysEx field | After prefix | Confirmed decoded values |
-|---|---:|---:|---|
-| Low-cut frequency | `57:65` | `49:57` | 1047.85, 4914.70, 4489.26, 4791.21, 12919.96, 7501.89 Hz. |
-| High-cut frequency | `35:43` | `27:35` | 7628.27, 3971.42, 20.00, 368.82, 2594.10, 10762.84 Hz. |
-| Band 4 frequency | `209:217` | `201:209` | 20.00, 17988.32, 18625.44, 20000.00, 8433.00, 6844.96, 2539.94 Hz. |
-| Band 4 Q | `217:225` | `209:217` | 0.1000, 2.3663, 5.7096, 9.0721, 9.3849, 10.0000. |
-| Band 4 gain | `225:233` | `217:225` | 3.2703, −17.8619, −20.00, 18.8362, 20.00, 1.7605 dB. |
+| Control            | Full SysEx field | After prefix | Confirmed decoded values                                           |
+| ------------------ | ---------------: | -----------: | ------------------------------------------------------------------ |
+| Low-cut frequency  |          `57:65` |      `49:57` | 1047.85, 4914.70, 4489.26, 4791.21, 12919.96, 7501.89 Hz.          |
+| High-cut frequency |          `35:43` |      `27:35` | 7628.27, 3971.42, 20.00, 368.82, 2594.10, 10762.84 Hz.             |
+| Band 4 frequency   |        `209:217` |    `201:209` | 20.00, 17988.32, 18625.44, 20000.00, 8433.00, 6844.96, 2539.94 Hz. |
+| Band 4 Q           |        `217:225` |    `209:217` | 0.1000, 2.3663, 5.7096, 9.0721, 9.3849, 10.0000.                   |
+| Band 4 gain        |        `225:233` |    `217:225` | 3.2703, −17.8619, −20.00, 18.8362, 20.00, 1.7605 dB.               |
 
 The Suite labels are rounded/quantized, so the stored float does not always
 equal the displayed value (for example, displayed Q 2.4 is stored as 2.3663).
@@ -1430,15 +1430,15 @@ task is recovering the Suite display quantization formula.
 
 The subsequent device-triggered captures add the following mappings:
 
-| Operation | Family and field | Result |
-|---|---|---|
-| Global EQ level | `0x0c`, full offsets `45:53` | Nibble-coded little-endian float32; device values 24, 25, 26, 27 decode exactly. |
-| Drum volume | `0x14`, full offset `38` | UI values 79, 78, 77, 76 encode as nibbles `0f`, `0e`, `0d`, `0c`. |
-| Metronome time signature | `0x14`, full offsets `11:13` and `44` | 4/4, 5/4, 6/4, 6/8, 7/4 map to encoded states `0x01`–`0x05` at offset 44; offsets 11:13 carry the packed state. |
-| Drum tap tempo | `0x14` and mirrored `0x5c`, full offsets `33:35` | 122, 272, 187 BPM encode as `02 0c`, `07 0a`, `01 00`. |
-| Drum on/off | `0x14`, full offset `46` | `01` on, `00` off. |
-| Auto Save | `0x24`, full offset `78` | `01` on, `00` off; an intermediate `0x10` packet is status traffic. |
-| Preset chain reorder | `0x18`, full offsets `36,38,...,56` | An 11-byte permutation array encodes module order; AMP, NR, and RVB moves are now confirmed. |
+| Operation                | Family and field                                 | Result                                                                                                          |
+| ------------------------ | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| Global EQ level          | `0x0c`, full offsets `45:53`                     | Nibble-coded little-endian float32; device values 24, 25, 26, 27 decode exactly.                                |
+| Drum volume              | `0x14`, full offset `38`                         | UI values 79, 78, 77, 76 encode as nibbles `0f`, `0e`, `0d`, `0c`.                                              |
+| Metronome time signature | `0x14`, full offsets `11:13` and `44`            | 4/4, 5/4, 6/4, 6/8, 7/4 map to encoded states `0x01`–`0x05` at offset 44; offsets 11:13 carry the packed state. |
+| Drum tap tempo           | `0x14` and mirrored `0x5c`, full offsets `33:35` | 122, 272, 187 BPM encode as `02 0c`, `07 0a`, `01 00`.                                                          |
+| Drum on/off              | `0x14`, full offset `46`                         | `01` on, `00` off.                                                                                              |
+| Auto Save                | `0x24`, full offset `78`                         | `01` on, `00` off; an intermediate `0x10` packet is status traffic.                                             |
+| Preset chain reorder     | `0x18`, full offsets `36,38,...,56`              | An 11-byte permutation array encodes module order; AMP, NR, and RVB moves are now confirmed.                    |
 
 Preset manual-save captures confirm that the name is nibble-encoded in the
 family-`0x1c` metadata packet beginning at full offset 33, and appears twice
@@ -1463,23 +1463,23 @@ The following controls are not yet isolated by the new corpus. Each should be
 recorded as a separate Suite-triggered capture using the one-variable-at-a-time
 workflow above, with a restore action where safe:
 
-| Priority | Capture scope |
-|---|---|
-| P1 | Global EQ band 4 gain; Global EQ position; repeat one band with several known values to solve packed frequency/gain/Q conversion; high-cut and low-cut with two additional values. |
-| P1 | USB left/right mode and all USB pair routing options (`USB1/2`, `3/4`, `5/6`, `7/8`); isolate any remaining USB input/output source selectors. |
-| P1 | No further display-language or generic display-mode capture is required; only brightness and timeout are confirmed device controls. |
-| P1 | Bluetooth recording-volume control and each BT routing/control mode (`BT Only`, `BT Controlled`, `BT And PD`). Bluetooth enable/disable is device-local and does not generate USB/MIDI traffic. |
-| P1 | MIDI clock output for USB and any remaining DIN/MIC clock outputs; capture each clock-source option with its displayed label. |
-| P1 | EXP1 and EXP2 mode/A-B selection, expression calibration minimum/maximum, and target/range changes. |
-| P1 | Tap drum synchronization and any remaining tap-sync target; change global tempo with each sync combination. |
-| P2 | Global footswitch assignment options not covered by Patch/Stomp mode and external FS assignment sweeps; include long-press/hold actions if exposed. |
-| P2 | Auto Function options and an edit with Auto Save off/on to establish whether automatic saving emits additional `0x2c`/preset traffic. |
-| P2 | Drum Suite controls: pattern/style selection, volume, velocity, transpose, loop, mute, pause/resume, and stop; separate local-preview actions from device commands. |
-| P2 | Tuner entry/exit with a complete sustained-note status stream and any exposed tuner mute/input options. |
-| P2 | One parameter at minimum/midpoint/maximum for every effect/module group, including algorithm changes, to map `fxid`/`algId` and numeric conversion beyond AMP. |
-| P2 | Preset schema: select a known patch, change one field, save, reload, export, and compare the corresponding `0x70`/`0x2c` state. Repeat for module order, bypass, quick knobs, EXP assignment, and footswitch assignment. |
-| P3 | NAM/IR load/rename/delete/export round trips using disposable slots to complete slot metadata and operation envelopes. |
-| P3 | GP-180 versus GP-300 identity/capability captures, if a GP-300 is available: USB descriptors, handshake, initial state read, and one setting from each model-specific page. |
+| Priority | Capture scope                                                                                                                                                                                                            |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| P1       | Global EQ band 4 gain; Global EQ position; repeat one band with several known values to solve packed frequency/gain/Q conversion; high-cut and low-cut with two additional values.                                       |
+| P1       | USB left/right mode and all USB pair routing options (`USB1/2`, `3/4`, `5/6`, `7/8`); isolate any remaining USB input/output source selectors.                                                                           |
+| P1       | No further display-language or generic display-mode capture is required; only brightness and timeout are confirmed device controls.                                                                                      |
+| P1       | Bluetooth recording-volume control and each BT routing/control mode (`BT Only`, `BT Controlled`, `BT And PD`). Bluetooth enable/disable is device-local and does not generate USB/MIDI traffic.                          |
+| P1       | MIDI clock output for USB and any remaining DIN/MIC clock outputs; capture each clock-source option with its displayed label.                                                                                            |
+| P1       | EXP1 and EXP2 mode/A-B selection, expression calibration minimum/maximum, and target/range changes.                                                                                                                      |
+| P1       | Tap drum synchronization and any remaining tap-sync target; change global tempo with each sync combination.                                                                                                              |
+| P2       | Global footswitch assignment options not covered by Patch/Stomp mode and external FS assignment sweeps; include long-press/hold actions if exposed.                                                                      |
+| P2       | Auto Function options and an edit with Auto Save off/on to establish whether automatic saving emits additional `0x2c`/preset traffic.                                                                                    |
+| P2       | Drum Suite controls: pattern/style selection, volume, velocity, transpose, loop, mute, pause/resume, and stop; separate local-preview actions from device commands.                                                      |
+| P2       | Tuner entry/exit with a complete sustained-note status stream and any exposed tuner mute/input options.                                                                                                                  |
+| P2       | One parameter at minimum/midpoint/maximum for every effect/module group, including algorithm changes, to map `fxid`/`algId` and numeric conversion beyond AMP.                                                           |
+| P2       | Preset schema: select a known patch, change one field, save, reload, export, and compare the corresponding `0x70`/`0x2c` state. Repeat for module order, bypass, quick knobs, EXP assignment, and footswitch assignment. |
+| P3       | NAM/IR load/rename/delete/export round trips using disposable slots to complete slot metadata and operation envelopes.                                                                                                   |
+| P3       | GP-180 versus GP-300 identity/capability captures, if a GP-300 is available: USB descriptors, handshake, initial state read, and one setting from each model-specific page.                                              |
 
 Do not repeat the firmware update unless a recovery-capable test setup is
 available; the existing update capture is sufficient for static lifecycle

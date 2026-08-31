@@ -2,11 +2,11 @@
 
 ## Inputs
 
-| Artifact | SHA-256 | Initial classification |
-|---|---|---|
-| `targets/GP-180 Firmware V1.1.1.bin` | `e6512040f1a3b7c61a9bbdb32e39adc0dd504c0ea8804ad145a775304653060a` | 5,036,421-byte proprietary `TFW` container; header contains `GP-180` |
-| `targets/GP-180 Firmware V1.0.0.bin` | `cd4df59bc8fba15f793656645f06342c1734a5435f33b7542fb448dcd4df49ae` | 8,470,664-byte proprietary `TFW` container |
-| `targets/Valeton Suite Setup V2.1.0 for Windows.exe` | `bd9d345bf0c7abeb6256d3aab075ccc56a4096f0282784cf558c9b44c36ff8b0` | 32-bit x86 NSIS 3.10 installer |
+| Artifact                                             | SHA-256                                                            | Initial classification                                               |
+| ---------------------------------------------------- | ------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| `targets/GP-180 Firmware V1.1.1.bin`                 | `e6512040f1a3b7c61a9bbdb32e39adc0dd504c0ea8804ad145a775304653060a` | 5,036,421-byte proprietary `TFW` container; header contains `GP-180` |
+| `targets/GP-180 Firmware V1.0.0.bin`                 | `cd4df59bc8fba15f793656645f06342c1734a5435f33b7542fb448dcd4df49ae` | 8,470,664-byte proprietary `TFW` container                           |
+| `targets/Valeton Suite Setup V2.1.0 for Windows.exe` | `bd9d345bf0c7abeb6256d3aab075ccc56a4096f0282784cf558c9b44c36ff8b0` | 32-bit x86 NSIS 3.10 installer                                       |
 
 Additional Suite targets are now present:
 

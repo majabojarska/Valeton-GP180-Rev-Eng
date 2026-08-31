@@ -19,23 +19,33 @@ from gp180_file_formats import decode_capture, describe
 
 
 def make_message(payload: bytes) -> bytes:
-    return b"\xf0\x7f\x00\x24" + b"\x40\x00\x00\x0b\x00\x00\x00" + encode_nibbles(payload) + b"\xf7"
+    return (
+        b"\xf0\x7f\x00\x24"
+        + b"\x40\x00\x00\x0b\x00\x00\x00"
+        + encode_nibbles(payload)
+        + b"\xf7"
+    )
 
 
 def make_corpus(tmp: Path, record: bytes) -> Path:
     transfer = b"\x01\x20\x20\x01\x01\x90\x10\x50" + b"\0" * 27 + record
-    chunks = [transfer[index:index + 118] for index in range(0, len(transfer), 118)]
+    chunks = [transfer[index : index + 118] for index in range(0, len(transfer), 118)]
     path = tmp / "corpus.jsonl"
     with path.open("w") as stream:
         for frame, chunk in enumerate(chunks, 1):
             message = make_message(chunk)
-            stream.write(json.dumps({
-                "capture": "sample.pcapng",
-                "frame": frame,
-                "family": "0x24",
-                "length": len(message),
-                "raw": message.hex(),
-            }) + "\n")
+            stream.write(
+                json.dumps(
+                    {
+                        "capture": "sample.pcapng",
+                        "frame": frame,
+                        "family": "0x24",
+                        "length": len(message),
+                        "raw": message.hex(),
+                    }
+                )
+                + "\n"
+            )
     return path
 
 
@@ -58,19 +68,19 @@ class FileFormatTests(unittest.TestCase):
             decode_nibbles(b"\x01\x10")
 
     def test_build_and_decode_message(self):
-        message = build_message(0x5A, b"\x00\x12\xFE")
+        message = build_message(0x5A, b"\x00\x12\xfe")
         self.assertEqual(
             decode_message_payload(message, 3),
-            (0x5A, b"\x00\x12\xFE"),
+            (0x5A, b"\x00\x12\xfe"),
         )
 
     def test_decode_message_rejects_invalid_framing_and_offsets(self):
         with self.assertRaises(ValueError):
-            decode_message_payload(b"\x00\x7F\x00\x01\xF7", 3)
+            decode_message_payload(b"\x00\x7f\x00\x01\xf7", 3)
         with self.assertRaises(ValueError):
-            decode_message_payload(b"\xF0\x7F\x00\x01\xF7", 2)
+            decode_message_payload(b"\xf0\x7f\x00\x01\xf7", 2)
         with self.assertRaises(ValueError):
-            decode_message_payload(b"\xF0\x7F\x00\x01\xF7", 4)
+            decode_message_payload(b"\xf0\x7f\x00\x01\xf7", 4)
 
     def test_describe_bman(self):
         record = bytearray(8123)
@@ -88,13 +98,13 @@ class FileFormatTests(unittest.TestCase):
         record = bytearray(8123)
         record[:4] = b"VTSI"
         record[4:8] = (2696).to_bytes(4, "little")
-        record[8:12] = (0xdead).to_bytes(4, "little")
+        record[8:12] = (0xDEAD).to_bytes(4, "little")
         record[20:24] = (2560).to_bytes(4, "little")
         record[28:32] = struct.pack("<f", 1.875)
         info = describe(b"\0" * 8 + b"\0" * 27 + bytes(record))
         self.assertEqual(info["marker"], "VTSI")
         self.assertEqual(info["model_region_size"], 2696)
-        self.assertEqual(info["integrity_field"], 0xdead)
+        self.assertEqual(info["integrity_field"], 0xDEAD)
         self.assertEqual(info["scale"], 1.875)
 
     def test_decode_capture_reassembles_and_extracts_record(self):
@@ -111,13 +121,18 @@ class FileFormatTests(unittest.TestCase):
     def test_decode_capture_rejects_missing_transfer(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "empty.jsonl"
-            path.write_text(json.dumps({
-                "capture": "other.pcapng",
-                "frame": 1,
-                "family": "0x10",
-                "length": 40,
-                "raw": "",
-            }) + "\n")
+            path.write_text(
+                json.dumps(
+                    {
+                        "capture": "other.pcapng",
+                        "frame": 1,
+                        "family": "0x10",
+                        "length": 40,
+                        "raw": "",
+                    }
+                )
+                + "\n"
+            )
             with self.assertRaises(ValueError):
                 decode_capture(path, "sample.pcapng")
 
