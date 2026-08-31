@@ -43,6 +43,9 @@ Forum threads with useful context:
 - [The Gear Forum - GP50,GP150,GP180 discussion](https://thegearforum.com/threads/valeton-gp-50-gp-150-and-gp-180.10093/)
   - All released around Oct 2025, hinting they all share some common design and possibly SysEx protocol.
 
+Other:
+- [Tone3000 NAM binary loader](https://github.com/tone-3000/nam-binary-loader/)
+
 ## Unknowns
 
 - Is the GP5/GP50/GP150/GP180 series SysEx-compatible with the GP200?
