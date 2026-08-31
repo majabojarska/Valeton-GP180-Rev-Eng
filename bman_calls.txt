@@ -1,0 +1,1415 @@
+  2a1d04:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1d14:      	bl	0x4e9870 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_8string_tE@plt>
+  2a1d20:      	bl	0x4e8fc0 <strlen@plt>
+  2a1d3c:      	b.ne	0x2a1d6c <_ZN3nam4namb12BinaryWriter9write_u16Et+0xd18>
+  2a1d48:      	b.eq	0x2a6944 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x58f0>
+  2a1d64:      	bl	0x4e98d0 <memcmp@plt>
+  2a1d68:      	cbz	w0, 0x2a1e44 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xdf0>
+  2a1d74:      	bl	0x4e8fc0 <strlen@plt>
+  2a1d7c:      	b.ne	0x2a1dac <_ZN3nam4namb12BinaryWriter9write_u16Et+0xd58>
+  2a1d84:      	b.eq	0x2a6960 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x590c>
+  2a1da4:      	bl	0x4e98d0 <memcmp@plt>
+  2a1da8:      	cbz	w0, 0x2a2240 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x11ec>
+  2a1db4:      	bl	0x4e8fc0 <strlen@plt>
+  2a1dbc:      	b.ne	0x2a1dec <_ZN3nam4namb12BinaryWriter9write_u16Et+0xd98>
+  2a1dc4:      	b.eq	0x2a697c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5928>
+  2a1de4:      	bl	0x4e98d0 <memcmp@plt>
+  2a1de8:      	cbz	w0, 0x2a2320 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x12cc>
+  2a1df4:      	bl	0x4e8fc0 <strlen@plt>
+  2a1dfc:      	b.ne	0x2a6868 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5814>
+  2a1e04:      	b.eq	0x2a6928 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x58d4>
+  2a1e24:      	bl	0x4e98d0 <memcmp@plt>
+  2a1e28:      	cbnz	w0, 0x2a6868 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5814>
+  2a1e38:      	b.hs	0x2a1e54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xe00>
+  2a1e40:      	b	0x2a1ed8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xe84>
+  2a1e50:      	b.lo	0x2a1e3c <_ZN3nam4namb12BinaryWriter9write_u16Et+0xde8>
+  2a1e60:      	b.mi	0x2a68c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5874>
+  2a1e84:      	cbz	x23, 0x2a1e98 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xe44>
+  2a1e8c:      	bl	0x4e8090 <_Znwm@plt>
+  2a1e94:      	b	0x2a1e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0xe48>
+  2a1eb4:      	bl	0x4e8e10 <memcpy@plt>
+  2a1ec4:      	cbz	x20, 0x2a1ed8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xe84>
+  2a1ed0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a1ee4:      	b.hs	0x2a1ef0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xe9c>
+  2a1eec:      	b	0x2a1f74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xf20>
+  2a1efc:      	b.mi	0x2a68c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5874>
+  2a1f20:      	cbz	x23, 0x2a1f34 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xee0>
+  2a1f28:      	bl	0x4e8090 <_Znwm@plt>
+  2a1f30:      	b	0x2a1f38 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xee4>
+  2a1f50:      	bl	0x4e8e10 <memcpy@plt>
+  2a1f60:      	cbz	x20, 0x2a1f74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xf20>
+  2a1f6c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a1f88:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a1fa0:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1fac:      	b.gt	0x2a2050 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xffc>
+  2a1fb0:      	cbnz	w25, 0x2a2104 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x10b0>
+  2a1fc0:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1fcc:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a1fe0:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1fec:      	bl	0x4e98f0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_9boolean_tE@plt>
+  2a200c:      	bl	0x4e9900 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA12_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a2028:      	bl	0x4e9910 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA13_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a2038:      	bl	0x4e9920 <_ZN3nam4namb12BinaryWriter9write_i32Ei@plt>
+  2a2044:      	b.hs	0x2a2254 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1200>
+  2a204c:      	b	0x2a2694 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1640>
+  2a2054:      	b.ne	0x2a21d4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1180>
+  2a2064:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2070:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a207c:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a208c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2098:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a20a4:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a20b4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a20c0:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a20cc:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a20e8:      	bl	0x4e9900 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA12_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a20f8:      	b.hs	0x2a22dc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1288>
+  2a2100:      	b	0x2a2b28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1ad4>
+  2a2110:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a211c:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a2130:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a213c:      	bl	0x4e98f0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_9boolean_tE@plt>
+  2a2150:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2170:      	bl	0x4e9930 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA7_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a218c:      	bl	0x4e9900 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA12_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a21ac:      	bl	0x4e9910 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA13_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a21bc:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a21c8:      	b.hs	0x2a2298 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1244>
+  2a21d0:      	b	0x2a28d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1884>
+  2a21e0:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2200:      	bl	0x4e9900 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA12_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a2220:      	b.eq	0x2a2334 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x12e0>
+  2a2228:      	b.ne	0x2a239c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1348>
+  2a223c:      	b	0x2a23a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1350>
+  2a224c:      	b.hs	0x2a1e54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xe00>
+  2a2250:      	b	0x2a1e3c <_ZN3nam4namb12BinaryWriter9write_u16Et+0xde8>
+  2a2260:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a2284:      	cbz	x24, 0x2a2660 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x160c>
+  2a228c:      	bl	0x4e8090 <_Znwm@plt>
+  2a2294:      	b	0x2a2664 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1610>
+  2a22a4:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a22c8:      	cbz	x27, 0x2a28a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1850>
+  2a22d0:      	bl	0x4e8090 <_Znwm@plt>
+  2a22d8:      	b	0x2a28a8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1854>
+  2a22e8:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a230c:      	cbz	x24, 0x2a2af4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1aa0>
+  2a2314:      	bl	0x4e8090 <_Znwm@plt>
+  2a231c:      	b	0x2a2af8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1aa4>
+  2a232c:      	b.lo	0x2a1e3c <_ZN3nam4namb12BinaryWriter9write_u16Et+0xde8>
+  2a2330:      	b	0x2a1e54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xe00>
+  2a2340:      	cbz	x24, 0x2a2394 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1340>
+  2a2358:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a2370:      	cbnz	x24, 0x2a2350 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x12fc>
+  2a2378:      	b.eq	0x2a2394 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1340>
+  2a2388:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a2398:      	b	0x2a23a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1350>
+  2a23bc:      	b.eq	0x2a23dc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1388>
+  2a23c4:      	b.ne	0x2a23f0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x139c>
+  2a23d8:      	b	0x2a23f8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x13a4>
+  2a23ec:      	b	0x2a23f8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x13a4>
+  2a2400:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a2404:      	tbz	w0, #0x0, 0x2a2410 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x13bc>
+  2a240c:      	b	0x2a242c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x13d8>
+  2a241c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2438:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2440:      	cbz	w8, 0x2a2478 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1424>
+  2a2448:      	b.eq	0x2a2468 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1414>
+  2a2450:      	b.ne	0x2a2474 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1420>
+  2a2464:      	b	0x2a2478 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1424>
+  2a2470:      	b	0x2a2478 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1424>
+  2a2494:      	b.eq	0x2a24b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1460>
+  2a249c:      	b.ne	0x2a251c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x14c8>
+  2a24b0:      	b	0x2a2524 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x14d0>
+  2a24c0:      	cbz	x24, 0x2a2514 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x14c0>
+  2a24d8:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a24f0:      	cbnz	x24, 0x2a24d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x147c>
+  2a24f8:      	b.eq	0x2a2514 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x14c0>
+  2a2508:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a2518:      	b	0x2a2524 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x14d0>
+  2a253c:      	b.eq	0x2a255c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1508>
+  2a2544:      	b.ne	0x2a2570 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x151c>
+  2a2558:      	b	0x2a2578 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1524>
+  2a256c:      	b	0x2a2578 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1524>
+  2a2580:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a2588:      	cbz	w26, 0x2a2608 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x15b4>
+  2a2598:      	bl	0x4e8fc0 <strlen@plt>
+  2a25ac:      	bl	0x29dc80 <_ZNSt6__ndk114basic_ofstreamIcNS_11char_traitsIcEEED1Ev+0x50>
+  2a25c4:      	bl	0x4e96a0 <_ZNKSt6__ndk18ios_base6getlocEv@plt>
+  2a25d4:      	bl	0x4e96b0 <_ZNKSt6__ndk16locale9use_facetERNS0_2idE@plt>
+  2a25f0:      	bl	0x4e96c0 <_ZNSt6__ndk16localeD1Ev@plt>
+  2a25fc:      	bl	0x4e96d0 <_ZNSt6__ndk113basic_ostreamIcNS_11char_traitsIcEEE3putEc@plt>
+  2a2604:      	bl	0x4e96e0 <_ZNSt6__ndk113basic_ostreamIcNS_11char_traitsIcEEE5flushEv@plt>
+  2a2610:      	b.hs	0x2a261c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x15c8>
+  2a2618:      	b	0x2a27b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1760>
+  2a2628:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a264c:      	cbz	x24, 0x2a2780 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x172c>
+  2a2654:      	bl	0x4e8090 <_Znwm@plt>
+  2a265c:      	b	0x2a2784 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1730>
+  2a267c:      	bl	0x4e8e10 <memcpy@plt>
+  2a2688:      	cbz	x22, 0x2a2694 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1640>
+  2a2690:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a26a0:      	b.hs	0x2a26ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1658>
+  2a26a8:      	b	0x2a2724 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x16d0>
+  2a26b8:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a26dc:      	cbz	x24, 0x2a26f0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x169c>
+  2a26e4:      	bl	0x4e8090 <_Znwm@plt>
+  2a26ec:      	b	0x2a26f4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x16a0>
+  2a270c:      	bl	0x4e8e10 <memcpy@plt>
+  2a2718:      	cbz	x22, 0x2a2724 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x16d0>
+  2a2720:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a2730:      	b.hs	0x2a273c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x16e8>
+  2a2738:      	b	0x2a2844 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x17f0>
+  2a2748:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a276c:      	cbz	x23, 0x2a2810 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x17bc>
+  2a2774:      	bl	0x4e8090 <_Znwm@plt>
+  2a277c:      	b	0x2a2814 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x17c0>
+  2a279c:      	bl	0x4e8e10 <memcpy@plt>
+  2a27a8:      	cbz	x22, 0x2a27b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1760>
+  2a27b0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a27c0:      	b.hs	0x2a27cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1778>
+  2a27c8:      	b	0x2a29b8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1964>
+  2a27d8:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a27fc:      	cbz	x23, 0x2a2984 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1930>
+  2a2804:      	bl	0x4e8090 <_Znwm@plt>
+  2a280c:      	b	0x2a2988 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1934>
+  2a282c:      	bl	0x4e8e10 <memcpy@plt>
+  2a2838:      	cbz	x21, 0x2a2844 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x17f0>
+  2a2840:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a2850:      	b.hs	0x2a2860 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x180c>
+  2a285c:      	b	0x2a5e00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4dac>
+  2a286c:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a2890:      	cbz	x22, 0x2a2a18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x19c4>
+  2a2898:      	bl	0x4e8090 <_Znwm@plt>
+  2a28a0:      	b	0x2a2a1c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x19c8>
+  2a28c0:      	bl	0x4e8e10 <memcpy@plt>
+  2a28cc:      	cbz	x25, 0x2a28d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1884>
+  2a28d4:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a28e0:      	cbz	w22, 0x2a295c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1908>
+  2a28e8:      	b.eq	0x2a2954 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1900>
+  2a28f0:      	b.ne	0x2a2970 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x191c>
+  2a290c:      	b.lo	0x2a2968 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1914>
+  2a291c:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a2940:      	cbz	x27, 0x2a2a54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1a00>
+  2a2948:      	bl	0x4e8090 <_Znwm@plt>
+  2a2950:      	b	0x2a2a58 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1a04>
+  2a2964:      	b.hs	0x2a2910 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x18bc>
+  2a296c:      	b	0x2a2a88 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1a34>
+  2a297c:      	b.lo	0x2a2968 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1914>
+  2a2980:      	b	0x2a2910 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x18bc>
+  2a29a0:      	bl	0x4e8e10 <memcpy@plt>
+  2a29ac:      	cbz	x20, 0x2a29b8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1964>
+  2a29b4:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a29c4:      	b.hs	0x2a29d4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1980>
+  2a29d0:      	b	0x2a2bdc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1b88>
+  2a29e0:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a2a04:      	cbz	x23, 0x2a2ba4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1b50>
+  2a2a0c:      	bl	0x4e8090 <_Znwm@plt>
+  2a2a14:      	b	0x2a2ba8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1b54>
+  2a2a34:      	bl	0x4e8e10 <memcpy@plt>
+  2a2a40:      	cbz	x20, 0x2a2a4c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x19f8>
+  2a2a48:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a2a50:      	b	0x2a5e00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4dac>
+  2a2a70:      	bl	0x4e8e10 <memcpy@plt>
+  2a2a7c:      	cbz	x25, 0x2a2a88 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1a34>
+  2a2a84:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a2a94:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a2aa0:      	b.hs	0x2a2ab0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1a5c>
+  2a2aac:      	b	0x2a5bc4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4b70>
+  2a2abc:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a2ae0:      	cbz	x26, 0x2a5b8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4b38>
+  2a2ae8:      	bl	0x4e8090 <_Znwm@plt>
+  2a2af0:      	b	0x2a5b90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4b3c>
+  2a2b10:      	bl	0x4e8e10 <memcpy@plt>
+  2a2b1c:      	cbz	x22, 0x2a2b28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1ad4>
+  2a2b24:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a2b44:      	bl	0x4e9910 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA13_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a2b54:      	b.hs	0x2a2b60 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1b0c>
+  2a2b5c:      	b	0x2a5c58 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4c04>
+  2a2b6c:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a2b90:      	cbz	x23, 0x2a5c24 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4bd0>
+  2a2b98:      	bl	0x4e8090 <_Znwm@plt>
+  2a2ba0:      	b	0x2a5c28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4bd4>
+  2a2bc4:      	bl	0x4e8e10 <memcpy@plt>
+  2a2bd0:      	cbz	x20, 0x2a2bdc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1b88>
+  2a2bd8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a2bf0:      	b.hs	0x2a2bfc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1ba8>
+  2a2bf8:      	b	0x2a2c74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1c20>
+  2a2c08:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a2c2c:      	cbz	x23, 0x2a2c40 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1bec>
+  2a2c34:      	bl	0x4e8090 <_Znwm@plt>
+  2a2c3c:      	b	0x2a2c44 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1bf0>
+  2a2c5c:      	bl	0x4e8e10 <memcpy@plt>
+  2a2c68:      	cbz	x20, 0x2a2c74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1c20>
+  2a2c70:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a2c78:      	tbnz	w21, #0x0, 0x2a2cdc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1c88>
+  2a2c88:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2c9c:      	bl	0x2a6ecc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e78>
+  2a2cb0:      	bl	0x4e9830 <_ZN3nam4namb12BinaryWriter9write_u32Ej@plt>
+  2a2cbc:      	bl	0x2a1130 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xdc>
+  2a2cc8:      	bl	0x2a1cc0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc6c>
+  2a2cd0:      	cbz	x0, 0x2a2cdc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1c88>
+  2a2cd8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a2ce0:      	cbz	x8, 0x2a5e00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4dac>
+  2a2cfc:      	b	0x2a2d18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1cc4>
+  2a2d14:      	b.eq	0x2a5e00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4dac>
+  2a2d24:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2d2c:      	bl	0x4e9940 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixEm@plt>
+  2a2d3c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2d48:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a2d64:      	bl	0x4e9950 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIRiRA11_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISN_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESO_OSN_OST_@plt>
+  2a2d78:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2d84:      	cbz	w8, 0x2a2dc4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1d70>
+  2a2d8c:      	b.eq	0x2a2db0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1d5c>
+  2a2d94:      	b.ne	0x2a2dc0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1d6c>
+  2a2dac:      	b	0x2a2dc4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1d70>
+  2a2dbc:      	b	0x2a2dc4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1d70>
+  2a2dec:      	b.eq	0x2a2e1c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1dc8>
+  2a2df4:      	b.ne	0x2a2e88 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e34>
+  2a2e18:      	b	0x2a2ec4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e70>
+  2a2e24:      	cbz	x21, 0x2a2e78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e24>
+  2a2e3c:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a2e54:      	cbnz	x21, 0x2a2e34 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1de0>
+  2a2e5c:      	b.eq	0x2a2e78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e24>
+  2a2e6c:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a2e84:      	b	0x2a2e90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e3c>
+  2a2ea8:      	b.eq	0x2a2ec4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e70>
+  2a2eb0:      	b.ne	0x2a2ed4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e80>
+  2a2ec0:      	b	0x2a2edc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e88>
+  2a2ed0:      	b	0x2a2edc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1e88>
+  2a2ee4:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a2ee8:      	tbnz	w0, #0x0, 0x2a2f68 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1f14>
+  2a2ef8:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2f04:      	b.ne	0x2a2f68 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1f14>
+  2a2f14:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a2f34:      	cbz	w8, 0x2a50c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4070>
+  2a2f3c:      	b.eq	0x2a50a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4050>
+  2a2f44:      	b.ne	0x2a50dc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4088>
+  2a2f64:      	b	0x2a50bc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4068>
+  2a2f84:      	b.eq	0x2a2fa0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1f4c>
+  2a2f8c:      	b.ne	0x2a3008 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1fb4>
+  2a2f9c:      	b	0x2a3010 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1fbc>
+  2a2fa8:      	cbz	x21, 0x2a2ffc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1fa8>
+  2a2fc0:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a2fd8:      	cbnz	x21, 0x2a2fb8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1f64>
+  2a2fe0:      	b.eq	0x2a2ffc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1fa8>
+  2a2ff0:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a3004:      	b	0x2a3010 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1fbc>
+  2a302c:      	b.eq	0x2a3048 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1ff4>
+  2a3034:      	b.ne	0x2a3058 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2004>
+  2a3044:      	b	0x2a3060 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x200c>
+  2a3054:      	b	0x2a3060 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x200c>
+  2a3068:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a306c:      	tbnz	w0, #0x0, 0x2a67e0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x578c>
+  2a307c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3088:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a30a8:      	b.ls	0x2a30bc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2068>
+  2a30b4:      	bl	0x2aed18 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x8f4>
+  2a30b8:      	b	0x2a30cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2078>
+  2a30bc:      	b.hs	0x2a30cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2078>
+  2a30dc:      	b.ne	0x2a678c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5738>
+  2a30fc:      	b.eq	0x2a3118 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x20c4>
+  2a3104:      	b.ne	0x2a3180 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x212c>
+  2a3114:      	b	0x2a3188 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2134>
+  2a3120:      	cbz	x21, 0x2a3174 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2120>
+  2a3138:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a3150:      	cbnz	x21, 0x2a3130 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x20dc>
+  2a3158:      	b.eq	0x2a3174 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2120>
+  2a3168:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a317c:      	b	0x2a3188 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2134>
+  2a31a4:      	b.eq	0x2a31c0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x216c>
+  2a31ac:      	b.ne	0x2a31d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x217c>
+  2a31bc:      	b	0x2a31d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2184>
+  2a31cc:      	b	0x2a31d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2184>
+  2a31e0:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a31e4:      	tbnz	w0, #0x0, 0x2a3274 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2220>
+  2a31f4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a31fc:      	cbz	w8, 0x2a3274 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2220>
+  2a320c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a321c:      	bl	0x4e9960 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE2atIRA13_KcTnNS2_9enable_ifIXsr6detail32is_usable_as_basic_json_key_typeISE_T_EE5valueEiE4typeELi0EEERKSE_OSK_@plt>
+  2a3228:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a323c:      	bl	0x4e9970 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE2atIRA12_KcTnNS2_9enable_ifIXsr6detail32is_usable_as_basic_json_key_typeISE_T_EE5valueEiE4typeELi0EEERKSE_OSK_@plt>
+  2a3248:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a325c:      	bl	0x4e9980 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE2atIRA5_KcTnNS2_9enable_ifIXsr6detail32is_usable_as_basic_json_key_typeISE_T_EE5valueEiE4typeELi0EEERKSE_OSK_@plt>
+  2a3268:      	bl	0x4e98f0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_9boolean_tE@plt>
+  2a3270:      	b	0x2a33c0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x236c>
+  2a3290:      	b.eq	0x2a32ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2258>
+  2a3298:      	b.ne	0x2a3314 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x22c0>
+  2a32a8:      	b	0x2a331c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x22c8>
+  2a32b4:      	cbz	x21, 0x2a3308 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x22b4>
+  2a32cc:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a32e4:      	cbnz	x21, 0x2a32c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2270>
+  2a32ec:      	b.eq	0x2a3308 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x22b4>
+  2a32fc:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a3310:      	b	0x2a331c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x22c8>
+  2a3338:      	b.eq	0x2a3354 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2300>
+  2a3340:      	b.ne	0x2a3364 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2310>
+  2a3350:      	b	0x2a336c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2318>
+  2a3360:      	b	0x2a336c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2318>
+  2a3374:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a3378:      	tbnz	w0, #0x0, 0x2a6824 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x57d0>
+  2a3388:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3394:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a33a8:      	bl	0x4e9990 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE2atIRA10_KcTnNS2_9enable_ifIXsr6detail32is_usable_as_basic_json_key_typeISE_T_EE5valueEiE4typeELi0EEERKSE_OSK_@plt>
+  2a33b4:      	bl	0x4e98f0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_9boolean_tE@plt>
+  2a33cc:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a33d8:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a33e4:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a33f4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3400:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a340c:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a3418:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a3424:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a3430:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a343c:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a3448:      	b.hs	0x2a346c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2418>
+  2a345c:      	b.hs	0x2a34f8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x24a4>
+  2a3468:      	b	0x2a3574 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2520>
+  2a3478:      	b.mi	0x2a6754 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5700>
+  2a349c:      	cbz	x25, 0x2a34b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x245c>
+  2a34a4:      	bl	0x4e8090 <_Znwm@plt>
+  2a34ac:      	b	0x2a34b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2460>
+  2a34cc:      	bl	0x4e8e10 <memcpy@plt>
+  2a34d8:      	cbz	x23, 0x2a34e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2490>
+  2a34e0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a34f4:      	b.lo	0x2a3460 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x240c>
+  2a3504:      	b.mi	0x2a6754 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5700>
+  2a3528:      	cbz	x25, 0x2a353c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x24e8>
+  2a3530:      	bl	0x4e8090 <_Znwm@plt>
+  2a3538:      	b	0x2a3540 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x24ec>
+  2a355c:      	bl	0x4e8e10 <memcpy@plt>
+  2a3568:      	cbz	x23, 0x2a3574 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2520>
+  2a3570:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3590:      	bl	0x4e9910 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA13_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a35ac:      	bl	0x4e99a0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_@plt>
+  2a35bc:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a35c8:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a35e8:      	b.eq	0x2a3604 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x25b0>
+  2a35f0:      	b.ne	0x2a366c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2618>
+  2a3600:      	b	0x2a3674 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2620>
+  2a360c:      	cbz	x21, 0x2a3660 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x260c>
+  2a3624:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a363c:      	cbnz	x21, 0x2a361c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x25c8>
+  2a3644:      	b.eq	0x2a3660 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x260c>
+  2a3654:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a3668:      	b	0x2a3674 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2620>
+  2a3690:      	b.eq	0x2a36ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2658>
+  2a3698:      	b.ne	0x2a36bc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2668>
+  2a36a8:      	b	0x2a36c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2670>
+  2a36b8:      	b	0x2a36c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2670>
+  2a36cc:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a36d0:      	tbz	w0, #0x0, 0x2a36f0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x269c>
+  2a36e4:      	b.hs	0x2a3754 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2700>
+  2a36ec:      	b	0x2a37d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x277c>
+  2a36fc:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3708:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3714:      	bl	0x4e98f0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_9boolean_tE@plt>
+  2a3728:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3734:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3740:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a3750:      	b.lo	0x2a36e8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2694>
+  2a3760:      	b.mi	0x2a6690 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x563c>
+  2a3784:      	cbz	x26, 0x2a3798 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2744>
+  2a378c:      	bl	0x4e8090 <_Znwm@plt>
+  2a3794:      	b	0x2a379c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2748>
+  2a37b4:      	bl	0x4e8e10 <memcpy@plt>
+  2a37c0:      	cbz	x24, 0x2a37cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2778>
+  2a37c8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a37dc:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a37e8:      	b.hs	0x2a37f4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x27a0>
+  2a37f0:      	b	0x2a3870 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x281c>
+  2a3800:      	b.mi	0x2a6690 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x563c>
+  2a3824:      	cbz	x25, 0x2a3838 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x27e4>
+  2a382c:      	bl	0x4e8090 <_Znwm@plt>
+  2a3834:      	b	0x2a383c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x27e8>
+  2a3854:      	bl	0x4e8e10 <memcpy@plt>
+  2a3860:      	cbz	x23, 0x2a386c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2818>
+  2a3868:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3894:      	b.eq	0x2a38b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x285c>
+  2a389c:      	b.ne	0x2a3918 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x28c4>
+  2a38ac:      	b	0x2a3920 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x28cc>
+  2a38b8:      	cbz	x21, 0x2a390c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x28b8>
+  2a38d0:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a38e8:      	cbnz	x21, 0x2a38c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2874>
+  2a38f0:      	b.eq	0x2a390c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x28b8>
+  2a3900:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a3914:      	b	0x2a3920 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x28cc>
+  2a393c:      	b.eq	0x2a3958 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2904>
+  2a3944:      	b.ne	0x2a3968 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2914>
+  2a3954:      	b	0x2a3970 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x291c>
+  2a3964:      	b	0x2a3970 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x291c>
+  2a3978:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a397c:      	tbz	w0, #0x0, 0x2a399c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2948>
+  2a3990:      	b.hs	0x2a3a2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x29d8>
+  2a3998:      	b	0x2a3aa8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2a54>
+  2a39a8:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a39b4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a39c0:      	bl	0x4e98f0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_9boolean_tE@plt>
+  2a39d4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a39e0:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a39ec:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a3a00:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3a0c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a3a18:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a3a28:      	b.lo	0x2a3994 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2940>
+  2a3a38:      	b.mi	0x2a6770 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x571c>
+  2a3a5c:      	cbz	x22, 0x2a3a70 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2a1c>
+  2a3a64:      	bl	0x4e8090 <_Znwm@plt>
+  2a3a6c:      	b	0x2a3a74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2a20>
+  2a3a8c:      	bl	0x4e8e10 <memcpy@plt>
+  2a3a98:      	cbz	x24, 0x2a3aa4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2a50>
+  2a3aa0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3ab4:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a3ac0:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a3acc:      	b.hs	0x2a3ad8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2a84>
+  2a3ad4:      	b	0x2a3b54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2b00>
+  2a3ae4:      	b.mi	0x2a6770 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x571c>
+  2a3b08:      	cbz	x22, 0x2a3b1c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2ac8>
+  2a3b10:      	bl	0x4e8090 <_Znwm@plt>
+  2a3b18:      	b	0x2a3b20 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2acc>
+  2a3b38:      	bl	0x4e8e10 <memcpy@plt>
+  2a3b44:      	cbz	x23, 0x2a3b50 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2afc>
+  2a3b4c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3b60:      	bl	0x4e8fc0 <strlen@plt>
+  2a3b68:      	b.hs	0x2a66e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5690>
+  2a3b74:      	b.hs	0x2a3b8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2b38>
+  2a3b84:      	cbnz	x23, 0x2a3bbc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2b68>
+  2a3b88:      	b	0x2a3bd0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2b7c>
+  2a3ba8:      	bl	0x4e8090 <_Znwm@plt>
+  2a3bcc:      	bl	0x4e8e10 <memcpy@plt>
+  2a3be0:      	bl	0x2ae644 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a3be8:      	tbz	w8, #0x0, 0x2a3bf4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2ba0>
+  2a3bf0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3bfc:      	bl	0x4e8fc0 <strlen@plt>
+  2a3c04:      	b.hs	0x2a66ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5658>
+  2a3c10:      	b.hs	0x2a3c28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2bd4>
+  2a3c20:      	cbnz	x23, 0x2a3c58 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2c04>
+  2a3c24:      	b	0x2a3c6c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2c18>
+  2a3c44:      	bl	0x4e8090 <_Znwm@plt>
+  2a3c68:      	bl	0x4e8e10 <memcpy@plt>
+  2a3c7c:      	bl	0x2ae644 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a3c84:      	tbz	w8, #0x0, 0x2a3c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2c3c>
+  2a3c8c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3c98:      	bl	0x4e8fc0 <strlen@plt>
+  2a3ca0:      	b.hs	0x2a66c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5674>
+  2a3cac:      	b.hs	0x2a3cc4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2c70>
+  2a3cbc:      	cbnz	x23, 0x2a3cf4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2ca0>
+  2a3cc0:      	b	0x2a3d08 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2cb4>
+  2a3ce0:      	bl	0x4e8090 <_Znwm@plt>
+  2a3d04:      	bl	0x4e8e10 <memcpy@plt>
+  2a3d18:      	bl	0x2ae644 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a3d20:      	tbz	w8, #0x0, 0x2a3d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2cd8>
+  2a3d28:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3d34:      	bl	0x4e8fc0 <strlen@plt>
+  2a3d3c:      	b.hs	0x2a6738 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x56e4>
+  2a3d48:      	b.hs	0x2a3d60 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2d0c>
+  2a3d58:      	cbnz	x23, 0x2a3d90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2d3c>
+  2a3d5c:      	b	0x2a3da4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2d50>
+  2a3d7c:      	bl	0x4e8090 <_Znwm@plt>
+  2a3da0:      	bl	0x4e8e10 <memcpy@plt>
+  2a3db4:      	bl	0x2ae644 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a3dbc:      	tbz	w8, #0x0, 0x2a3dc8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2d74>
+  2a3dc4:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3dd0:      	bl	0x4e8fc0 <strlen@plt>
+  2a3dd8:      	b.hs	0x2a671c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x56c8>
+  2a3de4:      	b.hs	0x2a3dfc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2da8>
+  2a3df4:      	cbnz	x23, 0x2a3e2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2dd8>
+  2a3df8:      	b	0x2a3e40 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2dec>
+  2a3e18:      	bl	0x4e8090 <_Znwm@plt>
+  2a3e3c:      	bl	0x4e8e10 <memcpy@plt>
+  2a3e50:      	bl	0x2ae644 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a3e58:      	tbz	w8, #0x0, 0x2a3e64 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2e10>
+  2a3e60:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3e6c:      	bl	0x4e8fc0 <strlen@plt>
+  2a3e74:      	b.hs	0x2a67a8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5754>
+  2a3e80:      	b.hs	0x2a3e98 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2e44>
+  2a3e90:      	cbnz	x23, 0x2a3ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2e74>
+  2a3e94:      	b	0x2a3edc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2e88>
+  2a3eb4:      	bl	0x4e8090 <_Znwm@plt>
+  2a3ed8:      	bl	0x4e8e10 <memcpy@plt>
+  2a3eec:      	bl	0x2ae644 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a3ef4:      	tbz	w8, #0x0, 0x2a3f00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2eac>
+  2a3efc:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3f08:      	bl	0x4e8fc0 <strlen@plt>
+  2a3f10:      	b.hs	0x2a6674 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5620>
+  2a3f1c:      	b.hs	0x2a3f34 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2ee0>
+  2a3f2c:      	cbnz	x23, 0x2a3f64 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2f10>
+  2a3f30:      	b	0x2a3f78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2f24>
+  2a3f50:      	bl	0x4e8090 <_Znwm@plt>
+  2a3f74:      	bl	0x4e8e10 <memcpy@plt>
+  2a3f88:      	bl	0x2ae644 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a3f90:      	tbz	w8, #0x0, 0x2a3f9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2f48>
+  2a3f98:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a3fa4:      	bl	0x4e8fc0 <strlen@plt>
+  2a3fac:      	b.hs	0x2a6700 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x56ac>
+  2a3fb8:      	b.hs	0x2a3fd0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2f7c>
+  2a3fc8:      	cbnz	x23, 0x2a4000 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2fac>
+  2a3fcc:      	b	0x2a4014 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2fc0>
+  2a3fec:      	bl	0x4e8090 <_Znwm@plt>
+  2a4010:      	bl	0x4e8e10 <memcpy@plt>
+  2a4024:      	bl	0x2ae644 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a4030:      	tbz	w8, #0x0, 0x2a403c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2fe8>
+  2a4038:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a4054:      	cbz	w8, 0x2a40a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3050>
+  2a405c:      	b.eq	0x2a4084 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3030>
+  2a4064:      	b.ne	0x2a40bc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3068>
+  2a4080:      	b	0x2a409c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3048>
+  2a40a0:      	b	0x2a40e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3090>
+  2a40b8:      	b	0x2a40e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3090>
+  2a40cc:      	b	0x2a40e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3090>
+  2a40e0:      	b.ne	0x2a5e6c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4e18>
+  2a40ec:      	b.eq	0x2a4108 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x30b4>
+  2a40f4:      	b.ne	0x2a4118 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x30c4>
+  2a4100:      	b.ne	0x2a4124 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x30d0>
+  2a4104:      	b	0x2a4298 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3244>
+  2a4110:      	b.ne	0x2a4124 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x30d0>
+  2a4114:      	b	0x2a4298 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3244>
+  2a4120:      	b.eq	0x2a4298 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3244>
+  2a4128:      	bl	0x4e99b0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEdeEv@plt>
+  2a4134:      	b.gt	0x2a414c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x30f8>
+  2a413c:      	b.eq	0x2a41e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3190>
+  2a4144:      	b.eq	0x2a415c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3108>
+  2a4148:      	b	0x2a651c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x54c8>
+  2a4150:      	b.eq	0x2a4200 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x31ac>
+  2a4158:      	b.ne	0x2a651c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x54c8>
+  2a4170:      	b.hi	0x2a421c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x31c8>
+  2a4180:      	b.hs	0x2a4224 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x31d0>
+  2a4184:      	tbnz	x21, #0x3f, 0x2a6500 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x54ac>
+  2a41ac:      	bl	0x4e8090 <_Znwm@plt>
+  2a41c8:      	bl	0x4e8e10 <memcpy@plt>
+  2a41d4:      	cbz	x24, 0x2a422c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x31d8>
+  2a41dc:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a41e0:      	b	0x2a422c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x31d8>
+  2a41f8:      	b.ls	0x2a4174 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3120>
+  2a41fc:      	b	0x2a421c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x31c8>
+  2a4218:      	b.ls	0x2a4174 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3120>
+  2a4220:      	b	0x2a4228 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x31d4>
+  2a4244:      	b.eq	0x2a40d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x307c>
+  2a424c:      	b.ne	0x2a4288 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3234>
+  2a4258:      	cbz	x11, 0x2a426c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3218>
+  2a4264:      	cbnz	x11, 0x2a425c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3208>
+  2a4268:      	b	0x2a4280 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x322c>
+  2a427c:      	b.ne	0x2a426c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3218>
+  2a4284:      	b	0x2a40dc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3088>
+  2a4294:      	b	0x2a40dc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3088>
+  2a42a0:      	b.ne	0x2a433c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x32e8>
+  2a42b4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a42c0:      	b.ne	0x2a43cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3378>
+  2a42d0:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a42f0:      	cbz	w8, 0x2a45c0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x356c>
+  2a42f8:      	b.eq	0x2a45a0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x354c>
+  2a4300:      	b.ne	0x2a45d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3584>
+  2a431c:      	b	0x2a45b8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3564>
+  2a4338:      	b.eq	0x2a42a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3250>
+  2a4350:      	b.hi	0x2a4320 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x32cc>
+  2a4360:      	b.hs	0x2a43c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3370>
+  2a4364:      	tbnz	x21, #0x3f, 0x2a6598 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5544>
+  2a438c:      	bl	0x4e8090 <_Znwm@plt>
+  2a43a8:      	bl	0x4e8e10 <memcpy@plt>
+  2a43b4:      	cbz	x25, 0x2a4328 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x32d4>
+  2a43bc:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a43c0:      	b	0x2a4328 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x32d4>
+  2a43c8:      	b	0x2a4324 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x32d0>
+  2a43d0:      	cbz	x8, 0x2a46b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3660>
+  2a43e0:      	bl	0x4e8fc0 <strlen@plt>
+  2a43e8:      	b.hs	0x2a64c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5474>
+  2a43f4:      	b.hs	0x2a440c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x33b8>
+  2a4404:      	cbnz	x23, 0x2a443c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x33e8>
+  2a4408:      	b	0x2a4450 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x33fc>
+  2a4428:      	bl	0x4e8090 <_Znwm@plt>
+  2a444c:      	bl	0x4e8e10 <memcpy@plt>
+  2a445c:      	b.ne	0x2a5f08 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4eb4>
+  2a4468:      	cbz	x27, 0x2a4590 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x353c>
+  2a448c:      	b	0x2a449c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3448>
+  2a4498:      	cbz	x27, 0x2a4510 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x34bc>
+  2a44a0:      	tbz	w8, #0x0, 0x2a44d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3484>
+  2a44a8:      	tbz	w8, #0x0, 0x2a44e0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x348c>
+  2a44bc:      	bl	0x4e98d0 <memcmp@plt>
+  2a44c0:      	cbz	w0, 0x2a44f8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x34a4>
+  2a44c8:      	tbz	w8, #0x0, 0x2a4504 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x34b0>
+  2a44d0:      	tbnz	w8, #0x0, 0x2a4494 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3440>
+  2a44d4:      	b	0x2a4490 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x343c>
+  2a44dc:      	tbnz	w8, #0x0, 0x2a44ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3458>
+  2a44f0:      	bl	0x4e98d0 <memcmp@plt>
+  2a44f4:      	cbnz	w0, 0x2a44c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3470>
+  2a4500:      	tbnz	w8, #0x0, 0x2a44cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3478>
+  2a4508:      	tbnz	w8, #0x0, 0x2a4494 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3440>
+  2a450c:      	b	0x2a4490 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x343c>
+  2a4514:      	b.eq	0x2a4564 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3510>
+  2a4540:      	bl	0x4e98d0 <memcmp@plt>
+  2a4564:      	cbz	w24, 0x2a4570 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x351c>
+  2a456c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a4578:      	bl	0x2ab9c0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA7_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a4588:      	b.ne	0x2a43d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3384>
+  2a458c:      	b	0x2a46b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3660>
+  2a4598:      	cbnz	w24, 0x2a4568 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3514>
+  2a459c:      	b	0x2a4570 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x351c>
+  2a45bc:      	b	0x2a4600 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35ac>
+  2a45d4:      	b	0x2a4600 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35ac>
+  2a45e8:      	b	0x2a4600 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35ac>
+  2a45fc:      	b.ne	0x2a5ecc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4e78>
+  2a4608:      	b.eq	0x2a4624 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35d0>
+  2a4610:      	b.ne	0x2a4634 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35e0>
+  2a461c:      	b.ne	0x2a4640 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35ec>
+  2a4620:      	b	0x2a46b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3660>
+  2a462c:      	b.ne	0x2a4640 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35ec>
+  2a4630:      	b	0x2a46b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3660>
+  2a463c:      	b.eq	0x2a46b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3660>
+  2a4644:      	bl	0x4e99b0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEdeEv@plt>
+  2a4650:      	bl	0x2ab9c0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA7_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a4660:      	b.eq	0x2a45ec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3598>
+  2a4668:      	b.ne	0x2a46a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3650>
+  2a4674:      	cbz	x11, 0x2a4688 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3634>
+  2a4680:      	cbnz	x11, 0x2a4678 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3624>
+  2a4684:      	b	0x2a469c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3648>
+  2a4698:      	b.ne	0x2a4688 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3634>
+  2a46a0:      	b	0x2a45f8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35a4>
+  2a46b0:      	b	0x2a45f8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x35a4>
+  2a46d0:      	b.eq	0x2a46ec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3698>
+  2a46d8:      	b.ne	0x2a4754 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3700>
+  2a46e8:      	b	0x2a475c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3708>
+  2a46f4:      	cbz	x21, 0x2a4748 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x36f4>
+  2a470c:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a4724:      	cbnz	x21, 0x2a4704 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x36b0>
+  2a472c:      	b.eq	0x2a4748 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x36f4>
+  2a473c:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a4750:      	b	0x2a475c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3708>
+  2a4778:      	b.eq	0x2a4794 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3740>
+  2a4780:      	b.ne	0x2a47a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3750>
+  2a4790:      	b	0x2a47ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3758>
+  2a47a0:      	b	0x2a47ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3758>
+  2a47b4:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a47b8:      	tbz	w0, #0x0, 0x2a47f4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x37a0>
+  2a47d8:      	b.eq	0x2a4968 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3914>
+  2a47e0:      	b.ne	0x2a49d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x397c>
+  2a47f0:      	b	0x2a49d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3984>
+  2a4800:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a480c:      	b.ne	0x2a4870 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x381c>
+  2a481c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a483c:      	cbz	w8, 0x2a5288 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4234>
+  2a4844:      	b.eq	0x2a5264 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4210>
+  2a484c:      	b.ne	0x2a52a0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x424c>
+  2a486c:      	b	0x2a5280 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x422c>
+  2a487c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a488c:      	bl	0x4e9870 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_8string_tE@plt>
+  2a4894:      	bl	0x2aeae0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x6bc>
+  2a48a0:      	tbz	w8, #0x0, 0x2a48ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3858>
+  2a48a8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a48b0:      	cbz	x8, 0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a48bc:      	b	0x2a48d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x387c>
+  2a48cc:      	b.eq	0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a48d8:      	b.lo	0x2a48c0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x386c>
+  2a48e8:      	b.mi	0x2a6608 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x55b4>
+  2a490c:      	cbz	x22, 0x2a4920 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x38cc>
+  2a4914:      	bl	0x4e8090 <_Znwm@plt>
+  2a491c:      	b	0x2a4924 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x38d0>
+  2a493c:      	bl	0x4e8e10 <memcpy@plt>
+  2a4948:      	cbz	x24, 0x2a4954 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3900>
+  2a4950:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a4960:      	b.ne	0x2a48d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x387c>
+  2a4964:      	b	0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a4970:      	cbz	x21, 0x2a49c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3970>
+  2a4988:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a49a0:      	cbnz	x21, 0x2a4980 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x392c>
+  2a49a8:      	b.eq	0x2a49c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3970>
+  2a49b8:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a49cc:      	b	0x2a49d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3984>
+  2a49f4:      	b.eq	0x2a4a10 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x39bc>
+  2a49fc:      	b.ne	0x2a4a20 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x39cc>
+  2a4a0c:      	b	0x2a4a28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x39d4>
+  2a4a1c:      	b	0x2a4a28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x39d4>
+  2a4a30:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a4a34:      	tbz	w0, #0x0, 0x2a4af4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3aa0>
+  2a4a3c:      	cbz	x8, 0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a4a48:      	b	0x2a4a5c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3a08>
+  2a4a58:      	b.eq	0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a4a64:      	b.lo	0x2a4a4c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x39f8>
+  2a4a74:      	b.mi	0x2a6624 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x55d0>
+  2a4a98:      	cbz	x22, 0x2a4aac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3a58>
+  2a4aa0:      	bl	0x4e8090 <_Znwm@plt>
+  2a4aa8:      	b	0x2a4ab0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3a5c>
+  2a4ac8:      	bl	0x4e8e10 <memcpy@plt>
+  2a4ad4:      	cbz	x23, 0x2a4ae0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3a8c>
+  2a4adc:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a4aec:      	b.ne	0x2a4a5c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3a08>
+  2a4af0:      	b	0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a4b00:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a4b0c:      	bl	0x4e98f0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_9boolean_tE@plt>
+  2a4b14:      	cbz	x8, 0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a4b24:      	b	0x2a4b38 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3ae4>
+  2a4b34:      	b.eq	0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a4b40:      	b.lo	0x2a4b28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3ad4>
+  2a4b50:      	b.mi	0x2a6640 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x55ec>
+  2a4b74:      	cbz	x22, 0x2a4b88 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b34>
+  2a4b7c:      	bl	0x4e8090 <_Znwm@plt>
+  2a4b84:      	b	0x2a4b8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b38>
+  2a4ba4:      	bl	0x4e8e10 <memcpy@plt>
+  2a4bb0:      	cbz	x23, 0x2a4bbc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b68>
+  2a4bb8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a4bc8:      	b.ne	0x2a4b38 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3ae4>
+  2a4bf0:      	b.eq	0x2a4c0c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3bb8>
+  2a4bf8:      	b.ne	0x2a4c74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c20>
+  2a4c08:      	b	0x2a4c7c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c28>
+  2a4c14:      	cbz	x21, 0x2a4c68 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c14>
+  2a4c2c:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a4c44:      	cbnz	x21, 0x2a4c24 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3bd0>
+  2a4c4c:      	b.eq	0x2a4c68 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c14>
+  2a4c5c:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a4c70:      	b	0x2a4c7c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c28>
+  2a4c98:      	b.eq	0x2a4cb4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c60>
+  2a4ca0:      	b.ne	0x2a4cc4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c70>
+  2a4cb0:      	b	0x2a4ccc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c78>
+  2a4cc0:      	b	0x2a4ccc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c78>
+  2a4cd4:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a4cd8:      	tbz	w0, #0x0, 0x2a4d14 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3cc0>
+  2a4cf8:      	b.eq	0x2a4e40 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3dec>
+  2a4d00:      	b.ne	0x2a4ea8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3e54>
+  2a4d10:      	b	0x2a4eb0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3e5c>
+  2a4d20:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a4d2c:      	b.ne	0x2a4d90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3d3c>
+  2a4d3c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a4d5c:      	cbz	w8, 0x2a5474 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4420>
+  2a4d64:      	b.eq	0x2a5450 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x43fc>
+  2a4d6c:      	b.ne	0x2a548c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4438>
+  2a4d8c:      	b	0x2a546c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4418>
+  2a4d9c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a4dac:      	bl	0x4e9870 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_8string_tE@plt>
+  2a4db4:      	bl	0x2aeae0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x6bc>
+  2a4dc0:      	tbz	w8, #0x0, 0x2a4dcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3d78>
+  2a4dc8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a4ddc:      	b.ls	0x2a5068 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4014>
+  2a4dec:      	b.hs	0x2a5640 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x45ec>
+  2a4df4:      	tbnz	x27, #0x3f, 0x2a6998 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5944>
+  2a4e1c:      	bl	0x4e8090 <_Znwm@plt>
+  2a4e34:      	bl	0x4e8190 <memset@plt>
+  2a4e3c:      	b	0x2a503c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3fe8>
+  2a4e48:      	cbz	x21, 0x2a4e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3e48>
+  2a4e60:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a4e78:      	cbnz	x21, 0x2a4e58 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3e04>
+  2a4e80:      	b.eq	0x2a4e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3e48>
+  2a4e90:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a4ea4:      	b	0x2a4eb0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3e5c>
+  2a4ecc:      	b.eq	0x2a4ee8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3e94>
+  2a4ed4:      	b.ne	0x2a4ef8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3ea4>
+  2a4ee4:      	b	0x2a4f00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3eac>
+  2a4ef4:      	b	0x2a4f00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3eac>
+  2a4f08:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a4f0c:      	tbz	w0, #0x0, 0x2a4fa8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3f54>
+  2a4f20:      	b.ls	0x2a5068 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4014>
+  2a4f30:      	b.hs	0x2a5444 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x43f0>
+  2a4f38:      	tbnz	x10, #0x3f, 0x2a69d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x597c>
+  2a4f60:      	bl	0x4e8090 <_Znwm@plt>
+  2a4f78:      	bl	0x4e8190 <memset@plt>
+  2a4f90:      	bl	0x4e8e10 <memcpy@plt>
+  2a4fa0:      	cbnz	x23, 0x2a505c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4008>
+  2a4fa4:      	b	0x2a5654 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4600>
+  2a4fb4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a4fc0:      	bl	0x4e98f0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_9boolean_tE@plt>
+  2a4fd4:      	b.ls	0x2a5068 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4014>
+  2a4fe8:      	b.hs	0x2a5630 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x45dc>
+  2a4ff0:      	tbnz	x10, #0x3f, 0x2a69b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5960>
+  2a5018:      	bl	0x4e8090 <_Znwm@plt>
+  2a5030:      	bl	0x4e8190 <memset@plt>
+  2a5048:      	bl	0x4e8e10 <memcpy@plt>
+  2a5058:      	cbz	x23, 0x2a5654 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4600>
+  2a5060:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5064:      	b	0x2a5654 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4600>
+  2a5068:      	b.hs	0x2a5078 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4024>
+  2a507c:      	cbnz	x8, 0x2a5654 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4600>
+  2a5084:      	cbz	x0, 0x2a5090 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x403c>
+  2a508c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5094:      	cbz	x0, 0x2a2d00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1cac>
+  2a509c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a50a0:      	b	0x2a2d00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1cac>
+  2a50c0:      	b	0x2a5104 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40b0>
+  2a50d8:      	b	0x2a5104 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40b0>
+  2a50ec:      	b	0x2a5104 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40b0>
+  2a5100:      	b.ne	0x2a5f58 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4f04>
+  2a510c:      	b.eq	0x2a5128 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40d4>
+  2a5114:      	b.ne	0x2a513c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40e8>
+  2a5120:      	b.ne	0x2a5148 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40f4>
+  2a5124:      	b	0x2a30cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2078>
+  2a5134:      	b.ne	0x2a5148 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40f4>
+  2a5138:      	b	0x2a30cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2078>
+  2a5144:      	b.eq	0x2a30cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2078>
+  2a514c:      	bl	0x4e99b0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEdeEv@plt>
+  2a5158:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a5168:      	b.hs	0x2a5174 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4120>
+  2a5170:      	b	0x2a51fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x41a8>
+  2a5188:      	cbnz	x10, 0x2a65b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5560>
+  2a51ac:      	cbz	x21, 0x2a51c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4174>
+  2a51b4:      	cbnz	x8, 0x2a665c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5608>
+  2a51bc:      	bl	0x4e8090 <_Znwm@plt>
+  2a51c4:      	b	0x2a51cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4178>
+  2a51e4:      	bl	0x4e8e10 <memcpy@plt>
+  2a51f0:      	cbz	x26, 0x2a51fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x41a8>
+  2a51f8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5210:      	b.eq	0x2a50f0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x409c>
+  2a5218:      	b.ne	0x2a5254 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4200>
+  2a5224:      	cbz	x11, 0x2a5238 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x41e4>
+  2a5230:      	cbnz	x11, 0x2a5228 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x41d4>
+  2a5234:      	b	0x2a524c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x41f8>
+  2a5248:      	b.ne	0x2a5238 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x41e4>
+  2a5250:      	b	0x2a50fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40a8>
+  2a5260:      	b	0x2a50fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x40a8>
+  2a5284:      	b	0x2a52c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4274>
+  2a529c:      	b	0x2a52c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4274>
+  2a52b0:      	b	0x2a52c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4274>
+  2a52c4:      	b.ne	0x2a6048 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4ff4>
+  2a52d0:      	b.eq	0x2a52f0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x429c>
+  2a52d8:      	b.ne	0x2a5304 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x42b0>
+  2a52e8:      	b.ne	0x2a5310 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x42bc>
+  2a52ec:      	b	0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a52fc:      	b.ne	0x2a5310 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x42bc>
+  2a5300:      	b	0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a530c:      	b.eq	0x2a4bcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3b78>
+  2a5314:      	bl	0x4e99b0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEdeEv@plt>
+  2a5324:      	bl	0x4e9870 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_8string_tE@plt>
+  2a532c:      	bl	0x2aeae0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x6bc>
+  2a533c:      	b.hs	0x2a53a8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4354>
+  2a534c:      	tbz	w8, #0x0, 0x2a5358 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4304>
+  2a5354:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5364:      	b.eq	0x2a52b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4260>
+  2a536c:      	b.ne	0x2a53ec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4398>
+  2a5378:      	cbz	x11, 0x2a538c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4338>
+  2a5384:      	cbnz	x11, 0x2a537c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4328>
+  2a5388:      	b	0x2a53a0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x434c>
+  2a539c:      	b.ne	0x2a538c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4338>
+  2a53a4:      	b	0x2a52c0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x426c>
+  2a53b4:      	b.mi	0x2a65d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x557c>
+  2a53d8:      	cbz	x22, 0x2a53fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x43a8>
+  2a53e0:      	bl	0x4e8090 <_Znwm@plt>
+  2a53e8:      	b	0x2a5400 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x43ac>
+  2a53f8:      	b	0x2a52c0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x426c>
+  2a5418:      	bl	0x4e8e10 <memcpy@plt>
+  2a5424:      	cbz	x25, 0x2a5430 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x43dc>
+  2a542c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a543c:      	tbnz	w8, #0x0, 0x2a5350 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x42fc>
+  2a5440:      	b	0x2a5358 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4304>
+  2a544c:      	b	0x2a5638 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x45e4>
+  2a5470:      	b	0x2a54b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4460>
+  2a5488:      	b	0x2a54b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4460>
+  2a549c:      	b	0x2a54b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4460>
+  2a54b0:      	b.ne	0x2a6084 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5030>
+  2a54bc:      	b.eq	0x2a54dc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4488>
+  2a54c4:      	b.ne	0x2a54f0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x449c>
+  2a54d4:      	b.ne	0x2a54fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x44a8>
+  2a54d8:      	b	0x2a5078 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4024>
+  2a54e8:      	b.ne	0x2a54fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x44a8>
+  2a54ec:      	b	0x2a5078 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4024>
+  2a54f8:      	b.eq	0x2a5078 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4024>
+  2a5500:      	bl	0x4e99b0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEdeEv@plt>
+  2a5510:      	bl	0x4e9870 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_8string_tE@plt>
+  2a5518:      	bl	0x2aeae0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x6bc>
+  2a5528:      	b.hs	0x2a5594 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4540>
+  2a5538:      	tbz	w8, #0x0, 0x2a5544 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x44f0>
+  2a5540:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5550:      	b.eq	0x2a54a0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x444c>
+  2a5558:      	b.ne	0x2a55d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4584>
+  2a5564:      	cbz	x11, 0x2a5578 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4524>
+  2a5570:      	cbnz	x11, 0x2a5568 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4514>
+  2a5574:      	b	0x2a558c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4538>
+  2a5588:      	b.ne	0x2a5578 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4524>
+  2a5590:      	b	0x2a54ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4458>
+  2a55a0:      	b.mi	0x2a65ec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5598>
+  2a55c4:      	cbz	x22, 0x2a55e8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4594>
+  2a55cc:      	bl	0x4e8090 <_Znwm@plt>
+  2a55d4:      	b	0x2a55ec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4598>
+  2a55e4:      	b	0x2a54ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4458>
+  2a5604:      	bl	0x4e8e10 <memcpy@plt>
+  2a5610:      	cbz	x25, 0x2a561c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x45c8>
+  2a5618:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5628:      	tbnz	w8, #0x0, 0x2a553c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x44e8>
+  2a562c:      	b	0x2a5544 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x44f0>
+  2a563c:      	b	0x2a564c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x45f8>
+  2a564c:      	bl	0x4e8190 <memset@plt>
+  2a5658:      	b	0x2a5674 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4620>
+  2a5670:      	b.eq	0x2a5080 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x402c>
+  2a567c:      	cbz	w8, 0x2a56fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x46a8>
+  2a5688:      	b.eq	0x2a5710 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x46bc>
+  2a5690:      	b.ne	0x2a5788 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4734>
+  2a56ac:      	b.eq	0x2a5a2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x49d8>
+  2a56b4:      	b.ne	0x2a57a0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x474c>
+  2a56c4:      	b.eq	0x2a57a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4750>
+  2a56d0:      	bl	0x4e8fc0 <strlen@plt>
+  2a56d8:      	b.hs	0x2a64e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5490>
+  2a56e4:      	b.hs	0x2a5810 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x47bc>
+  2a56f4:      	cbnz	x24, 0x2a5840 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x47ec>
+  2a56f8:      	b	0x2a5854 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4800>
+  2a5704:      	b.hs	0x2a57cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4778>
+  2a570c:      	b	0x2a5a74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4a20>
+  2a5718:      	cbz	x21, 0x2a5a14 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x49c0>
+  2a5730:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a5748:      	cbnz	x21, 0x2a5728 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x46d4>
+  2a5750:      	b.eq	0x2a5a14 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x49c0>
+  2a5760:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a5780:      	b.ne	0x2a56b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x465c>
+  2a5784:      	b	0x2a5a2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x49d8>
+  2a5798:      	b.ne	0x2a56b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x465c>
+  2a579c:      	b	0x2a5a2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x49d8>
+  2a57a0:      	tbz	w10, #0x0, 0x2a56c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4674>
+  2a57ac:      	b.hs	0x2a59d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x497c>
+  2a57c4:      	b.lo	0x2a565c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4608>
+  2a57c8:      	b	0x2a5b10 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4abc>
+  2a57d8:      	b.mi	0x2a64ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5458>
+  2a57fc:      	cbz	x22, 0x2a5a40 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x49ec>
+  2a5804:      	bl	0x4e8090 <_Znwm@plt>
+  2a580c:      	b	0x2a5a44 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x49f0>
+  2a582c:      	bl	0x4e8090 <_Znwm@plt>
+  2a5850:      	bl	0x4e8e10 <memcpy@plt>
+  2a5860:      	b.ne	0x2a5f30 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4edc>
+  2a586c:      	cbz	x27, 0x2a59c0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x496c>
+  2a5890:      	b	0x2a58a0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x484c>
+  2a589c:      	cbz	x27, 0x2a5914 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x48c0>
+  2a58a4:      	tbz	w8, #0x0, 0x2a58dc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4888>
+  2a58ac:      	tbz	w8, #0x0, 0x2a58e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4890>
+  2a58c0:      	bl	0x4e98d0 <memcmp@plt>
+  2a58c4:      	cbz	w0, 0x2a58fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x48a8>
+  2a58cc:      	tbz	w8, #0x0, 0x2a5908 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x48b4>
+  2a58d4:      	tbnz	w8, #0x0, 0x2a5898 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4844>
+  2a58d8:      	b	0x2a5894 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4840>
+  2a58e0:      	tbnz	w8, #0x0, 0x2a58b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x485c>
+  2a58f4:      	bl	0x4e98d0 <memcmp@plt>
+  2a58f8:      	cbnz	w0, 0x2a58c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4874>
+  2a5904:      	tbnz	w8, #0x0, 0x2a58d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x487c>
+  2a590c:      	tbnz	w8, #0x0, 0x2a5898 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4844>
+  2a5910:      	b	0x2a5894 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4840>
+  2a5918:      	b.eq	0x2a5968 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4914>
+  2a5944:      	bl	0x4e98d0 <memcmp@plt>
+  2a5968:      	cbz	w22, 0x2a5974 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4920>
+  2a5970:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a597c:      	b.ne	0x2a59a0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x494c>
+  2a598c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a5994:      	bl	0x4e9940 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixEm@plt>
+  2a599c:      	b	0x2a59b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4960>
+  2a59ac:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a59b8:      	bl	0x2ab9c0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA7_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a59bc:      	b	0x2a5664 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4610>
+  2a59c8:      	cbnz	w22, 0x2a596c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4918>
+  2a59cc:      	b	0x2a5974 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4920>
+  2a59dc:      	b.mi	0x2a64ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5458>
+  2a5a00:      	cbz	x22, 0x2a5ac4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4a70>
+  2a5a08:      	bl	0x4e8090 <_Znwm@plt>
+  2a5a10:      	b	0x2a5ac8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4a74>
+  2a5a28:      	b.ne	0x2a56b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x465c>
+  2a5a38:      	b.ne	0x2a56c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4674>
+  2a5a3c:      	b	0x2a57a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4750>
+  2a5a5c:      	bl	0x4e8e10 <memcpy@plt>
+  2a5a68:      	cbz	x24, 0x2a5a74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4a20>
+  2a5a70:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5a80:      	b.lo	0x2a565c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4608>
+  2a5a90:      	b.mi	0x2a64ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5458>
+  2a5ab4:      	cbz	x22, 0x2a5b54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4b00>
+  2a5abc:      	bl	0x4e8090 <_Znwm@plt>
+  2a5ac0:      	b	0x2a5b4c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4af8>
+  2a5ae4:      	bl	0x4e8e10 <memcpy@plt>
+  2a5af0:      	cbz	x24, 0x2a5afc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4aa8>
+  2a5af8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5b0c:      	b.lo	0x2a565c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4608>
+  2a5b1c:      	b.mi	0x2a64ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5458>
+  2a5b40:      	cbz	x22, 0x2a5b54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4b00>
+  2a5b48:      	bl	0x4e8090 <_Znwm@plt>
+  2a5b50:      	b	0x2a5b58 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4b04>
+  2a5b70:      	bl	0x4e8e10 <memcpy@plt>
+  2a5b7c:      	cbz	x24, 0x2a5660 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x460c>
+  2a5b84:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5b88:      	b	0x2a5660 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x460c>
+  2a5bac:      	bl	0x4e8e10 <memcpy@plt>
+  2a5bb8:      	cbz	x24, 0x2a5bc4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4b70>
+  2a5bc0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5bd0:      	b.hs	0x2a5be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4b8c>
+  2a5bdc:      	b	0x2a5ca4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4c50>
+  2a5bec:      	b.mi	0x2a67c4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5770>
+  2a5c10:      	cbz	x25, 0x2a5c6c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4c18>
+  2a5c18:      	bl	0x4e8090 <_Znwm@plt>
+  2a5c20:      	b	0x2a5c70 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4c1c>
+  2a5c40:      	bl	0x4e8e10 <memcpy@plt>
+  2a5c4c:      	cbz	x21, 0x2a5c58 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4c04>
+  2a5c54:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5c64:      	bl	0x4e9840 <_ZN3nam4namb12BinaryWriter9write_u16Et@plt>
+  2a5c68:      	b	0x2a5e00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4dac>
+  2a5c8c:      	bl	0x4e8e10 <memcpy@plt>
+  2a5c98:      	cbz	x23, 0x2a5ca4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4c50>
+  2a5ca0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5cb4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a5cc0:      	bl	0x2ab9c0 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA7_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x220>
+  2a5cd4:      	cbz	w8, 0x2a5d38 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4ce4>
+  2a5cdc:      	b.eq	0x2a5d10 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4cbc>
+  2a5ce4:      	b.ne	0x2a5d44 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4cf0>
+  2a5d0c:      	b	0x2a5d54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d00>
+  2a5d34:      	b	0x2a5d54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d00>
+  2a5d40:      	b	0x2a5d48 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4cf4>
+  2a5d5c:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a5d60:      	tbnz	w0, #0x0, 0x2a5e00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4dac>
+  2a5d68:      	bl	0x4e99b0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEdeEv@plt>
+  2a5d74:      	bl	0x4e98e0 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEiTnNS4_9enable_ifIXaaaaaaaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_17number_unsigned_tEEE5valuentsr3std7is_sameISI_NSJ_16number_integer_tEEE5valuentsr3std7is_sameISI_NSJ_14number_float_tEEE5valuentsr3std7is_sameISI_NSJ_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a5d80:      	bl	0x4e9920 <_ZN3nam4namb12BinaryWriter9write_i32Ei@plt>
+  2a5d90:      	b.eq	0x2a5dd4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d80>
+  2a5d98:      	b.ne	0x2a5de4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d90>
+  2a5da4:      	cbz	x10, 0x2a5db8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d64>
+  2a5db0:      	cbnz	x10, 0x2a5da8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d54>
+  2a5db4:      	b	0x2a5dcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d78>
+  2a5dc8:      	b.ne	0x2a5db8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d64>
+  2a5dd0:      	b	0x2a5df0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d9c>
+  2a5de0:      	b	0x2a5df0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d9c>
+  2a5df8:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a5dfc:      	tbz	w0, #0x0, 0x2a5d64 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4d10>
+  2a5e18:      	b.hs	0x2a68e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5890>
+  2a5e2c:      	tbz	w8, #0x0, 0x2a5e38 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4de4>
+  2a5e34:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a5e48:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a5e70:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a5e80:      	bl	0x4e8fc0 <strlen@plt>
+  2a5e88:      	b.lo	0x2a5ea8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4e54>
+  2a5e9c:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a5ea4:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a5eb0:      	b.hs	0x2a5f94 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4f40>
+  2a5ec4:      	cbnz	x19, 0x2a5fc4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4f70>
+  2a5ec8:      	b	0x2a5fd8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4f84>
+  2a5ed0:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a5ee0:      	bl	0x4e8fc0 <strlen@plt>
+  2a5ee8:      	b.lo	0x2a6024 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4fd0>
+  2a5efc:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a5f04:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a5f0c:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a5f1c:      	b.hi	0x2a60c0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x506c>
+  2a5f2c:      	b	0x2a60c8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5074>
+  2a5f34:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a5f44:      	b.hi	0x2a6160 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x510c>
+  2a5f54:      	b	0x2a6168 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5114>
+  2a5f5c:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a5f6c:      	bl	0x4e8fc0 <strlen@plt>
+  2a5f74:      	b.lo	0x2a6200 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x51ac>
+  2a5f88:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a5f90:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a5fb0:      	bl	0x4e8090 <_Znwm@plt>
+  2a5fd4:      	bl	0x4e8e10 <memcpy@plt>
+  2a5ff0:      	bl	0x4e99c0 <_ZN8nlohmann16json_abi_v3_12_06detail16invalid_iterator6createIPKNS0_10basic_jsonINSt6__ndk13mapENS5_6vectorENS5_12basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEblmdSB_NS0_14adl_serializerENS7_IhNSB_IhEEEEvEETnNS5_9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSD_SL_@plt>
+  2a6004:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6020:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a602c:      	b.hs	0x2a6224 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x51d0>
+  2a6040:      	cbnz	x19, 0x2a6254 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5200>
+  2a6044:      	b	0x2a6268 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5214>
+  2a604c:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a605c:      	bl	0x4e8fc0 <strlen@plt>
+  2a6064:      	b.lo	0x2a62b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5260>
+  2a6078:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6080:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a6088:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a6098:      	bl	0x4e8fc0 <strlen@plt>
+  2a60a0:      	b.lo	0x2a62d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5284>
+  2a60b4:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a60bc:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a60d8:      	bl	0x4e8fc0 <strlen@plt>
+  2a60e8:      	bl	0x4e99d0 <__strlen_chk@plt>
+  2a60f8:      	bl	0x4e99e0 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7reserveEm@plt>
+  2a6108:      	bl	0x4e9410 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc@plt>
+  2a6114:      	bl	0x4e9410 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc@plt>
+  2a612c:      	bl	0x4e99f0 <_ZN8nlohmann16json_abi_v3_12_06detail10type_error6createIPKNS0_10basic_jsonINSt6__ndk13mapENS5_6vectorENS5_12basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEblmdSB_NS0_14adl_serializerENS7_IhNSB_IhEEEEvEETnNS5_9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSD_SL_@plt>
+  2a6140:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a615c:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a6178:      	bl	0x4e8fc0 <strlen@plt>
+  2a6188:      	bl	0x4e99d0 <__strlen_chk@plt>
+  2a6198:      	bl	0x4e99e0 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7reserveEm@plt>
+  2a61a8:      	bl	0x4e9410 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc@plt>
+  2a61b4:      	bl	0x4e9410 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendEPKc@plt>
+  2a61cc:      	bl	0x4e99f0 <_ZN8nlohmann16json_abi_v3_12_06detail10type_error6createIPKNS0_10basic_jsonINSt6__ndk13mapENS5_6vectorENS5_12basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEblmdSB_NS0_14adl_serializerENS7_IhNSB_IhEEEEvEETnNS5_9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSD_SL_@plt>
+  2a61e0:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a61fc:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a6208:      	b.hs	0x2a62fc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x52a8>
+  2a621c:      	cbnz	x19, 0x2a632c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x52d8>
+  2a6220:      	b	0x2a6340 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x52ec>
+  2a6240:      	bl	0x4e8090 <_Znwm@plt>
+  2a6264:      	bl	0x4e8e10 <memcpy@plt>
+  2a6280:      	bl	0x4e99c0 <_ZN8nlohmann16json_abi_v3_12_06detail16invalid_iterator6createIPKNS0_10basic_jsonINSt6__ndk13mapENS5_6vectorENS5_12basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEblmdSB_NS0_14adl_serializerENS7_IhNSB_IhEEEEvEETnNS5_9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSD_SL_@plt>
+  2a6294:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a62b0:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a62bc:      	b.hs	0x2a638c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5338>
+  2a62d0:      	cbnz	x19, 0x2a63bc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5368>
+  2a62d4:      	b	0x2a63d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x537c>
+  2a62e0:      	b.hs	0x2a641c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x53c8>
+  2a62f4:      	cbnz	x19, 0x2a644c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x53f8>
+  2a62f8:      	b	0x2a6460 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x540c>
+  2a6318:      	bl	0x4e8090 <_Znwm@plt>
+  2a633c:      	bl	0x4e8e10 <memcpy@plt>
+  2a6358:      	bl	0x4e99c0 <_ZN8nlohmann16json_abi_v3_12_06detail16invalid_iterator6createIPKNS0_10basic_jsonINSt6__ndk13mapENS5_6vectorENS5_12basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEblmdSB_NS0_14adl_serializerENS7_IhNSB_IhEEEEvEETnNS5_9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSD_SL_@plt>
+  2a636c:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6388:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a63a8:      	bl	0x4e8090 <_Znwm@plt>
+  2a63cc:      	bl	0x4e8e10 <memcpy@plt>
+  2a63e8:      	bl	0x4e99c0 <_ZN8nlohmann16json_abi_v3_12_06detail16invalid_iterator6createIPKNS0_10basic_jsonINSt6__ndk13mapENS5_6vectorENS5_12basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEblmdSB_NS0_14adl_serializerENS7_IhNSB_IhEEEEvEETnNS5_9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSD_SL_@plt>
+  2a63fc:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6418:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a6438:      	bl	0x4e8090 <_Znwm@plt>
+  2a645c:      	bl	0x4e8e10 <memcpy@plt>
+  2a6478:      	bl	0x4e99c0 <_ZN8nlohmann16json_abi_v3_12_06detail16invalid_iterator6createIPKNS0_10basic_jsonINSt6__ndk13mapENS5_6vectorENS5_12basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEblmdSB_NS0_14adl_serializerENS7_IhNSB_IhEEEEvEETnNS5_9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSD_SL_@plt>
+  2a648c:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a64a8:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a64bc:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a64c4:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a64d8:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a64e0:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a64f4:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a64fc:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a6510:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6518:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a6524:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a6534:      	bl	0x4e9a00 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE9type_nameEv@plt>
+  2a654c:      	bl	0x4e9a10 <_ZN8nlohmann16json_abi_v3_12_06detail6concatINSt6__ndk112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEEJRA29_KcPSA_EEET_DpOT0_@plt>
+  2a6564:      	bl	0x4e99f0 <_ZN8nlohmann16json_abi_v3_12_06detail10type_error6createIPKNS0_10basic_jsonINSt6__ndk13mapENS5_6vectorENS5_12basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEEblmdSB_NS0_14adl_serializerENS7_IhNSB_IhEEEEvEETnNS5_9enable_ifIXsr21is_basic_json_contextIT_EE5valueEiE4typeELi0EEES2_iRKSD_SL_@plt>
+  2a6578:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6594:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a65a8:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a65b0:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a65c4:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a65cc:      	bl	0x2aed04 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvE5valueIiRA19_KciTnNS2_9enable_ifIXaaaaaaaaL_ZNS2_17integral_constantIbLb1EE5valueEEntsr6detail15is_json_pointerIT0_EE5valuesr29is_comparable_with_object_keyISM_EE5valuesr6detail10is_getableISE_T1_EE5valuentsr3std7is_sameINS0_6detail7value_tENS2_9remove_cvINS2_16remove_referenceIT_E4typeEE4typeEEE5valueEiE4typeELi0EEESN_OSM_OSS_+0x8e0>
+  2a65e0:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a65e8:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a65fc:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6604:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a6618:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6620:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a6634:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a663c:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a6650:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6658:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a666c:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6670:      	bl	0x28e310 <_ZNSt6__ndk110__function6__funcIZN18JuceMidiFilePlayer20PlayWithTrackBuffersERNS_3mapIiN4juce10MidiBufferENS_4lessIiEENS_9allocatorINS_4pairIKiS5_EEEEEEiEUlRKNS4_11MidiMessageEiE_NS8_ISI_EEFvSH_iEED0Ev+0x98>
+  2a6684:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a668c:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a66a0:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a66a8:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a66bc:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a66c4:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a66d8:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a66e0:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a66f4:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a66fc:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a6710:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6718:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a672c:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6734:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a6748:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6750:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a6764:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a676c:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a6780:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6788:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a6790:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a67a0:      	bl	0x4e9a20 <_ZNSt13runtime_errorC1EPKc@plt>
+  2a67a4:      	b	0x2a67f8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x57a4>
+  2a67b8:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a67c0:      	bl	0x29d970 <_ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6appendB8ne190000IPKcTnNS_9enable_ifIXsr31__has_forward_iterator_categoryIT_EE5valueEiE4typeELi0EEERS5_SA_SA_+0x294>
+  2a67d4:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a67dc:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a67e4:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a67f4:      	bl	0x4e9a20 <_ZNSt13runtime_errorC1EPKc@plt>
+  2a6808:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6820:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a6828:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a6838:      	bl	0x4e9a20 <_ZNSt13runtime_errorC1EPKc@plt>
+  2a684c:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6864:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a686c:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a6884:      	bl	0x4e9a40 <_ZNSt6__ndk1plIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_12basic_stringIT_T0_T1_EEPKS6_RKS9_@plt>
+  2a6894:      	bl	0x4e9a50 <_ZNSt13runtime_errorC1ERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE@plt>
+  2a68a8:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a68c4:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a68d8:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a68e0:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a68e8:      	bl	0x4e8ba0 <__cxa_allocate_exception@plt>
+  2a68f8:      	bl	0x4e9a20 <_ZNSt13runtime_errorC1EPKc@plt>
+  2a690c:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6924:      	bl	0x4e8bc0 <__cxa_throw@plt>
+  2a6938:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6940:      	bl	0x2b0984 <_ZN8nlohmann16json_abi_v3_12_06detail20get_arithmetic_valueINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEdTnNS4_9enable_ifIXaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_+0x150>
+  2a6954:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a695c:      	bl	0x2b0984 <_ZN8nlohmann16json_abi_v3_12_06detail20get_arithmetic_valueINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEdTnNS4_9enable_ifIXaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_+0x150>
+  2a6970:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6978:      	bl	0x2b0984 <_ZN8nlohmann16json_abi_v3_12_06detail20get_arithmetic_valueINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEdTnNS4_9enable_ifIXaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_+0x150>
+  2a698c:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6994:      	bl	0x2b0984 <_ZN8nlohmann16json_abi_v3_12_06detail20get_arithmetic_valueINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEdTnNS4_9enable_ifIXaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_+0x150>
+  2a69a8:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a69b0:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a69c4:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a69cc:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a69e0:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a69e8:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a69ec:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a69f0:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a69f4:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a69f8:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6a04:      	bl	0x4e96c0 <_ZNSt6__ndk16localeD1Ev@plt>
+  2a6a08:      	b	0x2a6e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e48>
+  2a6a0c:      	bl	0x2848ac <_ZN12HTDrumDeviceD2Ev+0x54>
+  2a6a10:      	bl	0x2848ac <_ZN12HTDrumDeviceD2Ev+0x54>
+  2a6a14:      	b	0x2a6cd0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5c7c>
+  2a6a18:      	b	0x2a6aa0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5a4c>
+  2a6a24:      	cbz	x8, 0x2a6e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e48>
+  2a6a30:      	b	0x2a6e98 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e44>
+  2a6a34:      	bl	0x2848ac <_ZN12HTDrumDeviceD2Ev+0x54>
+  2a6a38:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6a3c:      	b	0x2a6a44 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x59f0>
+  2a6a40:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6a4c:      	tbz	w8, #0x0, 0x2a6e28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dd4>
+  2a6a54:      	b	0x2a6e24 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dd0>
+  2a6a5c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6a64:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6a68:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6a6c:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6a74:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6a78:      	bl	0x2848ac <_ZN12HTDrumDeviceD2Ev+0x54>
+  2a6a84:      	tbnz	w8, #0x0, 0x2a6a90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5a3c>
+  2a6a88:      	cbnz	w21, 0x2a6aa4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5a50>
+  2a6a8c:      	b	0x2a6e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e48>
+  2a6a94:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6a98:      	tbnz	w21, #0x0, 0x2a6aa4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5a50>
+  2a6a9c:      	b	0x2a6e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e48>
+  2a6aa8:      	bl	0x4e8e20 <__cxa_free_exception@plt>
+  2a6aac:      	b	0x2a6e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e48>
+  2a6ab0:      	b	0x2a6e80 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e2c>
+  2a6ab4:      	b	0x2a6e80 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e2c>
+  2a6ab8:      	b	0x2a6cd0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5c7c>
+  2a6ac4:      	tbnz	w8, #0x0, 0x2a6ea4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e50>
+  2a6ac8:      	b	0x2a6eac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e58>
+  2a6acc:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6ad4:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6adc:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6ae4:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6aec:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6af4:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6afc:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b04:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b0c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b14:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b1c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b24:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b28:      	b	0x2a6e80 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e2c>
+  2a6b2c:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6b30:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6b38:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b40:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b44:      	b	0x2a6cd0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5c7c>
+  2a6b4c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b50:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6b58:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b60:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b68:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b70:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b74:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6b7c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b80:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6b84:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6b8c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6b90:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6b98:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6ba0:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6ba8:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6bb0:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6bb4:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6bb8:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6bc0:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6bc8:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6bcc:      	b	0x2a6be0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5b8c>
+  2a6bd4:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6bdc:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6be8:      	tbz	w8, #0x0, 0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6bf0:      	b	0x2a6e60 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e0c>
+  2a6bf8:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c00:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c08:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c10:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c18:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c20:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c28:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c30:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c38:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c40:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c48:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c50:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c58:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c5c:      	b	0x2a6cf8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5ca4>
+  2a6c64:      	b	0x2a6e54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e00>
+  2a6c70:      	tbz	w8, #0x0, 0x2a6e78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e24>
+  2a6c74:      	b	0x2a6dec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5d98>
+  2a6c78:      	b	0x2a6e80 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e2c>
+  2a6c80:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c88:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c90:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6c94:      	b	0x2a6cd0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5c7c>
+  2a6c9c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6ca0:      	b	0x2a6cd0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5c7c>
+  2a6ca4:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6cb0:      	tbnz	w8, #0x0, 0x2a6e20 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dcc>
+  2a6cb4:      	b	0x2a6e28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dd4>
+  2a6cc0:      	tbnz	w8, #0x0, 0x2a6e5c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e08>
+  2a6cc4:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6ccc:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6cd4:      	b	0x2a6e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e48>
+  2a6cdc:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6ce4:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6cec:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6cf4:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6cfc:      	b	0x2a6e18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dc4>
+  2a6d04:      	b	0x2a6e54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e00>
+  2a6d0c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6d14:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6d1c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6d20:      	b	0x2a6d2c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cd8>
+  2a6d28:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6d30:      	b	0x2a6e28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dd4>
+  2a6d38:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6d44:      	tbnz	w8, #0x0, 0x2a6d50 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5cfc>
+  2a6d48:      	cbnz	w22, 0x2a6e10 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dbc>
+  2a6d4c:      	b	0x2a6e18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dc4>
+  2a6d54:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6d58:      	tbnz	w22, #0x0, 0x2a6e10 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dbc>
+  2a6d5c:      	b	0x2a6e18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dc4>
+  2a6d68:      	tbnz	w8, #0x0, 0x2a6d74 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5d20>
+  2a6d6c:      	cbnz	w22, 0x2a6e4c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5df8>
+  2a6d70:      	b	0x2a6e54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e00>
+  2a6d78:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6d7c:      	tbnz	w22, #0x0, 0x2a6e4c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5df8>
+  2a6d80:      	b	0x2a6e54 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e00>
+  2a6d8c:      	tbnz	w8, #0x0, 0x2a6d98 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5d44>
+  2a6d90:      	cbnz	w21, 0x2a6dcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5d78>
+  2a6d94:      	b	0x2a6e28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dd4>
+  2a6d9c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6da0:      	tbnz	w21, #0x0, 0x2a6dcc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5d78>
+  2a6da4:      	b	0x2a6e28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dd4>
+  2a6db0:      	tbz	w8, #0x0, 0x2a6e78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e24>
+  2a6db4:      	b	0x2a6dec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5d98>
+  2a6dc0:      	tbnz	w8, #0x0, 0x2a6dec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5d98>
+  2a6dc4:      	b	0x2a6e78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e24>
+  2a6dd0:      	bl	0x4e8e20 <__cxa_free_exception@plt>
+  2a6dd4:      	b	0x2a6e28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dd4>
+  2a6dd8:      	b	0x2a6e80 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e2c>
+  2a6ddc:      	b	0x2a6e80 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e2c>
+  2a6de8:      	tbz	w8, #0x0, 0x2a6e78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e24>
+  2a6df0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6df4:      	tbnz	w21, #0x0, 0x2a6e84 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e30>
+  2a6df8:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6e04:      	tbz	w8, #0x0, 0x2a6e10 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dbc>
+  2a6e0c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6e14:      	bl	0x4e8e20 <__cxa_free_exception@plt>
+  2a6e1c:      	tbz	w8, #0x0, 0x2a6e28 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5dd4>
+  2a6e24:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6e2c:      	cbz	x0, 0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6e34:      	b	0x2a6e60 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e0c>
+  2a6e40:      	tbz	w8, #0x0, 0x2a6e4c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5df8>
+  2a6e48:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6e50:      	bl	0x4e8e20 <__cxa_free_exception@plt>
+  2a6e58:      	tbz	w8, #0x0, 0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6e60:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6e64:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6e68:      	b	0x2a6e80 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e2c>
+  2a6e74:      	tbnz	w8, #0x0, 0x2a6dec <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5d98>
+  2a6e78:      	cbnz	w21, 0x2a6e84 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e30>
+  2a6e7c:      	b	0x2a6e8c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e38>
+  2a6e88:      	bl	0x4e8e20 <__cxa_free_exception@plt>
+  2a6e90:      	cbz	x0, 0x2a6e9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e48>
+  2a6e98:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6ea0:      	tbz	w8, #0x0, 0x2a6eac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e58>
+  2a6ea8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a6ebc:      	b.ne	0x2a6ec8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5e74>
+  2a6ec4:      	bl	0x4e4324 <_ZN4oboe14getVersionTextEv+0x8c4>
+  2a6ec8:      	bl	0x4e8010 <__stack_chk_fail@plt>

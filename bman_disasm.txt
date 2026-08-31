@@ -1,0 +1,810 @@
+
+/home/maja/.copilot/session-state/43d0287e-0534-4b31-91c7-f02bc2f55015/files/platform-extracted/android-libs/1787626658582.Valeton_Suite_V2.1.0_for_Android/lib/arm64-v8a/lib5868USB.so:	file format elf64-littleaarch64
+
+Disassembly of section .text:
+
+00000000002a1054 <_ZN3nam4namb12BinaryWriter9write_u16Et>:
+  2a10f0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a10f4:      	b	0x2a1108 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb4>
+  2a10f8:      	add	x8, x22, x25
+  2a10fc:      	b	0x2a1104 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb0>
+  2a1100:      	strh	wzr, [x8], #0x2
+  2a1104:      	str	x8, [x19, #0x8]
+  2a1108:      	ldr	x8, [x19]
+  2a110c:      	strh	w20, [x8, x21]
+  2a1110:      	ldp	x20, x19, [sp, #0x40]
+  2a1114:      	ldr	x25, [sp, #0x10]
+  2a1118:      	ldp	x22, x21, [sp, #0x30]
+  2a111c:      	ldp	x24, x23, [sp, #0x20]
+  2a1120:      	ldp	x29, x30, [sp], #0x50
+  2a1124:      	ret
+  2a1128:      	mov	x0, x19
+  2a112c:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a1130:      	sub	sp, sp, #0xe0
+  2a1134:      	str	d10, [sp, #0x70]
+  2a1138:      	stp	d9, d8, [sp, #0x78]
+  2a113c:      	stp	x29, x30, [sp, #0x88]
+  2a1140:      	str	x27, [sp, #0x98]
+  2a1144:      	stp	x26, x25, [sp, #0xa0]
+  2a1148:      	stp	x24, x23, [sp, #0xb0]
+  2a114c:      	stp	x22, x21, [sp, #0xc0]
+  2a1150:      	stp	x20, x19, [sp, #0xd0]
+  2a1154:      	add	x29, sp, #0x88
+  2a1158:      	mrs	x25, TPIDR_EL0
+  2a115c:      	mov	x20, x1
+  2a1160:      	mov	x19, x0
+  2a1164:      	ldr	x8, [x25, #0x28]
+  2a1168:      	adrp	x1, 0x13c000
+  2a116c:      	add	x1, x1, #0xa4a
+  2a1170:      	mov	x0, x20
+  2a1174:      	stur	x8, [x29, #-0x20]
+  2a1178:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a117c:      	stp	xzr, xzr, [x29, #-0x30]
+  2a1180:      	stur	xzr, [x29, #-0x38]
+  2a1184:      	sub	x1, x29, #0x38
+  2a1188:      	sub	x21, x29, #0x38
+  2a118c:      	bl	0x4e9870 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_8string_tE@plt>
+  2a1190:      	ldurb	w8, [x29, #-0x38]
+  2a1194:      	ldur	x9, [x29, #-0x28]
+  2a1198:      	adrp	x1, 0x139000
+  2a119c:      	add	x1, x1, #0xb5c
+  2a11a0:      	sub	x2, x29, #0x3c
+  2a11a4:      	sub	x3, x29, #0x40
+  2a11a8:      	tst	w8, #0x1
+  2a11ac:      	add	x4, sp, #0x44
+  2a11b0:      	stur	xzr, [x29, #-0x40]
+  2a11b4:      	csinc	x0, x9, x21, ne
+  2a11b8:      	str	wzr, [sp, #0x44]
+  2a11bc:      	bl	0x4e9880 <sscanf@plt>
+  2a11c0:      	ldp	x26, x8, [x19, #0x8]
+  2a11c4:      	ldur	w27, [x29, #-0x3c]
+  2a11c8:      	cmp	x26, x8
+  2a11cc:      	b.hs	0x2a11d8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x184>
+  2a11d0:      	strb	w27, [x26], #0x1
+  2a11d4:      	b	0x2a1250 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1fc>
+  2a11d8:      	ldr	x21, [x19]
+  2a11dc:      	sub	x22, x26, x21
+  2a11e0:      	adds	x9, x22, #0x1
+  2a11e4:      	b.mi	0x2a1c18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xbc4>
+  2a11e8:      	sub	x8, x8, x21
+  2a11ec:      	mov	x11, #0x3fffffffffffffff // =4611686018427387903
+  2a11f0:      	lsl	x10, x8, #1
+  2a11f4:      	cmp	x10, x9
+  2a11f8:      	csel	x9, x10, x9, hi
+  2a11fc:      	cmp	x8, x11
+  2a1200:      	mov	x8, #0x7fffffffffffffff // =9223372036854775807
+  2a1204:      	csel	x23, x9, x8, lo
+  2a1208:      	cbz	x23, 0x2a121c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1c8>
+  2a120c:      	mov	x0, x23
+  2a1210:      	bl	0x4e8090 <_Znwm@plt>
+  2a1214:      	mov	x24, x0
+  2a1218:      	b	0x2a1220 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1cc>
+  2a121c:      	mov	x24, xzr
+  2a1220:      	add	x26, x24, x22
+  2a1224:      	mov	x0, x24
+  2a1228:      	mov	x1, x21
+  2a122c:      	mov	x2, x22
+  2a1230:      	add	x23, x24, x23
+  2a1234:      	strb	w27, [x26], #0x1
+  2a1238:      	bl	0x4e8e10 <memcpy@plt>
+  2a123c:      	stp	x24, x26, [x19]
+  2a1240:      	str	x23, [x19, #0x10]
+  2a1244:      	cbz	x21, 0x2a1250 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x1fc>
+  2a1248:      	mov	x0, x21
+  2a124c:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a1250:      	ldr	x8, [x19, #0x10]
+  2a1254:      	ldur	w27, [x29, #-0x40]
+  2a1258:      	str	x26, [x19, #0x8]
+  2a125c:      	cmp	x26, x8
+  2a1260:      	b.hs	0x2a126c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x218>
+  2a1264:      	strb	w27, [x26], #0x1
+  2a1268:      	b	0x2a12e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x290>
+  2a126c:      	ldr	x21, [x19]
+  2a1270:      	sub	x22, x26, x21
+  2a1274:      	adds	x9, x22, #0x1
+  2a1278:      	b.mi	0x2a1c18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xbc4>
+  2a127c:      	sub	x8, x8, x21
+  2a1280:      	mov	x11, #0x3fffffffffffffff // =4611686018427387903
+  2a1284:      	lsl	x10, x8, #1
+  2a1288:      	cmp	x10, x9
+  2a128c:      	csel	x9, x10, x9, hi
+  2a1290:      	cmp	x8, x11
+  2a1294:      	mov	x8, #0x7fffffffffffffff // =9223372036854775807
+  2a1298:      	csel	x23, x9, x8, lo
+  2a129c:      	cbz	x23, 0x2a12b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x25c>
+  2a12a0:      	mov	x0, x23
+  2a12a4:      	bl	0x4e8090 <_Znwm@plt>
+  2a12a8:      	mov	x24, x0
+  2a12ac:      	b	0x2a12b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x260>
+  2a12b0:      	mov	x24, xzr
+  2a12b4:      	add	x26, x24, x22
+  2a12b8:      	mov	x0, x24
+  2a12bc:      	mov	x1, x21
+  2a12c0:      	mov	x2, x22
+  2a12c4:      	add	x23, x24, x23
+  2a12c8:      	strb	w27, [x26], #0x1
+  2a12cc:      	bl	0x4e8e10 <memcpy@plt>
+  2a12d0:      	stp	x24, x26, [x19]
+  2a12d4:      	str	x23, [x19, #0x10]
+  2a12d8:      	cbz	x21, 0x2a12e4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x290>
+  2a12dc:      	mov	x0, x21
+  2a12e0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a12e4:      	ldr	x8, [x19, #0x10]
+  2a12e8:      	ldr	w27, [sp, #0x44]
+  2a12ec:      	str	x26, [x19, #0x8]
+  2a12f0:      	cmp	x26, x8
+  2a12f4:      	b.hs	0x2a1300 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2ac>
+  2a12f8:      	strb	w27, [x26], #0x1
+  2a12fc:      	b	0x2a1378 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x324>
+  2a1300:      	ldr	x21, [x19]
+  2a1304:      	sub	x22, x26, x21
+  2a1308:      	adds	x9, x22, #0x1
+  2a130c:      	b.mi	0x2a1c18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xbc4>
+  2a1310:      	sub	x8, x8, x21
+  2a1314:      	mov	x11, #0x3fffffffffffffff // =4611686018427387903
+  2a1318:      	lsl	x10, x8, #1
+  2a131c:      	cmp	x10, x9
+  2a1320:      	csel	x9, x10, x9, hi
+  2a1324:      	cmp	x8, x11
+  2a1328:      	mov	x8, #0x7fffffffffffffff // =9223372036854775807
+  2a132c:      	csel	x23, x9, x8, lo
+  2a1330:      	cbz	x23, 0x2a1344 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2f0>
+  2a1334:      	mov	x0, x23
+  2a1338:      	bl	0x4e8090 <_Znwm@plt>
+  2a133c:      	mov	x24, x0
+  2a1340:      	b	0x2a1348 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x2f4>
+  2a1344:      	mov	x24, xzr
+  2a1348:      	add	x26, x24, x22
+  2a134c:      	mov	x0, x24
+  2a1350:      	mov	x1, x21
+  2a1354:      	mov	x2, x22
+  2a1358:      	add	x23, x24, x23
+  2a135c:      	strb	w27, [x26], #0x1
+  2a1360:      	bl	0x4e8e10 <memcpy@plt>
+  2a1364:      	stp	x24, x26, [x19]
+  2a1368:      	str	x23, [x19, #0x10]
+  2a136c:      	cbz	x21, 0x2a1378 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x324>
+  2a1370:      	mov	x0, x21
+  2a1374:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a1378:      	str	x26, [x19, #0x8]
+  2a137c:      	mov	x9, #-0x8000000000000000 // =-9223372036854775808
+  2a1380:      	ldrb	w8, [x20]
+  2a1384:      	stp	x20, xzr, [sp, #0x20]
+  2a1388:      	stp	xzr, x9, [sp, #0x30]
+  2a138c:      	cmp	w8, #0x1
+  2a1390:      	b.eq	0x2a13b8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x364>
+  2a1394:      	cmp	w8, #0x2
+  2a1398:      	b.ne	0x2a1448 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3f4>
+  2a139c:      	ldr	x8, [x20, #0x8]
+  2a13a0:      	ldr	x8, [x8, #0x8]
+  2a13a4:      	stp	x20, xzr, [sp]
+  2a13a8:      	str	x8, [sp, #0x30]
+  2a13ac:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a13b0:      	stp	xzr, x8, [sp, #0x10]
+  2a13b4:      	b	0x2a1464 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x410>
+  2a13b8:      	ldr	x22, [x20, #0x8]
+  2a13bc:      	ldr	x24, [x22, #0x8]!
+  2a13c0:      	cbz	x24, 0x2a1414 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c0>
+  2a13c4:      	adrp	x21, 0x139000
+  2a13c8:      	add	x21, x21, #0x440
+  2a13cc:      	mov	x23, x22
+  2a13d0:      	add	x0, x24, #0x20
+  2a13d4:      	mov	x1, x21
+  2a13d8:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a13dc:      	lsr	w8, w0, #28
+  2a13e0:      	cmp	w0, #0x0
+  2a13e4:      	csel	x23, x23, x24, lt
+  2a13e8:      	and	x8, x8, #0x8
+  2a13ec:      	ldr	x24, [x24, x8]
+  2a13f0:      	cbnz	x24, 0x2a13d0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x37c>
+  2a13f4:      	cmp	x23, x22
+  2a13f8:      	b.eq	0x2a1414 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3c0>
+  2a13fc:      	adrp	x1, 0x139000
+  2a1400:      	add	x1, x1, #0x440
+  2a1404:      	add	x0, x23, #0x20
+  2a1408:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a140c:      	cmp	w0, #0x0
+  2a1410:      	csel	x22, x22, x23, gt
+  2a1414:      	ldrb	w8, [x20]
+  2a1418:      	str	x22, [sp, #0x28]
+  2a141c:      	mov	x9, #-0x8000000000000000 // =-9223372036854775808
+  2a1420:      	cmp	w8, #0x2
+  2a1424:      	stp	x20, xzr, [sp]
+  2a1428:      	stp	xzr, x9, [sp, #0x10]
+  2a142c:      	b.eq	0x2a1464 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x410>
+  2a1430:      	cmp	w8, #0x1
+  2a1434:      	b.ne	0x2a1474 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x420>
+  2a1438:      	ldr	x8, [x20, #0x8]
+  2a143c:      	add	x8, x8, #0x8
+  2a1440:      	str	x8, [sp, #0x8]
+  2a1444:      	b	0x2a147c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x428>
+  2a1448:      	mov	w9, #0x1                // =1
+  2a144c:      	str	x9, [sp, #0x38]
+  2a1450:      	mov	x9, #-0x8000000000000000 // =-9223372036854775808
+  2a1454:      	cmp	w8, #0x2
+  2a1458:      	stp	x20, xzr, [sp]
+  2a145c:      	stp	xzr, x9, [sp, #0x10]
+  2a1460:      	b.ne	0x2a1430 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x3dc>
+  2a1464:      	ldr	x8, [x20, #0x8]
+  2a1468:      	ldr	x8, [x8, #0x8]
+  2a146c:      	str	x8, [sp, #0x10]
+  2a1470:      	b	0x2a147c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x428>
+  2a1474:      	mov	w8, #0x1                // =1
+  2a1478:      	str	x8, [sp, #0x18]
+  2a147c:      	add	x0, sp, #0x20
+  2a1480:      	mov	x1, sp
+  2a1484:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a1488:      	tbz	w0, #0x0, 0x2a149c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x448>
+  2a148c:      	movi	d9, #0000000000000000
+  2a1490:      	movi	d10, #0000000000000000
+  2a1494:      	movi	d8, #0000000000000000
+  2a1498:      	b	0x2a151c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4c8>
+  2a149c:      	adrp	x1, 0x139000
+  2a14a0:      	add	x1, x1, #0x440
+  2a14a4:      	mov	x0, x20
+  2a14a8:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a14ac:      	movi	d8, #0000000000000000
+  2a14b0:      	ldrb	w8, [x0]
+  2a14b4:      	cbz	w8, 0x2a1514 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4c0>
+  2a14b8:      	adrp	x1, 0x139000
+  2a14bc:      	add	x1, x1, #0x440
+  2a14c0:      	mov	x0, x20
+  2a14c4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a14c8:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a14cc:      	stp	x0, xzr, [sp, #0x20]
+  2a14d0:      	mov	x21, x0
+  2a14d4:      	stp	xzr, x8, [sp, #0x30]
+  2a14d8:      	ldrb	w8, [x0]
+  2a14dc:      	cmp	w8, #0x1
+  2a14e0:      	b.eq	0x2a180c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x7b8>
+  2a14e4:      	cmp	w8, #0x2
+  2a14e8:      	b.ne	0x2a189c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x848>
+  2a14ec:      	ldr	x8, [x21, #0x8]
+  2a14f0:      	ldr	x8, [x8, #0x8]
+  2a14f4:      	str	x8, [sp, #0x30]
+  2a14f8:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a14fc:      	stp	x21, xzr, [sp]
+  2a1500:      	stp	xzr, x8, [sp, #0x10]
+  2a1504:      	ldrb	w8, [x21]
+  2a1508:      	cmp	w8, #0x2
+  2a150c:      	b.ne	0x2a1884 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x830>
+  2a1510:      	b	0x2a18bc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x868>
+  2a1514:      	movi	d9, #0000000000000000
+  2a1518:      	movi	d10, #0000000000000000
+  2a151c:      	mov	w26, wzr
+  2a1520:      	ldp	x27, x8, [x19, #0x8]
+  2a1524:      	cmp	x27, x8
+  2a1528:      	b.hs	0x2a1534 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4e0>
+  2a152c:      	strb	w26, [x27], #0x1
+  2a1530:      	b	0x2a15ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x558>
+  2a1534:      	ldr	x21, [x19]
+  2a1538:      	sub	x22, x27, x21
+  2a153c:      	adds	x9, x22, #0x1
+  2a1540:      	b.mi	0x2a1c30 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xbdc>
+  2a1544:      	sub	x8, x8, x21
+  2a1548:      	mov	x11, #0x3fffffffffffffff // =4611686018427387903
+  2a154c:      	lsl	x10, x8, #1
+  2a1550:      	cmp	x10, x9
+  2a1554:      	csel	x9, x10, x9, hi
+  2a1558:      	cmp	x8, x11
+  2a155c:      	mov	x8, #0x7fffffffffffffff // =9223372036854775807
+  2a1560:      	csel	x23, x9, x8, lo
+  2a1564:      	cbz	x23, 0x2a1578 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x524>
+  2a1568:      	mov	x0, x23
+  2a156c:      	bl	0x4e8090 <_Znwm@plt>
+  2a1570:      	mov	x24, x0
+  2a1574:      	b	0x2a157c <_ZN3nam4namb12BinaryWriter9write_u16Et+0x528>
+  2a1578:      	mov	x24, xzr
+  2a157c:      	add	x27, x24, x22
+  2a1580:      	mov	x0, x24
+  2a1584:      	mov	x1, x21
+  2a1588:      	mov	x2, x22
+  2a158c:      	add	x23, x24, x23
+  2a1590:      	strb	w26, [x27], #0x1
+  2a1594:      	bl	0x4e8e10 <memcpy@plt>
+  2a1598:      	stp	x24, x27, [x19]
+  2a159c:      	str	x23, [x19, #0x10]
+  2a15a0:      	cbz	x21, 0x2a15ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x558>
+  2a15a4:      	mov	x0, x21
+  2a15a8:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a15ac:      	str	x27, [x19, #0x8]
+  2a15b0:      	mov	x9, #-0x8000000000000000 // =-9223372036854775808
+  2a15b4:      	ldrb	w8, [x20]
+  2a15b8:      	stp	x20, xzr, [sp, #0x20]
+  2a15bc:      	stp	xzr, x9, [sp, #0x30]
+  2a15c0:      	cmp	w8, #0x1
+  2a15c4:      	b.eq	0x2a15e8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x594>
+  2a15c8:      	cmp	w8, #0x2
+  2a15cc:      	b.ne	0x2a1678 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x624>
+  2a15d0:      	ldr	x8, [x20, #0x8]
+  2a15d4:      	ldr	x8, [x8, #0x8]
+  2a15d8:      	stp	x20, xzr, [sp]
+  2a15dc:      	str	x9, [sp, #0x18]
+  2a15e0:      	str	x8, [sp, #0x30]
+  2a15e4:      	b	0x2a1694 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x640>
+  2a15e8:      	ldr	x22, [x20, #0x8]
+  2a15ec:      	ldr	x24, [x22, #0x8]!
+  2a15f0:      	cbz	x24, 0x2a1644 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5f0>
+  2a15f4:      	adrp	x21, 0x134000
+  2a15f8:      	add	x21, x21, #0x29c
+  2a15fc:      	mov	x23, x22
+  2a1600:      	add	x0, x24, #0x20
+  2a1604:      	mov	x1, x21
+  2a1608:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a160c:      	lsr	w8, w0, #28
+  2a1610:      	cmp	w0, #0x0
+  2a1614:      	csel	x23, x23, x24, lt
+  2a1618:      	and	x8, x8, #0x8
+  2a161c:      	ldr	x24, [x24, x8]
+  2a1620:      	cbnz	x24, 0x2a1600 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5ac>
+  2a1624:      	cmp	x23, x22
+  2a1628:      	b.eq	0x2a1644 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x5f0>
+  2a162c:      	adrp	x1, 0x134000
+  2a1630:      	add	x1, x1, #0x29c
+  2a1634:      	add	x0, x23, #0x20
+  2a1638:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a163c:      	cmp	w0, #0x0
+  2a1640:      	csel	x22, x22, x23, gt
+  2a1644:      	ldrb	w8, [x20]
+  2a1648:      	str	x22, [sp, #0x28]
+  2a164c:      	mov	x9, #-0x8000000000000000 // =-9223372036854775808
+  2a1650:      	cmp	w8, #0x2
+  2a1654:      	stp	x20, xzr, [sp]
+  2a1658:      	stp	xzr, x9, [sp, #0x10]
+  2a165c:      	b.eq	0x2a1694 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x640>
+  2a1660:      	cmp	w8, #0x1
+  2a1664:      	b.ne	0x2a16a4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x650>
+  2a1668:      	ldr	x8, [x20, #0x8]
+  2a166c:      	add	x8, x8, #0x8
+  2a1670:      	str	x8, [sp, #0x8]
+  2a1674:      	b	0x2a16ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x658>
+  2a1678:      	mov	w9, #0x1                // =1
+  2a167c:      	str	x9, [sp, #0x38]
+  2a1680:      	mov	x9, #-0x8000000000000000 // =-9223372036854775808
+  2a1684:      	cmp	w8, #0x2
+  2a1688:      	stp	x20, xzr, [sp]
+  2a168c:      	stp	xzr, x9, [sp, #0x10]
+  2a1690:      	b.ne	0x2a1660 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x60c>
+  2a1694:      	ldr	x8, [x20, #0x8]
+  2a1698:      	ldr	x8, [x8, #0x8]
+  2a169c:      	str	x8, [sp, #0x10]
+  2a16a0:      	b	0x2a16ac <_ZN3nam4namb12BinaryWriter9write_u16Et+0x658>
+  2a16a4:      	mov	w8, #0x1                // =1
+  2a16a8:      	str	x8, [sp, #0x18]
+  2a16ac:      	add	x0, sp, #0x20
+  2a16b0:      	mov	x1, sp
+  2a16b4:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a16b8:      	fmov	d0, #-1.00000000
+  2a16bc:      	tbnz	w0, #0x0, 0x2a16e0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x68c>
+  2a16c0:      	adrp	x1, 0x134000
+  2a16c4:      	add	x1, x1, #0x29c
+  2a16c8:      	mov	x0, x20
+  2a16cc:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a16d0:      	str	xzr, [sp, #0x20]
+  2a16d4:      	add	x1, sp, #0x20
+  2a16d8:      	bl	0x4e98b0 <_ZN8nlohmann16json_abi_v3_12_06detail20get_arithmetic_valueINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEdTnNS4_9enable_ifIXaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a16dc:      	ldr	d0, [sp, #0x20]
+  2a16e0:      	mov	x0, x19
+  2a16e4:      	bl	0x4e98c0 <_ZN3nam4namb12BinaryWriter9write_f64Ed@plt>
+  2a16e8:      	fmov	d0, d9
+  2a16ec:      	mov	x0, x19
+  2a16f0:      	bl	0x4e98c0 <_ZN3nam4namb12BinaryWriter9write_f64Ed@plt>
+  2a16f4:      	fmov	d0, d10
+  2a16f8:      	mov	x0, x19
+  2a16fc:      	bl	0x4e98c0 <_ZN3nam4namb12BinaryWriter9write_f64Ed@plt>
+  2a1700:      	fmov	d0, d8
+  2a1704:      	mov	x0, x19
+  2a1708:      	bl	0x4e98c0 <_ZN3nam4namb12BinaryWriter9write_f64Ed@plt>
+  2a170c:      	ldp	x20, x8, [x19]
+  2a1710:      	sub	x21, x8, x20
+  2a1714:      	cmn	x21, #0xd
+  2a1718:      	add	x24, x21, #0xc
+  2a171c:      	b.hi	0x2a17a0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x74c>
+  2a1720:      	ldr	x9, [x19, #0x10]
+  2a1724:      	sub	x10, x9, x8
+  2a1728:      	cmp	x10, #0xc
+  2a172c:      	b.hs	0x2a17f0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x79c>
+  2a1730:      	tbnz	x24, #0x3f, 0x2a1c48 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xbf4>
+  2a1734:      	sub	x8, x9, x20
+  2a1738:      	mov	x10, #0x3fffffffffffffff // =4611686018427387903
+  2a173c:      	lsl	x9, x8, #1
+  2a1740:      	cmp	x9, x24
+  2a1744:      	csel	x9, x9, x24, hi
+  2a1748:      	cmp	x8, x10
+  2a174c:      	mov	x8, #0x7fffffffffffffff // =9223372036854775807
+  2a1750:      	csel	x23, x9, x8, lo
+  2a1754:      	mov	x0, x23
+  2a1758:      	bl	0x4e8090 <_Znwm@plt>
+  2a175c:      	add	x8, x0, x21
+  2a1760:      	mov	x1, x20
+  2a1764:      	mov	x2, x21
+  2a1768:      	mov	x22, x0
+  2a176c:      	str	wzr, [x8, #0x8]
+  2a1770:      	add	x23, x0, x23
+  2a1774:      	str	xzr, [x8]
+  2a1778:      	add	x24, x0, x24
+  2a177c:      	bl	0x4e8e10 <memcpy@plt>
+  2a1780:      	stp	x22, x24, [x19]
+  2a1784:      	str	x23, [x19, #0x10]
+  2a1788:      	cbz	x20, 0x2a17a8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x754>
+  2a178c:      	mov	x0, x20
+  2a1790:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a1794:      	ldurb	w8, [x29, #-0x38]
+  2a1798:      	tbnz	w8, #0x0, 0x2a17b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x75c>
+  2a179c:      	b	0x2a17b8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x764>
+  2a17a0:      	add	x8, x20, x24
+  2a17a4:      	str	x8, [x19, #0x8]
+  2a17a8:      	ldurb	w8, [x29, #-0x38]
+  2a17ac:      	tbz	w8, #0x0, 0x2a17b8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x764>
+  2a17b0:      	ldur	x0, [x29, #-0x28]
+  2a17b4:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a17b8:      	ldr	x8, [x25, #0x28]
+  2a17bc:      	ldur	x9, [x29, #-0x20]
+  2a17c0:      	cmp	x8, x9
+  2a17c4:      	b.ne	0x2a1cbc <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc68>
+  2a17c8:      	ldp	x20, x19, [sp, #0xd0]
+  2a17cc:      	ldr	x27, [sp, #0x98]
+  2a17d0:      	ldp	x22, x21, [sp, #0xc0]
+  2a17d4:      	ldr	d10, [sp, #0x70]
+  2a17d8:      	ldp	x24, x23, [sp, #0xb0]
+  2a17dc:      	ldp	x26, x25, [sp, #0xa0]
+  2a17e0:      	ldp	x29, x30, [sp, #0x88]
+  2a17e4:      	ldp	d9, d8, [sp, #0x78]
+  2a17e8:      	add	sp, sp, #0xe0
+  2a17ec:      	ret
+  2a17f0:      	add	x9, x8, #0xc
+  2a17f4:      	str	wzr, [x8, #0x8]
+  2a17f8:      	str	xzr, [x8]
+  2a17fc:      	str	x9, [x19, #0x8]
+  2a1800:      	ldurb	w8, [x29, #-0x38]
+  2a1804:      	tbnz	w8, #0x0, 0x2a17b0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x75c>
+  2a1808:      	b	0x2a17b8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x764>
+  2a180c:      	ldr	x23, [x21, #0x8]
+  2a1810:      	ldr	x26, [x23, #0x8]!
+  2a1814:      	cbz	x26, 0x2a1868 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x814>
+  2a1818:      	adrp	x22, 0x134000
+  2a181c:      	add	x22, x22, #0x2c3
+  2a1820:      	mov	x24, x23
+  2a1824:      	add	x0, x26, #0x20
+  2a1828:      	mov	x1, x22
+  2a182c:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a1830:      	lsr	w8, w0, #28
+  2a1834:      	cmp	w0, #0x0
+  2a1838:      	csel	x24, x24, x26, lt
+  2a183c:      	and	x8, x8, #0x8
+  2a1840:      	ldr	x26, [x26, x8]
+  2a1844:      	cbnz	x26, 0x2a1824 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x7d0>
+  2a1848:      	cmp	x24, x23
+  2a184c:      	b.eq	0x2a1868 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x814>
+  2a1850:      	adrp	x1, 0x134000
+  2a1854:      	add	x1, x1, #0x2c3
+  2a1858:      	add	x0, x24, #0x20
+  2a185c:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a1860:      	cmp	w0, #0x0
+  2a1864:      	csel	x23, x23, x24, gt
+  2a1868:      	str	x23, [sp, #0x28]
+  2a186c:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a1870:      	stp	x21, xzr, [sp]
+  2a1874:      	stp	xzr, x8, [sp, #0x10]
+  2a1878:      	ldrb	w8, [x21]
+  2a187c:      	cmp	w8, #0x2
+  2a1880:      	b.eq	0x2a18bc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x868>
+  2a1884:      	cmp	w8, #0x1
+  2a1888:      	b.ne	0x2a18cc <_ZN3nam4namb12BinaryWriter9write_u16Et+0x878>
+  2a188c:      	ldr	x8, [x21, #0x8]
+  2a1890:      	add	x8, x8, #0x8
+  2a1894:      	str	x8, [sp, #0x8]
+  2a1898:      	b	0x2a18d4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x880>
+  2a189c:      	mov	w8, #0x1                // =1
+  2a18a0:      	str	x8, [sp, #0x38]
+  2a18a4:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a18a8:      	stp	x21, xzr, [sp]
+  2a18ac:      	stp	xzr, x8, [sp, #0x10]
+  2a18b0:      	ldrb	w8, [x21]
+  2a18b4:      	cmp	w8, #0x2
+  2a18b8:      	b.ne	0x2a1884 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x830>
+  2a18bc:      	ldr	x8, [x21, #0x8]
+  2a18c0:      	ldr	x8, [x8, #0x8]
+  2a18c4:      	str	x8, [sp, #0x10]
+  2a18c8:      	b	0x2a18d4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x880>
+  2a18cc:      	mov	w8, #0x1                // =1
+  2a18d0:      	str	x8, [sp, #0x18]
+  2a18d4:      	add	x0, sp, #0x20
+  2a18d8:      	mov	x1, sp
+  2a18dc:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a18e0:      	tbnz	w0, #0x0, 0x2a19b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x960>
+  2a18e4:      	adrp	x1, 0x134000
+  2a18e8:      	add	x1, x1, #0x2c3
+  2a18ec:      	mov	x0, x21
+  2a18f0:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a18f4:      	ldrb	w8, [x0]
+  2a18f8:      	cbz	w8, 0x2a19b4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x960>
+  2a18fc:      	adrp	x1, 0x134000
+  2a1900:      	add	x1, x1, #0x2c3
+  2a1904:      	mov	x0, x21
+  2a1908:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a190c:      	str	xzr, [sp, #0x20]
+  2a1910:      	add	x1, sp, #0x20
+  2a1914:      	bl	0x4e98b0 <_ZN8nlohmann16json_abi_v3_12_06detail20get_arithmetic_valueINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEdTnNS4_9enable_ifIXaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a1918:      	ldr	d9, [sp, #0x20]
+  2a191c:      	mov	w26, #0x1               // =1
+  2a1920:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a1924:      	stp	x21, xzr, [sp, #0x20]
+  2a1928:      	stp	xzr, x8, [sp, #0x30]
+  2a192c:      	ldrb	w8, [x21]
+  2a1930:      	cmp	w8, #0x1
+  2a1934:      	b.ne	0x2a19d4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x980>
+  2a1938:      	ldr	x23, [x21, #0x8]
+  2a193c:      	ldr	x27, [x23, #0x8]!
+  2a1940:      	cbz	x27, 0x2a1994 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x940>
+  2a1944:      	adrp	x22, 0x135000
+  2a1948:      	add	x22, x22, #0x43f
+  2a194c:      	mov	x24, x23
+  2a1950:      	add	x0, x27, #0x20
+  2a1954:      	mov	x1, x22
+  2a1958:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a195c:      	lsr	w8, w0, #28
+  2a1960:      	cmp	w0, #0x0
+  2a1964:      	csel	x24, x24, x27, lt
+  2a1968:      	and	x8, x8, #0x8
+  2a196c:      	ldr	x27, [x27, x8]
+  2a1970:      	cbnz	x27, 0x2a1950 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x8fc>
+  2a1974:      	cmp	x24, x23
+  2a1978:      	b.eq	0x2a1994 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x940>
+  2a197c:      	adrp	x1, 0x135000
+  2a1980:      	add	x1, x1, #0x43f
+  2a1984:      	add	x0, x24, #0x20
+  2a1988:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a198c:      	cmp	w0, #0x0
+  2a1990:      	csel	x23, x23, x24, gt
+  2a1994:      	str	x23, [sp, #0x28]
+  2a1998:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a199c:      	stp	x21, xzr, [sp]
+  2a19a0:      	stp	xzr, x8, [sp, #0x10]
+  2a19a4:      	ldrb	w8, [x21]
+  2a19a8:      	cmp	w8, #0x2
+  2a19ac:      	b.ne	0x2a1a00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x9ac>
+  2a19b0:      	b	0x2a1a38 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x9e4>
+  2a19b4:      	movi	d9, #0000000000000000
+  2a19b8:      	mov	w26, wzr
+  2a19bc:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a19c0:      	stp	x21, xzr, [sp, #0x20]
+  2a19c4:      	stp	xzr, x8, [sp, #0x30]
+  2a19c8:      	ldrb	w8, [x21]
+  2a19cc:      	cmp	w8, #0x1
+  2a19d0:      	b.eq	0x2a1938 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x8e4>
+  2a19d4:      	cmp	w8, #0x2
+  2a19d8:      	b.ne	0x2a1a18 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x9c4>
+  2a19dc:      	ldr	x8, [x21, #0x8]
+  2a19e0:      	ldr	x8, [x8, #0x8]
+  2a19e4:      	str	x8, [sp, #0x30]
+  2a19e8:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a19ec:      	stp	x21, xzr, [sp]
+  2a19f0:      	stp	xzr, x8, [sp, #0x10]
+  2a19f4:      	ldrb	w8, [x21]
+  2a19f8:      	cmp	w8, #0x2
+  2a19fc:      	b.eq	0x2a1a38 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x9e4>
+  2a1a00:      	cmp	w8, #0x1
+  2a1a04:      	b.ne	0x2a1a48 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x9f4>
+  2a1a08:      	ldr	x8, [x21, #0x8]
+  2a1a0c:      	add	x8, x8, #0x8
+  2a1a10:      	str	x8, [sp, #0x8]
+  2a1a14:      	b	0x2a1a50 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x9fc>
+  2a1a18:      	mov	w8, #0x1                // =1
+  2a1a1c:      	str	x8, [sp, #0x38]
+  2a1a20:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a1a24:      	stp	x21, xzr, [sp]
+  2a1a28:      	stp	xzr, x8, [sp, #0x10]
+  2a1a2c:      	ldrb	w8, [x21]
+  2a1a30:      	cmp	w8, #0x2
+  2a1a34:      	b.ne	0x2a1a00 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x9ac>
+  2a1a38:      	ldr	x8, [x21, #0x8]
+  2a1a3c:      	ldr	x8, [x8, #0x8]
+  2a1a40:      	str	x8, [sp, #0x10]
+  2a1a44:      	b	0x2a1a50 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x9fc>
+  2a1a48:      	mov	w8, #0x1                // =1
+  2a1a4c:      	str	x8, [sp, #0x18]
+  2a1a50:      	add	x0, sp, #0x20
+  2a1a54:      	mov	x1, sp
+  2a1a58:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a1a5c:      	tbnz	w0, #0x0, 0x2a1b30 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xadc>
+  2a1a60:      	adrp	x1, 0x135000
+  2a1a64:      	add	x1, x1, #0x43f
+  2a1a68:      	mov	x0, x21
+  2a1a6c:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1a70:      	ldrb	w8, [x0]
+  2a1a74:      	cbz	w8, 0x2a1b30 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xadc>
+  2a1a78:      	adrp	x1, 0x135000
+  2a1a7c:      	add	x1, x1, #0x43f
+  2a1a80:      	mov	x0, x21
+  2a1a84:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1a88:      	str	xzr, [sp, #0x20]
+  2a1a8c:      	add	x1, sp, #0x20
+  2a1a90:      	bl	0x4e98b0 <_ZN8nlohmann16json_abi_v3_12_06detail20get_arithmetic_valueINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEdTnNS4_9enable_ifIXaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a1a94:      	ldr	d10, [sp, #0x20]
+  2a1a98:      	orr	w26, w26, #0x2
+  2a1a9c:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a1aa0:      	stp	x21, xzr, [sp, #0x20]
+  2a1aa4:      	stp	xzr, x8, [sp, #0x30]
+  2a1aa8:      	ldrb	w8, [x21]
+  2a1aac:      	cmp	w8, #0x1
+  2a1ab0:      	b.ne	0x2a1b4c <_ZN3nam4namb12BinaryWriter9write_u16Et+0xaf8>
+  2a1ab4:      	ldr	x23, [x21, #0x8]
+  2a1ab8:      	ldr	x27, [x23, #0x8]!
+  2a1abc:      	cbz	x27, 0x2a1b10 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xabc>
+  2a1ac0:      	adrp	x22, 0x13b000
+  2a1ac4:      	add	x22, x22, #0x7cf
+  2a1ac8:      	mov	x24, x23
+  2a1acc:      	add	x0, x27, #0x20
+  2a1ad0:      	mov	x1, x22
+  2a1ad4:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a1ad8:      	lsr	w8, w0, #28
+  2a1adc:      	cmp	w0, #0x0
+  2a1ae0:      	csel	x24, x24, x27, lt
+  2a1ae4:      	and	x8, x8, #0x8
+  2a1ae8:      	ldr	x27, [x27, x8]
+  2a1aec:      	cbnz	x27, 0x2a1acc <_ZN3nam4namb12BinaryWriter9write_u16Et+0xa78>
+  2a1af0:      	cmp	x24, x23
+  2a1af4:      	b.eq	0x2a1b10 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xabc>
+  2a1af8:      	adrp	x1, 0x13b000
+  2a1afc:      	add	x1, x1, #0x7cf
+  2a1b00:      	add	x0, x24, #0x20
+  2a1b04:      	bl	0x4e9890 <_ZNKSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7compareEPKc@plt>
+  2a1b08:      	cmp	w0, #0x0
+  2a1b0c:      	csel	x23, x23, x24, gt
+  2a1b10:      	str	x23, [sp, #0x28]
+  2a1b14:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a1b18:      	stp	x21, xzr, [sp]
+  2a1b1c:      	stp	xzr, x8, [sp, #0x10]
+  2a1b20:      	ldrb	w8, [x21]
+  2a1b24:      	cmp	w8, #0x2
+  2a1b28:      	b.ne	0x2a1b78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb24>
+  2a1b2c:      	b	0x2a1bb0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb5c>
+  2a1b30:      	movi	d10, #0000000000000000
+  2a1b34:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a1b38:      	stp	x21, xzr, [sp, #0x20]
+  2a1b3c:      	stp	xzr, x8, [sp, #0x30]
+  2a1b40:      	ldrb	w8, [x21]
+  2a1b44:      	cmp	w8, #0x1
+  2a1b48:      	b.eq	0x2a1ab4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xa60>
+  2a1b4c:      	cmp	w8, #0x2
+  2a1b50:      	b.ne	0x2a1b90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb3c>
+  2a1b54:      	ldr	x8, [x21, #0x8]
+  2a1b58:      	ldr	x8, [x8, #0x8]
+  2a1b5c:      	str	x8, [sp, #0x30]
+  2a1b60:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a1b64:      	stp	x21, xzr, [sp]
+  2a1b68:      	stp	xzr, x8, [sp, #0x10]
+  2a1b6c:      	ldrb	w8, [x21]
+  2a1b70:      	cmp	w8, #0x2
+  2a1b74:      	b.eq	0x2a1bb0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb5c>
+  2a1b78:      	cmp	w8, #0x1
+  2a1b7c:      	b.ne	0x2a1bc0 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb6c>
+  2a1b80:      	ldr	x8, [x21, #0x8]
+  2a1b84:      	add	x8, x8, #0x8
+  2a1b88:      	str	x8, [sp, #0x8]
+  2a1b8c:      	b	0x2a1bc8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb74>
+  2a1b90:      	mov	w8, #0x1                // =1
+  2a1b94:      	str	x8, [sp, #0x38]
+  2a1b98:      	mov	x8, #-0x8000000000000000 // =-9223372036854775808
+  2a1b9c:      	stp	x21, xzr, [sp]
+  2a1ba0:      	stp	xzr, x8, [sp, #0x10]
+  2a1ba4:      	ldrb	w8, [x21]
+  2a1ba8:      	cmp	w8, #0x2
+  2a1bac:      	b.ne	0x2a1b78 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb24>
+  2a1bb0:      	ldr	x8, [x21, #0x8]
+  2a1bb4:      	ldr	x8, [x8, #0x8]
+  2a1bb8:      	str	x8, [sp, #0x10]
+  2a1bbc:      	b	0x2a1bc8 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xb74>
+  2a1bc0:      	mov	w8, #0x1                // =1
+  2a1bc4:      	str	x8, [sp, #0x18]
+  2a1bc8:      	add	x0, sp, #0x20
+  2a1bcc:      	mov	x1, sp
+  2a1bd0:      	bl	0x4e98a0 <_ZNK8nlohmann16json_abi_v3_12_06detail9iter_implIKNS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEeqISI_TnNS4_9enable_ifIXoosr3std7is_sameIT_SI_EE5valuesr3std7is_sameISL_NS2_ISG_EEEE5valueEDnE4typeELDn0EEEbRKSL_@plt>
+  2a1bd4:      	tbnz	w0, #0x0, 0x2a1520 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4cc>
+  2a1bd8:      	adrp	x1, 0x13b000
+  2a1bdc:      	add	x1, x1, #0x7cf
+  2a1be0:      	mov	x0, x21
+  2a1be4:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1be8:      	ldrb	w8, [x0]
+  2a1bec:      	cbz	w8, 0x2a1520 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4cc>
+  2a1bf0:      	adrp	x1, 0x13b000
+  2a1bf4:      	add	x1, x1, #0x7cf
+  2a1bf8:      	mov	x0, x21
+  2a1bfc:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1c00:      	str	xzr, [sp, #0x20]
+  2a1c04:      	add	x1, sp, #0x20
+  2a1c08:      	bl	0x4e98b0 <_ZN8nlohmann16json_abi_v3_12_06detail20get_arithmetic_valueINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEdTnNS4_9enable_ifIXaasr3std13is_arithmeticIT0_EE5valuentsr3std7is_sameISI_NT_9boolean_tEEE5valueEiE4typeELi0EEEvRKSJ_RSI_@plt>
+  2a1c0c:      	ldr	d8, [sp, #0x20]
+  2a1c10:      	orr	w26, w26, #0x4
+  2a1c14:      	b	0x2a1520 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x4cc>
+  2a1c18:      	ldr	x8, [x25, #0x28]
+  2a1c1c:      	ldur	x9, [x29, #-0x20]
+  2a1c20:      	cmp	x8, x9
+  2a1c24:      	b.ne	0x2a1cbc <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc68>
+  2a1c28:      	mov	x0, x19
+  2a1c2c:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a1c30:      	ldr	x8, [x25, #0x28]
+  2a1c34:      	ldur	x9, [x29, #-0x20]
+  2a1c38:      	cmp	x8, x9
+  2a1c3c:      	b.ne	0x2a1cbc <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc68>
+  2a1c40:      	mov	x0, x19
+  2a1c44:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a1c48:      	ldr	x8, [x25, #0x28]
+  2a1c4c:      	ldur	x9, [x29, #-0x20]
+  2a1c50:      	cmp	x8, x9
+  2a1c54:      	b.ne	0x2a1cbc <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc68>
+  2a1c58:      	mov	x0, x19
+  2a1c5c:      	bl	0x2aa334 <_Z8main_runiPPc+0xff4>
+  2a1c60:      	b	0x2a1c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc3c>
+  2a1c64:      	b	0x2a1c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc3c>
+  2a1c68:      	b	0x2a1c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc3c>
+  2a1c6c:      	b	0x2a1c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc3c>
+  2a1c70:      	b	0x2a1c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc3c>
+  2a1c74:      	b	0x2a1c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc3c>
+  2a1c78:      	ldurb	w8, [x29, #-0x38]
+  2a1c7c:      	mov	x19, x0
+  2a1c80:      	tbnz	w8, #0x0, 0x2a1c9c <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc48>
+  2a1c84:      	b	0x2a1ca4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc50>
+  2a1c88:      	b	0x2a1c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc3c>
+  2a1c8c:      	b	0x2a1c90 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc3c>
+  2a1c90:      	ldurb	w8, [x29, #-0x38]
+  2a1c94:      	mov	x19, x0
+  2a1c98:      	tbz	w8, #0x0, 0x2a1ca4 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc50>
+  2a1c9c:      	ldur	x0, [x29, #-0x28]
+  2a1ca0:      	bl	0x4e80c0 <_ZdlPv@plt>
+  2a1ca4:      	ldr	x8, [x25, #0x28]
+  2a1ca8:      	ldur	x9, [x29, #-0x20]
+  2a1cac:      	cmp	x8, x9
+  2a1cb0:      	b.ne	0x2a1cbc <_ZN3nam4namb12BinaryWriter9write_u16Et+0xc68>
+  2a1cb4:      	mov	x0, x19
+  2a1cb8:      	bl	0x4e4324 <_ZN4oboe14getVersionTextEv+0x8c4>
+  2a1cbc:      	bl	0x4e8010 <__stack_chk_fail@plt>
+  2a1cc0:      	sub	sp, sp, #0x180
+  2a1cc4:      	stp	x29, x30, [sp, #0x120]
+  2a1cc8:      	stp	x28, x27, [sp, #0x130]
+  2a1ccc:      	stp	x26, x25, [sp, #0x140]
+  2a1cd0:      	stp	x24, x23, [sp, #0x150]
+  2a1cd4:      	stp	x22, x21, [sp, #0x160]
+  2a1cd8:      	stp	x20, x19, [sp, #0x170]
+  2a1cdc:      	add	x29, sp, #0x120
+  2a1ce0:      	mrs	x8, TPIDR_EL0
+  2a1ce4:      	mov	x21, x1
+  2a1ce8:      	mov	x19, x0
+  2a1cec:      	str	x8, [sp, #0x28]
+  2a1cf0:      	adrp	x1, 0x13f000
+  2a1cf4:      	add	x1, x1, #0xf65
+  2a1cf8:      	ldr	x8, [x8, #0x28]
+  2a1cfc:      	mov	x0, x21
+  2a1d00:      	stur	x8, [x29, #-0x10]
+  2a1d04:      	bl	0x4e9860 <_ZNK8nlohmann16json_abi_v3_12_010basic_jsonINSt6__ndk13mapENS2_6vectorENS2_12basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEEblmdS8_NS0_14adl_serializerENS4_IhNS8_IhEEEEvEixIKcEERKSE_PT_@plt>
+  2a1d08:      	stp	xzr, xzr, [sp, #0x88]
+  2a1d0c:      	str	xzr, [sp, #0x80]
+  2a1d10:      	add	x1, sp, #0x80
+  2a1d14:      	bl	0x4e9870 <_ZN8nlohmann16json_abi_v3_12_06detail9from_jsonINS0_10basic_jsonINSt6__ndk13mapENS4_6vectorENS4_12basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEEblmdSA_NS0_14adl_serializerENS6_IhNSA_IhEEEEvEEEEvRKT_RNSH_8string_tE@plt>
+  2a1d18:      	adrp	x0, 0x13a000
+  2a1d1c:      	add	x0, x0, #0xcf3
+  2a1d20:      	bl	0x4e8fc0 <strlen@plt>
+  2a1d24:      	ldrb	w22, [sp, #0x80]
+  2a1d28:      	ldr	x8, [sp, #0x88]
+  2a1d2c:      	lsr	x9, x22, #1
+  2a1d30:      	tst	w22, #0x1
+  2a1d34:      	csel	x20, x9, x8, eq
+  2a1d38:      	cmp	x0, x20
+  2a1d3c:      	b.ne	0x2a1d6c <_ZN3nam4namb12BinaryWriter9write_u16Et+0xd18>
+  2a1d40:      	mov	x2, x0
+  2a1d44:      	cmn	x0, #0x1
+  2a1d48:      	b.eq	0x2a6944 <_ZN3nam4namb12BinaryWriter9write_u16Et+0x58f0>
+  2a1d4c:      	ldr	x8, [sp, #0x90]
+  2a1d50:      	tst	w22, #0x1
+  2a1d54:      	add	x9, sp, #0x80
+  2a1d58:      	adrp	x1, 0x13a000
+  2a1d5c:      	add	x1, x1, #0xcf3
+  2a1d60:      	csinc	x0, x8, x9, ne
+  2a1d64:      	bl	0x4e98d0 <memcmp@plt>
+  2a1d68:      	cbz	w0, 0x2a1e44 <_ZN3nam4namb12BinaryWriter9write_u16Et+0xdf0>
+  2a1d6c:      	adrp	x0, 0x142000
+  2a1d70:      	add	x0, x0, #0xfbe
+  2a1d74:      	bl	0x4e8fc0 <strlen@plt>
+  2a1d78:      	cmp	x0, x20
+  2a1d7c:      	b.ne	0x2a1dac <_ZN3nam4namb12BinaryWriter9write_u16Et+0xd58>
