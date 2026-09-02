@@ -415,6 +415,48 @@ monotonically increasing queue sequence number. This localizes the remaining
 control-spec gap to the callers that construct family-specific arrays; the
 native queue itself handles ACK/retry scheduling and duplicate suppression.
 
+Direct disassembly confirms that `addSendMessage` copies the caller's
+`juce::Array<unsigned char>` with `memcpy` and immediately constructs an
+`HTMessage`; it does not insert, rewrite, or checksum any payload byte. The
+family-`0x24` variable fields must therefore be present in the array before
+this queue entry point. The queue is definitively not the generator.
+
+### Native send binding split
+
+The snapshot exposes two distinct outbound pipelines. The legacy
+`gp_5/comm/comm_device.dart` queue removes a `MidiMessage` and forwards it to
+`DeviceDataProvider.sendMidiMessageSink` or
+`Device50DataProvider.sendMidiMessageSink`; those sinks eventually call the
+native `sendMidiMessage` API, whose native wrapper only chunks and queues the
+provided bytes. Device-150 clone/NAMB operations instead use
+`HTMidiDataProtocol.sendMessage` and the `_attachSession`/`_routeOutgoing`
+callback path. No AOT call site in either path computes a family-specific
+checksum inside the transport sink. The unresolved family array must be
+constructed before the selected sink, in the message builder associated with
+the command type.
+
+The legacy `MidiMessage.getNowSendData` implementation is also excluded as
+the source of the upload fields. It constructs only the generic `MsgHeader`,
+appends the selected payload slice, calculates the legacy `comm_data.calcCRC`,
+copies the resulting CRC list into the header, and then calls
+`encodeToMIDSysEx`. Its header has package length/offset/index fields, not the
+Device-150 `0x24` seven-byte upload header. The provider
+`parseSendMidiMessage` methods are receive-side ACK handlers, not outbound
+builders. Neither the legacy queue nor its providers can explain the two
+variable bytes in the Device-150 upload chunks.
+
+The Device-150 path is similarly a dispatcher rather than the missing
+builder. `HTMidiDataProtocol.sendMessage` looks up a registered handler by
+device name and forwards the message ID, data map, payload length, and
+`MessageType` to `HTProtocolHandler.sendMessage`. `_addMessage` then creates
+an `HTMessage`; `HTMessage.initialWithSendData` packages the `DataWrap` map,
+adds the fixed eight-byte `HTDataPreHead`, computes the generic HT CRC, and
+passes the resulting logical bytes to the outgoing callback. `HTData.getSendData`
+only serializes that pre-header and payload. No family-`0x24` fields are
+created in this path. The remaining wrapper is therefore below the Dart HT
+protocol boundary, in the registered device manager/native bridge that
+receives the outgoing list and selects native `sendMidiMessage` arguments.
+
 ## Drum and metronome controls
 
 The extracted `gp5D.json` asset contains 14 drum-pattern groups with 129
@@ -499,7 +541,7 @@ getConvertNormalWav 0x2938d8
 getCloneData       0x29e2cc
 ```
 
-The library also contains the actual JSON-to-BMAN serializer:
+The library also contains the native JSON-model-to-NAMB serializer:
 
 ```text
 convert_nam_to_namb 0x2a0a58
@@ -509,13 +551,34 @@ BinaryWriter::write_f32 0x2a74e4
 BinaryWriter::write_f64 0x2aa348
 ```
 
-Its first writes are unambiguous: little-endian magic `0x4e414d42`
-(`BMAN`), version `uint16 = 1`, reserved `uint16 = 0`, followed by
-zero-initialized `uint32` header placeholders. It then writes model metadata,
-arrays, and weights using explicit `u16`, `u32`, and `f32` writer methods,
-before filling size/count fields. This explains why the captured header has
-multiple size-like values that cannot be interpreted independently without
-following the later back-patching code.
+`convert_nam_to_namb` receives the resolved model object, not the outer
+`SlimmableContainer` document: `convertNamFileToNambFile` first resolves the
+container and selects the model passed to this routine. Its first writes are
+unambiguous: little-endian magic `0x4e414d42` (`BMAN`), version `uint16 = 1`,
+flags `uint16 = 0`, followed by placeholders for total size, weight offset,
+weight count, model-block size, and the integrity field.
+
+The native ARM64 sequence writes a 48-byte metadata block at `0x20`, an
+architecture/configuration block at `0x50`, three alignment bytes, and
+little-endian float32 weights at `0x1f0`. For the cached WaveNet output,
+the fields are `size=0x1f2c` (7,980), `weight_offset=0x1f0`,
+`weight_count=1871`, and `model_block_size=0x19d` (413). The metadata helper
+at `0x2a1130` emits version bytes, a presence mask, four float64 slots
+(`sample_rate`, `loudness`, `input_level_dbu`, `output_level_dbu`), and a
+12-byte zero tail. The architecture helper at `0x2a1cc0` recognizes
+`Linear=0`, `ConvNet=1`, `LSTM=2`, and `WaveNet=3`; the controlled WaveNet
+model begins with architecture ID `3` and receptive field `409`.
+The backpatch stores the total size, model/weight extents, and weight count in
+the header at `0x2a0c3c..0x2a0ca0`, after the float loop at `0x2a0c24`.
+
+The field at header `0x18` is now resolved both statically and against the
+cache: the ARM64 loop at `0x2a0cb0..0x2a0d6c` initializes `0xffffffff`, loads
+the reflected polynomial `0xedb88320` at `0x2a0cc0`, skips indexes
+`0x18..0x1b`, and complements/stores the result at `0x2a0d70..0x2a0d78`.
+This is CRC-32/IEEE over the complete NAMB record with the field excluded.
+The comparison source is `tone-3000/nam-binary-loader`'s `namb_format.h` and
+`tools/nam2namb.cpp`; the cached NAMB corpus independently verifies the same
+calculation.
 
 This separates conversion from transport: `0x24` only carries the output of
 these converters. The BMAN header begins at stream offset `0x23` with:
@@ -525,17 +588,18 @@ these converters. The BMAN header begins at stream offset `0x23` with:
 ```
 
 (`BMAN`, version 1). The preceding bytes contain the slot/name and command
-metadata. The first visible BMAN fields include a back-patched header/data
-length value of `0x2c`, several little-endian size/count values, and a
-four-byte nonzero integrity-related value. The serializer confirms these are
-generated metadata rather than arbitrary obfuscation. Exact field names still
-require following the back-patching stores or comparing a second conversion.
+metadata. The first visible BMAN fields occupy the native NAMB positions, and
+the BMAN `+0x18` field equals the corresponding cached NAMB CRC in all 17
+controlled transfers. The GP-180 transfer wrapper remains a separate
+application envelope around this converted record.
 
 ### Current BMAN answer
 
 `BNAM` is not a second format name in the captures; the marker is **`BMAN`**
-(`0x42 0x4d 0x41 0x4e`). The binary container is sufficiently specified for
-using the Suite/native converter, but not yet for a clean independent writer.
+(`0x42 0x4d 0x41 0x4e`). The native NAMB layout and checksum are specified,
+but the later clone/transport projection is only proven for the controlled
+WaveNet corpus and the family-`0x24` envelope remains incomplete, so there is
+still no safe independent writer.
 Its confirmed prefix is:
 
 | Relative offset |     Size | Meaning                                                        |
@@ -543,20 +607,19 @@ Its confirmed prefix is:
 |          `0x00` |        4 | ASCII `BMAN`                                                   |
 |          `0x04` |        2 | little-endian format version `1`                               |
 |          `0x06` |        2 | reserved `0`                                                   |
-|          `0x08` |        4 | back-patched container/header size                             |
-|          `0x0c` |        4 | back-patched metadata/data size                                |
-|          `0x10` |        4 | model/layer count field                                        |
-|          `0x14` |        4 | array/weight count field                                       |
-|          `0x18` |        4 | integrity or model checksum field                              |
-|   `0x1c` onward | variable | model metadata, dimensions, floating-point arrays, and weights |
+|          `0x08` |        4 | total file size                                               |
+|          `0x0c` |        4 | weight-data offset                                             |
+|          `0x10` |        4 | total float32 weight count                                    |
+|          `0x14` |        4 | model-block size                                               |
+|          `0x18` |        4 | CRC-32/IEEE, excluding bytes `0x18..0x1b`                   |
+|          `0x1c` |        4 | reserved                                                       |
+|          `0x20` |       48 | version/sample-rate/metadata block                            |
+|          `0x50` | variable | architecture-specific model block, then aligned weights       |
 
-The first four fields and their little-endian widths are proven by the native
-`convert_nam_to_namb` writer and its placeholder/back-patching sequence. The
-remaining labels are intentionally conservative: the capture proves their
-positions and value classes, but not whether the count fields refer to layers,
-tensors, or serialized arrays. NAM-to-BMAN conversion is therefore answered
-operationally by the native converter, while a complete standalone BMAN schema
-is not yet proven.
+The field meanings and architecture-specific config layout are proven by the
+native backpatch sequence and the matching reference converter. The native
+CRC applies to the 7,980-byte NAMB record; the transfer wrapper has additional
+integrity fields and cannot inherit this algorithm by assumption.
 
 The supplied NAM is canonical NeuralAmpModelerCore format version 0.7.0:
 Core 0.4.1 is the first version documented as fully supporting that version.
@@ -575,13 +638,12 @@ offset 0x10:  1871  (0x074f)
 offset 0x14:   413  (0x019d)
 ```
 
-Only the integrity-related field at offset `0x18` changes between profiles,
-which confirms that these are content checksums/digests rather than additional
-length fields. The source files are all NAM v5, architecture 18, 48 kHz
-WaveNet models, so this corpus establishes a deterministic BMAN layout for
-that model class and provides six checksum/data pairs for completing the
-serializer. The A2-Lite toggle capture contains no file transfer; it is not
-an additional VTSI conversion sample.
+Only the CRC field at offset `0x18` changes in the fixed header between
+profiles. It matches the corresponding native NAMB CRC, rather than a CRC
+computed over the 8,123-byte BMAN record. The source files are all NAM v5,
+architecture 18, 48 kHz WaveNet models, so this corpus establishes a
+deterministic BMAN layout for that model class. The A2-Lite toggle capture
+contains no file transfer; it is not an additional VTSI conversion sample.
 
 The new Windows SnapTone imports now provide six independent `VTSI` outputs
 for the same model set. Each is exactly 8,123 bytes from `VTSI` through the
@@ -682,23 +744,35 @@ scratch buffer.
 
 The new NAM and SnapTone imports show the write sequence consistently. A
 large upload consists of 69 messages with a 248-byte SysEx length followed by
-one 44-byte final message. In each message, the seven non-nibble header bytes
-after family `0x24` have the form:
+one 44-byte final message. In each message, the seven header bytes after
+family `0x24` have the form:
 
 ```text
-40 <per-message integrity> <constant 00> <transfer id>
-   <chunk index> <direction/state> <final/state>
+40 <offset-low-7> <offset-high-7> <transfer-id> <chunk-index>
+   <per-chunk-nibble-0> <per-chunk-nibble-1>
 ```
 
-The chunk index increments from zero through 69. The transfer ID and final
-state are stable within an upload; the second header byte changes per chunk
-and is not the outer SysEx CRC. After the final payload, the device emits a
-family-`0x00` completion response (`F0 7F <crc> 00 00 00 00 <transfer-id>
-00 F7`), followed by the host's matching family-`0x00` acknowledgement.
-No per-chunk device response is present in the captures. This establishes the
-upload lifecycle and sequencing, but the per-message integrity byte and exact
-write-side CRC scope still require native/AOT correlation before a generated
-sender is safe.
+The chunk index increments from zero through 69. The two offset bytes are
+7-bit little-endian and equal `119 * chunk_index`; each full message carries
+118 decoded bytes and the final message carries the remaining 16 bytes. The
+two final header bytes are observed nibbles, not a proven checksum: native
+CRC-8, additive, XOR, Fletcher, and CRC-16 candidate scopes do not match.
+Byte 2 is also data-dependent but unverified.
+
+After the final payload, the device emits a family-`0x00` completion response
+(`F0 7F <crc> 00 00 00 00 <transfer-id> 00 F7`). No per-chunk device response
+is present. A later host family-`0x00` packet is subsequent transaction
+traffic, not a proven acknowledgement of each file chunk. Segmentation,
+offsets, subtype `0x40`, and completion notification are implemented as
+read-only diagnostics; a generated sender remains blocked on integrity and
+retry/lifecycle semantics. The parser excludes unrelated 82-byte family-`0x24`
+control messages (subtype `0x00`) that occur in mixed captures. The decoded
+transfer starts with a 35-byte application envelope; BMAN captures show
+`<data-dependent-byte> 20 20 01 01 90 10 50` in its first eight bytes before
+the 8,123-byte record. The corresponding SnapTone/VTSI prefix is
+`<data-dependent-byte> 20 20 01 50 10 50 50`, and IR uploads use
+`<data-dependent-byte> 20 20 01 40 10 40 40`. The first byte and
+clone/transport expansion remain unresolved.
 
 The Windows AOT trace now identifies the upload payload builder. For a NAM
 SnapTone import, `Import150TcHelper._importNAMBToDevice150` first converts the
@@ -743,10 +817,63 @@ the native file/message validation routine; it is distinct from the one-byte
 outer SysEx CRC-8. The exact caller-selected range for each upload envelope
 still needs to be correlated before enabling generated device writes.
 
-The final fixed 8,158-byte device representation is therefore produced later
-by `getCloneData`, after this temporary WAV exists. The IR specification now
-needs `getCloneData` tracing; source WAV conversion and SysEx transport are
-separate stages.
+### Offline NAM-to-BMAN candidate writer
+
+`tools/gp180_bman.py` remains an intentionally conservative offline scaffold.
+It accepts a NAM v0.7.0 `SlimmableContainer` with a 48 kHz WaveNet first
+submodel and replaces a contiguous template region, but that operation is not
+the observed general BMAN transformation. The exact controlled relation is
+available as the read-only `project_controlled_namb_to_bman` helper in
+`tools/verify_namb_bman.py`; it is limited to the 17 HELLBERT pairs. Neither
+tool is a general NAM serializer or a hardware-write path.
+
+`tools/generate_nam_variants.py` generates 17 controlled NAM fixtures from
+`NAM/HELLBERT.nam` in `NAM/bman-diff-variants/`. The set contains a baseline,
+isolated first/middle/last weight changes for both submodels, sign changes,
+metadata gain/loudness changes, submodel `max_value` changes, and
+`head_scale` changes. `MANIFEST.json` records the exact change for each file.
+These are intended for Suite conversion/upload captures; the baseline should
+be uploaded first, followed by one variant per capture, using the same slot
+and workflow.
+
+The resulting 17 BMAN captures provide the first controlled differential
+experiment. The converter output is unchanged for edits to submodel 1,
+`gain`, `max_value`, and `head_scale`; changing submodel-0 loudness changes
+only one metadata byte. Direct byte alignment against the cached NAMB proves
+the same deterministic relation for every pair: delete 67 NAMB bytes
+(`0x53`, `0xcb`, `0x141`, `0x1ef`, and every offset `0x22f + 119*n` through
+`0x1f01`), then append 210 zero bytes. The resulting 8,123-byte BMAN has its
+weight data beginning at relative offset `0x1ec`, but the periodic omissions
+mean it must not be treated as a contiguous float32 array. This relation is
+corpus-proven only for this WaveNet shape and is not enabled as a general
+serializer.
+
+The Suite Procmon cache provides a cleaner native boundary: each import writes
+an intermediate `.namb` file of exactly 7,980 bytes before MIDI upload. The
+cached `.namb` is not byte-identical to the 8,123-byte BMAN record carried by
+the GP-180; it is the native converter output before a later 143-byte
+clone/transport transformation. For the controlled HELLBERT set, native
+weight-change offsets are `0x1f2`, `0x383`, `0x108c`, and `0x1f28` for weight
+indices 0, 100, 935, and 1870. The BMAN offsets are `0x1ee`, `0x37c`,
+`0x1069`, and `0x1ef5` because four earlier bytes and periodic stream bytes
+are omitted. The cache contains source/NAMB pairs for the controlled variants
+and many historical imports, enabling direct offline differential analysis
+without SysEx decoding.
+
+The cached native output now resolves the weight packing question for this
+shape: the NAMB record stores 1,871 contiguous little-endian float32 values at
+offset `0x1f0` through the end of the 7,980-byte file. The earlier apparent
+offset drift came from comparing this native layout with the later 8,123-byte
+BMAN projection. `tools/gp180_namb.py` implements this same-shape weight
+serialization using a native NAMB template and regenerates the verified
+CRC-32/IEEE field. The later BMAN projection is exposed only as a controlled
+corpus verifier; neither tool is a device-write encoder.
+
+The final fixed 8,158-byte BMAN device representation is assembled later by
+the Suite transfer layer from a 35-byte application envelope and the 8,123-byte
+BMAN record. `getCloneData` is a separate native clone/audio-processing path
+used by IR conversion; its fixed `0x2288` copy is not the BMAN record and does
+not account for the 8,158-byte NAM transfer.
 
 ### Native `getCloneData` output path
 
@@ -1535,3 +1662,250 @@ The highest-value next static-analysis target is therefore the Android
 cross-checking class structure and native backend behavior but is less
 convenient for symbol-level analysis because those functions are not exported
 under their readable names.
+
+## Blutter AOT trace: GP-180 clone/NAMB upload
+
+Blutter was run against the Suite arm64 Flutter engine and detected Dart
+3.12.1 with snapshot hash `ace654289f5abc240509fc941453ebc5`. The generated
+assembly recovers the device-150 upload path without executing the application:
+
+- `ImportTc150Helper::_importNAMBToDevice` is at `0x7d43f8`, and performs the
+  native `convertNamToNambAtPathAsync` conversion before the higher-level
+  import flow.
+- `Device150DataProvider::importClone` is at `0x7d3c08`. It selects one clone
+  entry, allocates `CloneDataStruct`, serializes it with `toBytes()`, wraps the
+  resulting list with `DataWrap.origin`, and calls
+  `HTMidiDataProtocol::sendMessage`.
+- `CloneDataStruct::toBytes` is at `0x7d3ed0`. It allocates exactly `0x4038`
+  (16,440) bytes, writes the fixed header, writes a fixed-width name field, and
+  copies the model byte list into the record.
+
+The recovered clone record fields are:
+
+| Offset | Width | Value/source |
+| ---: | ---: | --- |
+| `0x00` | 16-bit | `0x1050` |
+| `0x02` | 16-bit | `0x201c` |
+| `0x04` | 16-bit | selected clone index/list value |
+| `0x06` | 16-bit | zero |
+| `0x08` | 32-bit | clone code, or zero when absent |
+| `0x0c` | 16 bytes | UTF-8 clone name, zero padded |
+| `0x1c` | 16,384 bytes | model data list, copied byte-for-byte |
+
+The model list is bounded by `0x2000` bytes. `importClone` also packs four
+integer configuration values into a bitmask (`value << (index * 8)`) and
+stores that value in the clone object before serialization. The upload message
+type is selected as `0x11050` or `0x11090` depending on the optional mode
+argument. These values are Dart protocol message-type identifiers, not yet a
+direct visible SysEx byte mapping.
+
+This confirms the earlier observed decoded transfer size of 8,158 bytes:
+the serialized 16,440-byte clone record is a distinct clone operation, while
+the NAM import path supplies the converted 8,123-byte BMAN record to the same
+protocol layer. The AOT trace does not by itself resolve the family-`0x24`
+per-chunk integrity nibbles or the native outer check; those remain blocked
+pending a direct `sendMessage`/message-builder trace or additional matched
+captures.
+
+## Blutter trace: generic message construction
+
+The protocol trace continues through `HTProtocolHandler::sendMessage`
+(`0x48cbc0`) and `HTMessage::initialWithSendData` (`0x48fafc`). The handler
+does not emit SysEx directly; it queues an `HTMessage`. The initializer then:
+
+1. Creates an `HTMessageHead` with default fields and a 12-byte logical
+   header (eight message-head bytes plus four data-prehead bytes).
+2. Stores the caller's origin payload in `HTData`.
+3. Sets the origin length in the header using a split 7-bit representation:
+   low seven bits in the header data and the remaining bits in a separate
+   field.
+4. Computes the packet count from the payload length and the message packet
+   size.
+5. Encodes the payload with `CommData.encodeToMIDSysEx` unless the message is
+   already marked raw.
+6. Computes the generic CRC fields used by the logical header and leaves
+   packet slicing/assembly to `getNowSendData`; each emitted packet contains
+   the serialized header followed by the encoded current chunk.
+
+The `HTMessageHead` setters confirm that total length and offset use the same
+7-bit split (`setTotalLen` at `0x48f460`, `setOffset` at `0x48f430`).
+`setPacketCompress` clears flag bit 1 and `setBigPacketCheck` sets flag bit 0.
+This explains the observed 7-bit offset encoding and identifies the exact
+remaining call chain for the family-specific wrapper: `HTData.init`,
+`HTDataPreHead.getData`, `calcCRC`, and finally native
+`EncodeToMIDSysEx`. The family-`0x24` integrity nibbles are not generated by
+the generic `HTMessage` header code shown here, so they must be introduced in
+the family-specific `HTData.init`/message-data path or below it.
+
+`HTData.init` (`0x48ff58`) adds another confirmed detail: it copies the
+`DataWrap` type into the data object, splits its supplied length into a
+16-bit low portion and an 8-bit high portion, and calls
+`HTDataPreHead.setOriginLength`. It then initializes an empty send-data list.
+Thus the generic path has two distinct length representations: the
+16-bit/8-bit origin-length fields inside `HTDataPreHead`, and the 7-bit
+chunk-address fields inside `HTMessageHead`. This distinction should be
+preserved when comparing the logical message with captured family-`0x24`
+frames.
+
+`CommData.encodeToMIDSysEx` (`0x48f11c`) is now confirmed as a pure nibble
+expander. For every input byte it appends the high nibble first
+(`byte >> 4`) and the low nibble second (`byte & 0x0f`) to a new list. It
+does not calculate a checksum, add `F0/F7`, or add family-specific fields.
+Consequently, the payload nibble order observed in the captures is generated
+by this generic helper, while the unresolved family-`0x24` integrity nibbles
+must already exist in the logical data supplied to it (or be inserted by the
+native wrapper after this expansion).
+
+The AOT `HTMessage::getNowSendData` method (`0x48ee38`) independently
+confirms the captured chunk size. It derives a 118-byte logical payload
+capacity from a 120-byte packet size after reserving the protocol header
+bytes, then slices the current message data using the running offset and
+packet index. This is the source of the observed 69 full 118-byte chunks;
+the final chunk is the remaining tail. The chunk size is therefore a generic
+HT message property, not padding added by the GP-180 family.
+
+### Recovered generic logical packet fields
+
+`HTMessageHead.getData` (`0x48f2e4`) serializes eight logical bytes: constant
+`0xfe`, header check, total-length low/high 7-bit parts, offset low/high
+7-bit parts, packet index, and packet count. `HTDataPreHead.getData`
+(`0x48fce4`) serializes four more bytes: flags, data CRC, and the
+origin-length low/high bytes. The generic logical header is therefore
+12 bytes before packet data. `setTotalLen` and `setOffset` split values at
+seven-bit boundaries, while the corresponding getters recombine them as
+`(high << 7) | low`.
+
+The generic `calcCRC` (`0x48f078`) uses the snapshot's 256-entry table,
+equivalent to CRC-8 with polynomial `0x31`, initial state zero, and no final
+transform. `getNowSendData` calculates it over the first two message-head
+bytes plus the encoded current packet to populate the header check; the
+initializer separately calculates it over the four-byte data-prehead list
+for the data CRC. These logical-header checks are distinct from the
+family-`0x24` two-nibble fields observed immediately before each USB payload.
+
+### Are the family-`0x24` integrity nibbles padding?
+
+No. In the regenerated corpus, the two positions immediately before the
+nibble-expanded payload vary across the 2,622 host-to-device family-`0x24`
+upload frames. For the first HELLBERT transfer, for example, the values by
+chunk include `00 01`, `03 0c`, `0b 0e`, `02 0d`, `0f 03`, and `04 00`.
+The same positions also change when the controlled BMAN payload changes.
+Zero-filled chunks can produce `00 00`, but that is consistent with a
+payload-dependent integrity result and does not make the fields padding.
+
+Simple interpretations (fixed zero, copied header values, CRC-8 over only the
+decoded chunk, byte sum, and byte XOR) do not reproduce all frames. The
+fields are therefore retained as integrity/check nibbles with an unresolved
+scope and algorithm, rather than being emitted as zero padding.
+
+## Native SysEx wrapper boundary
+
+The Android native library provides an exact framing boundary in
+`getMidiMessage` (`0x33cda4`). It allocates a message buffer as
+`[crc, argument0, argument1, argument3, data...]`, initializes byte zero to
+zero, copies the three protocol arguments into bytes 1--3, copies the
+supplied data at byte 4, and calls native `calcCRC` (`0x340378`) over the
+complete buffer before replacing byte zero with the result.
+`EncodeToMIDSysEx` (`0x33d2bc`) only expands each data byte into
+high-nibble/low-nibble bytes and does not alter the checksum.
+
+The native lookup table is byte-for-byte the polynomial-`0x07`,
+zero-initialized CRC implemented by `tools/gp180_codec.crc8`. This identifies
+the outer-check algorithm and its complete pre-SysEx input buffer once the
+three `getMidiMessage` arguments are mapped. The family-`0x24` pair at wire
+offsets 9--10 is upstream of this wrapper and remains a separate
+family-specific field.
+
+### Native caller: `HTMessage::readSendMidiMessage`
+
+The native caller at `0x33cba0` is now resolved. It calls
+`getMidiMessage` through the PLT at `0x33ccec` (or `0x33cd24` for the
+single-packet path) with:
+
+```text
+arg0 = total packet count
+arg1 = current packet index
+arg2 = pointer to the current data slice
+arg3 = 0x13 or 0x2a, selected by the message mode
+arg4 = mode flag (nonzero when the alternate path is active)
+```
+
+The packet size is 19 bytes in the normal mode and 42 bytes in the alternate
+mode. The caller computes the count as a ceiling division of total message
+length by that packet size, computes the current index from the running
+offset, copies the slice, and passes the slice to `getMidiMessage`.
+Consequently, this native `HTMessage` path does not itself construct the
+family-`0x24` seven-byte upload header or its two integrity nibbles. Those
+bytes must already be present in the data supplied to the native message
+object, or the captures belong to the separate Dart HT transport path.
+
+### Resolved outgoing callback boundary
+
+The final Dart-to-transport callback is installed in
+`HTMidiDataProtocol._attachSession`:
+
+1. `_attachSession` allocates an `HTProtocolHandler` with the device-session
+   transport state.
+2. It stores a closure at `HTProtocolHandler.field_7`.
+3. `_readyToSendBleMessage` calls `_sendBleDataMessage`, which invokes that
+   closure with the `List<int>` returned by `HTMessage.getNowSendData`.
+4. The closure calls `HTMidiDataProtocol._routeOutgoing`.
+5. `_routeOutgoing` copies the list, selects its USB-vs-non-USB route, and
+   dispatches through the session transport callback; USB-MIDI bypasses the
+   non-USB branch.
+
+The non-USB branch performs two explicit list mutations before dispatch:
+`insert(0, 480)` and append `494`. The eventual BLE/USB sink copies values
+into an 8-bit typed list, so these become low-byte values `0xe0` and `0xee`.
+They are constant transport wrapper markers, not the family-`0x24` integrity
+nibbles: this branch performs no checksum calculation.
+
+The concrete manager sinks are now identified. `BLEDeviceManager.sendData`
+copies the supplied list into a `Uint8List` and calls
+`BluetoothCharacteristic.write`; `MidiDeviceManager.sendData` and
+`UsbDeviceManager.sendData` likewise copy the list into a `Uint8List` and call
+`flutter_midi_command.MidiCommand.sendData`. These manager methods do not add
+SysEx framing or checksums.
+
+This proves that `_sendBleDataMessage` is the last generic HT representation
+before device-mode routing. The family-`0x24` seven-byte upload header is
+therefore introduced before `_routeOutgoing` in the logical data supplied to
+the callback, not by `HTProtocolHandler`, `_routeOutgoing`, or the
+device-manager sinks. The two unknown integrity nibbles must be traced in the
+family-specific logical data builder rather than in the generic HT CRC
+routines.
+
+### DataWrap boundary
+
+`DataWrap.origin` only records the source list and its byte length.
+`DataWrapCodec.packgeData` flattens a map of `DataWrap` values, and
+`dataWrapToOrigin` returns the original byte list for an origin-wrapped value;
+it does not prepend a family header or calculate a checksum. Consequently,
+the `CloneDataStruct.toBytes` list reaches `HTMessage.initialWithSendData`
+unchanged as the message payload. The family-`0x24` envelope is generated
+after this payload boundary, in the message-type/native dispatch path rather
+than in clone serialization or `DataWrap`.
+
+### Native prefix and family-`0x24` caller
+
+The first four bytes after `F0 7F` are the native
+`getMidiMessage` prefix, not a second nested packet:
+
+```text
+2b 24 40 00 00 09 00 00 01 ...
+```
+
+For the actual family upload frames the corresponding prefix is:
+
+```text
+<outer-crc> 24 40 <data...>
+```
+
+That is `[crc, argument0, argument1, argument3]` with `argument0=0x24` and
+`argument1=0x40`; the remaining bytes are the data argument, whose initial
+transport fields are left literal before the nibble-expanded payload. The
+variable values previously labelled `raw[9]` and `raw[10]` are therefore
+bytes in the data argument supplied to `getMidiMessage`, not a post-native
+outer envelope. The unresolved algorithm belongs to the caller that builds
+that data array before the native call. This corrects the earlier
+"separate nested packet" interpretation.

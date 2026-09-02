@@ -333,6 +333,67 @@ This is distinct from the one-byte outer SysEx CRC-8. Captured family-`0x24`
 per-chunk integrity bytes do not match simple applications of this CRC, so the
 write-side envelope remains intentionally offline-only.
 
+## Controlled BMAN differential captures
+
+Seventeen controlled NAM variants based on `HELLBERT.nam` were uploaded through
+the Suite and captured. The baseline and each variant reassemble to an 8,123
+byte BMAN record. The converter path used for GP-180 serialization is
+selective: changes to the second SlimmableContainer submodel, gain,
+`max_value`, and `head_scale` produced byte-identical records. Changes to
+first-submodel weights changed the inherited CRC field and one serialized byte;
+indices 0, 100, 935, and 1870 appeared at offsets `0x1ee`, `0x37c`, `0x1069`,
+and `0x1ef5`. The apparent displacement is explained by the exact relation
+recovered against the cached NAMB: 67 bytes are omitted and 210 zero bytes are
+appended. The omitted positions are four fixed metadata offsets
+(`0x53`, `0xcb`, `0x141`, `0x1ef`) plus one byte every 119 bytes from
+`0x22f` through `0x1f01`. This is a controlled WaveNet-corpus result, not a
+general BMAN serializer.
+
+Procmon then exposed the native converter cache. Every import writes a
+7,980-byte `.namb` next to a copied source `.nam`, before the GP-180 transfer
+is built. The `.namb` is therefore the direct native serializer artifact,
+while the 8,123-byte BMAN record is a later clone/transport representation.
+For the HELLBERT differential set, weight indices 0, 100, 935, and 1870 alter
+NAMB offsets `0x1f2`, `0x383`, `0x108c`, and `0x1f28`; the corresponding BMAN
+offsets are `0x1ee`, `0x37c`, `0x1069`, and `0x1ef5`. The BMAN field at `+0x18`
+is byte-identical to the NAMB CRC field for all 17 pairs. This separates native
+NAMB serialization from the later 143-byte BMAN projection and provides direct
+source/output pairs without implying that the projection is general.
+
+Direct comparison now resolves the native NAMB layout and integrity field:
+the first-submodel 1,871 weights are contiguous little-endian float32 values
+starting at offset `0x1f0`, exactly filling the remaining 7,484 bytes of the
+7,980-byte output. The field at `+0x18` is CRC-32/IEEE (initial
+`0xffffffff`, reflected polynomial `0xedb88320`, final complement), excluding
+itself. A same-shape NAMB candidate writer and a read-only corpus verifier are
+now implemented; the BMAN projection and family-`0x24` envelope remain
+intentionally non-generating.
+
+## Native NAMB serializer and family-0x24 framing
+
+The Android ARM64 `convert_nam_to_namb` entry point at `0x2a0a58` writes the
+native NAMB container: `NAMB` magic, version/flags, placeholders for total
+size, weight offset/count, model-block size, and CRC32; then metadata, an
+architecture configuration block, aligned float32 weights, and backpatched
+fields. `convertNamFileToNambFile` resolves the outer SlimmableContainer and
+passes the selected model object to this routine. The metadata helper is at
+`0x2a1130` and the architecture/config helper at `0x2a1cc0`. The cached
+7,980-byte records verify the native CRC-32/IEEE field at `+0x18`; the
+in-function loop at `0x2a0cb0..0x2a0d78` confirms the initial state,
+polynomial, four-byte skip, and final complement. It is not a CRC over the
+later 8,123-byte BMAN record. The family-`0x24` wrapper remains a separate
+unresolved transport layer.
+
+Read-only tooling now parses family-`0x24` chunks explicitly. The two offset
+bytes are 7-bit little-endian and equal `119 * chunk_index`; 69 chunks carry
+118 decoded bytes and the final chunk carries the remaining 16 bytes in the
+8,158-byte transfers. The subtype byte is `0x40`, and the per-transfer ID is
+stable. No per-chunk response is captured. A device family-`0x00` message after
+the final chunk carries the zero-extended transfer ID and status zero, which is
+the only observed completion indication. The two trailing header nibbles and
+outer byte-2 check remain unresolved after native CRC-8/CRC-16 and common
+checksum tests; therefore no write sender was implemented.
+
 ## Tooling and documentation produced
 
 - `analysis-manifest.md`: artifact inventory and hashes.
@@ -344,6 +405,10 @@ write-side envelope remains intentionally offline-only.
 - `effect-wire-schema.json`: generated machine-readable projection combining
   effect metadata with the currently confirmed family-`0x18` wire layout.
 - `tools/gp180_codec.py`: CRC, nibble, SysEx, and selected payload helpers.
+- `tools/gp180_namb.py`: same-shape native NAMB candidate writer and verified
+  native CRC-32/IEEE implementation.
+- `tools/verify_namb_bman.py`: read-only verification of cached NAMB CRCs and
+  the 17 controlled NAMB-to-BMAN byte projections.
 - `tools/effect_matrix.py`: effect-matrix generator.
 - `tools/ghidra_binding_report.java`: repeatable AOT string/reference scan.
 
@@ -356,3 +421,16 @@ assign semantic meaning to the typed parameter record fields, correlate them
 with known captures, and generate a normalized wire schema for every supported
 module variant. Broad additional capture campaigns should wait until that
 static path identifies specific ambiguities.
+
+### Blutter device-150 upload trace
+
+The offline Blutter pass recovered the GP-180 device-150 upload serialization.
+`CloneDataStruct.toBytes` at `0x7d3ed0` allocates `0x4038` bytes, writes
+`0x1050`, `0x201c`, the selected clone value, a zero field, an optional clone
+code, a 16-byte UTF-8 name, and a `0x2000`-byte model list. The caller
+`Device150DataProvider.importClone` at `0x7d3c08` computes the four-byte-packed
+configuration mask, wraps the serialized list with `DataWrap.origin`, and
+dispatches it through `HTMidiDataProtocol.sendMessage` using message type
+`0x11050` or `0x11090`. This narrows the unresolved work to the protocol
+message builder and its family-`0x24` integrity fields; no hardware write was
+performed.

@@ -7,6 +7,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "tools"))
 
+from gp180_bman import BMAN_SIZE, WEIGHT_OFFSET, build_candidate
+from generate_nam_variants import variants
+from gp180_namb import NAMB_SIZE, WEIGHT_OFFSET as NAMB_WEIGHT_OFFSET, build_namb
+from gp180_namb import namb_crc32
 from gp180_codec import (
     build_message,
     crc8,
@@ -15,13 +19,15 @@ from gp180_codec import (
     decode_nibbles,
     encode_nibbles,
 )
-from gp180_file_formats import decode_capture, describe
+from gp180_file_formats import decode_capture, describe, parse_transfer
+from verify_namb_bman import verify_controlled_pairs
 
 
-def make_message(payload: bytes) -> bytes:
+def make_message(payload: bytes, index: int = 0) -> bytes:
+    offset = 119 * index
     return (
         b"\xf0\x7f\x00\x24"
-        + b"\x40\x00\x00\x0b\x00\x00\x00"
+        + bytes((0x40, offset & 0x7F, (offset >> 7) & 0x7F, 0x0B, index, 0, 0))
         + encode_nibbles(payload)
         + b"\xf7"
     )
@@ -33,7 +39,7 @@ def make_corpus(tmp: Path, record: bytes) -> Path:
     path = tmp / "corpus.jsonl"
     with path.open("w") as stream:
         for frame, chunk in enumerate(chunks, 1):
-            message = make_message(chunk)
+            message = make_message(chunk, frame - 1)
             stream.write(
                 json.dumps(
                     {
@@ -50,6 +56,91 @@ def make_corpus(tmp: Path, record: bytes) -> Path:
 
 
 class FileFormatTests(unittest.TestCase):
+    def test_bman_candidate_replaces_weight_region(self):
+        template = bytearray(BMAN_SIZE)
+        template[:4] = b"BMAN"
+        nam = {
+            "version": "0.7.0",
+            "architecture": "SlimmableContainer",
+            "config": {
+                "submodels": [
+                    {
+                        "model": {
+                            "architecture": "WaveNet",
+                            "sample_rate": 48000.0,
+                            "weights": [float(index) for index in range(1871)],
+                        }
+                    }
+                ]
+            },
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            nam_path = root / "model.nam"
+            nam_path.write_text(json.dumps(nam))
+            candidate = build_candidate(nam_path, bytes(template))
+        self.assertEqual(struct.unpack_from("<f", candidate, WEIGHT_OFFSET)[0], 0.0)
+        self.assertEqual(
+            struct.unpack_from("<f", candidate, WEIGHT_OFFSET + 4 * 17)[0], 17.0
+        )
+
+    def test_bman_candidate_rejects_wrong_template(self):
+        nam = Path("NAM/HELLBERT.nam")
+        with self.assertRaisesRegex(ValueError, "template"):
+            build_candidate(nam, b"\0" * BMAN_SIZE)
+
+    def test_namb_candidate_replaces_contiguous_native_weights(self):
+        template = bytearray(NAMB_SIZE)
+        template[:4] = b"BMAN"
+        template[0x18:0x1C] = b"\x12\x34\x56\x78"
+        nam = {
+            "version": "0.7.0",
+            "architecture": "SlimmableContainer",
+            "config": {"submodels": [{"model": {
+                "architecture": "WaveNet",
+                "sample_rate": 48000.0,
+                "weights": [float(index) for index in range(1871)],
+            }}]},
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "model.nam"
+            path.write_text(json.dumps(nam))
+            candidate = build_namb(path, bytes(template))
+        self.assertEqual(
+            struct.unpack_from("<f", candidate, NAMB_WEIGHT_OFFSET + 4 * 935)[0],
+            935.0,
+        )
+        self.assertNotEqual(candidate[0x18:0x1C], b"\x12\x34\x56\x78")
+
+    def test_cached_namb_crc32(self):
+        paths = sorted(Path("NAM/nam_to_namb_import").glob("*.namb"))
+        self.assertGreater(len(paths), 0)
+        for path in paths:
+            data = path.read_bytes()
+            self.assertEqual(len(data), NAMB_SIZE, path.name)
+            self.assertEqual(
+                int.from_bytes(data[0x18:0x1C], "little"),
+                namb_crc32(data),
+                path.name,
+            )
+
+    def test_controlled_namb_to_bman_projection(self):
+        results = verify_controlled_pairs(
+            Path("sysex-corpus.jsonl"),
+            Path("NAM/nam_to_namb_import"),
+        )
+        self.assertEqual(len(results), 17)
+
+    def test_controlled_nam_variant_set(self):
+        source = json.loads(Path("NAM/HELLBERT.nam").read_text())
+        generated = variants(source)
+        self.assertEqual(len(generated), 17)
+        self.assertEqual(generated[0][0], "00-baseline")
+        self.assertEqual(generated[0][2], source)
+        for _, _, document in generated:
+            self.assertEqual(document["version"], "0.7.0")
+            self.assertEqual(len(document["config"]["submodels"]), 2)
+
     def test_crc8_known_vector(self):
         self.assertEqual(crc8(b"123456789"), 0xF4)
 
@@ -117,6 +208,36 @@ class FileFormatTests(unittest.TestCase):
             data = decode_capture(corpus, "sample.pcapng")
         self.assertEqual(data[35:39], b"BMAN")
         self.assertEqual(len(data), 8158)
+
+    def test_parse_transfer_recovers_chunk_offsets_and_final_segment(self):
+        record = bytearray(8123)
+        record[:4] = b"BMAN"
+        with tempfile.TemporaryDirectory() as directory:
+            corpus = make_corpus(Path(directory), bytes(record))
+            info = parse_transfer(corpus, "sample.pcapng")
+        self.assertEqual(info["chunk_count"], 70)
+        self.assertEqual(info["full_chunk_count"], 69)
+        self.assertEqual(info["final_chunk_size"], 16)
+        self.assertEqual(info["decoded_size"], 8158)
+        self.assertTrue(info["indexes_sequential"])
+        self.assertTrue(info["offsets_valid"])
+        self.assertTrue(info["transfer_id_stable"])
+        self.assertTrue(info["kind_stable"])
+        self.assertEqual(info["per_chunk_integrity"], "observed-nibbles-unverified")
+        chunks = info["chunks"]
+        self.assertEqual(chunks[1].offset, 119)
+        self.assertEqual(chunks[-1].expected_offset, 119 * 69)
+
+    def test_parse_real_transfer_reports_completion_ack(self):
+        info = parse_transfer(
+            Path("sysex-corpus.jsonl"),
+            "suite-triggered-nam-file-import-slot-2-NAM-HELLBERT.pcapng",
+        )
+        self.assertEqual(info["kind"], 0x40)
+        self.assertEqual(info["transfer_id"], 9)
+        self.assertTrue(info["offsets_valid"])
+        self.assertEqual(info["transfer_prefix"], "ae20200101901050")
+        self.assertEqual(info["completion_acks"][0]["status"], 0)
 
     def test_decode_capture_rejects_missing_transfer(self):
         with tempfile.TemporaryDirectory() as directory:

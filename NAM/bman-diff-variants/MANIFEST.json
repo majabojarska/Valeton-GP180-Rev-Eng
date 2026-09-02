@@ -1,0 +1,70 @@
+[
+  {
+    "file": "HELLBERT-00-baseline.nam",
+    "change": "unchanged baseline"
+  },
+  {
+    "file": "HELLBERT-01-s0-weight-first.nam",
+    "change": "submodel 0 weight[0] += 1.0"
+  },
+  {
+    "file": "HELLBERT-02-s0-weight-middle.nam",
+    "change": "submodel 0 weight[935] += 1.0"
+  },
+  {
+    "file": "HELLBERT-03-s0-weight-last.nam",
+    "change": "submodel 0 weight[1870] += 1.0"
+  },
+  {
+    "file": "HELLBERT-04-s1-weight-first.nam",
+    "change": "submodel 1 weight[0] += 1.0"
+  },
+  {
+    "file": "HELLBERT-05-s1-weight-middle.nam",
+    "change": "submodel 1 weight[6073] += 1.0"
+  },
+  {
+    "file": "HELLBERT-06-s1-weight-last.nam",
+    "change": "submodel 1 weight[12145] += 1.0"
+  },
+  {
+    "file": "HELLBERT-07-s0-weight-sign.nam",
+    "change": "submodel 0 weight[100] += 0.27435287833213806"
+  },
+  {
+    "file": "HELLBERT-08-s1-weight-sign.nam",
+    "change": "submodel 1 weight[100] += -0.009239794686436653"
+  },
+  {
+    "file": "HELLBERT-09-s0-gain.nam",
+    "change": "submodel 0 metadata.gain += 0.1"
+  },
+  {
+    "file": "HELLBERT-10-s0-loudness.nam",
+    "change": "submodel 0 metadata.loudness += 1.0"
+  },
+  {
+    "file": "HELLBERT-11-s1-gain.nam",
+    "change": "submodel 1 metadata.gain += 0.1"
+  },
+  {
+    "file": "HELLBERT-12-s1-loudness.nam",
+    "change": "submodel 1 metadata.loudness += 1.0"
+  },
+  {
+    "file": "HELLBERT-13-s0-max-value.nam",
+    "change": "submodel 0 max_value = 0.75"
+  },
+  {
+    "file": "HELLBERT-14-s1-max-value.nam",
+    "change": "submodel 1 max_value = 0.875"
+  },
+  {
+    "file": "HELLBERT-15-s0-head-scale.nam",
+    "change": "submodel 0 head_scale *= 1.1"
+  },
+  {
+    "file": "HELLBERT-16-s1-head-scale.nam",
+    "change": "submodel 1 head_scale *= 1.1"
+  }
+]
